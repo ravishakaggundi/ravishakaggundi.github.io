@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ravisha Kaggundi Suryanarayana — AI/ML Portfolio</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #1c2128;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent2: #3fb950;
+      --accent3: #f78166;
+      --accent4: #d2a8ff;
+      --accent5: #ffa657;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --tag-bg: #1f2937;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-brand { font-weight: 700; font-size: 1rem; color: var(--text); letter-spacing: -0.3px; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem 3rem;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(88,166,255,0.1);
+      border: 1px solid rgba(88,166,255,0.3);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 2rem;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 2rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
+
+    /* SKILL PILLS */
+    .skills-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 3rem;
+    }
+    .skills-section h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 1rem; }
+    .pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.8rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 2rem;
+    }
+    .pill.blue  { border-color: rgba(88,166,255,0.4);  color: var(--accent);  background: rgba(88,166,255,0.08); }
+    .pill.green { border-color: rgba(63,185,80,0.4);   color: var(--accent2); background: rgba(63,185,80,0.08); }
+    .pill.purple{ border-color: rgba(210,168,255,0.4); color: var(--accent4); background: rgba(210,168,255,0.08); }
+    .pill.orange{ border-color: rgba(255,166,87,0.4);  color: var(--accent5); background: rgba(255,166,87,0.08); }
+    .pill.red   { border-color: rgba(247,129,102,0.4); color: var(--accent3); background: rgba(247,129,102,0.08); }
+
+    /* SECTION HEADER */
+    .section-header {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 1.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .section-header h2 { font-size: 1.25rem; font-weight: 700; }
+    .section-header span { font-size: 0.8rem; color: var(--muted); }
+
+    /* CARDS GRID */
+    .cards {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: border-color .2s, transform .2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+    .card-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .icon-blue   { background: rgba(88,166,255,0.15); }
+    .icon-green  { background: rgba(63,185,80,0.15); }
+    .icon-purple { background: rgba(210,168,255,0.15); }
+    .icon-orange { background: rgba(255,166,87,0.15); }
+    .icon-red    { background: rgba(247,129,102,0.15); }
+    .icon-teal   { background: rgba(56,189,248,0.15); }
+    .icon-pink   { background: rgba(244,114,182,0.15); }
+    .icon-yellow { background: rgba(250,204,21,0.15); }
+
+    .card-domain {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+    .card h3 { font-size: 1rem; font-weight: 700; line-height: 1.3; }
+    .card p { font-size: 0.875rem; color: var(--muted); line-height: 1.55; }
+
+    .card-result {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+    }
+    .result-label { color: var(--muted); }
+    .result-value { font-weight: 700; }
+    .result-value.green  { color: var(--accent2); }
+    .result-value.blue   { color: var(--accent); }
+    .result-value.purple { color: var(--accent4); }
+    .result-value.orange { color: var(--accent5); }
+
+    .card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.25rem; }
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 4px;
+      background: var(--tag-bg);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .cards { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Ravisha K. Suryanarayana</div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="https://github.com/ravishakaggundi" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/ravisha-suryanarayana" target="_blank">LinkedIn</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">AI / ML Portfolio</div>
+  <h1>Building intelligent systems<br/>with <span>real-world data</span></h1>
+  <p>8 end-to-end machine learning projects spanning EDA, classification, deep learning, computer vision, NLP, and production deployment — completed through the UT Austin Post Graduate Program in AI/ML.</p>
+  <div class="hero-meta">
+    <span>🎓 UT Austin PGP in AI/ML</span>
+    <span>📍 Austin, TX</span>
+    <span>🤖 8 Capstone Projects</span>
+  </div>
+</section>
+
+<section class="skills-section">
+  <h2>Tech Stack</h2>
+  <div class="pills">
+    <span class="pill blue">Python</span>
+    <span class="pill blue">TensorFlow</span>
+    <span class="pill blue">Keras</span>
+    <span class="pill blue">scikit-learn</span>
+    <span class="pill blue">XGBoost</span>
+    <span class="pill green">LangChain</span>
+    <span class="pill green">RAG</span>
+    <span class="pill green">ChromaDB</span>
+    <span class="pill green">Mistral-7B</span>
+    <span class="pill purple">Flask</span>
+    <span class="pill purple">Streamlit</span>
+    <span class="pill purple">Docker</span>
+    <span class="pill purple">HuggingFace Spaces</span>
+    <span class="pill orange">VGG-16</span>
+    <span class="pill orange">CNN</span>
+    <span class="pill orange">Transfer Learning</span>
+    <span class="pill red">SMOTE</span>
+    <span class="pill red">pandas</span>
+    <span class="pill red">NumPy</span>
+    <span class="pill red">Seaborn</span>
+  </div>
+</section>
+
+<div class="section-header" id="projects">
+  <h2>Capstone Projects</h2>
+  <span>8 projects</span>
+</div>
+
+<div class="cards">
+
+  <!-- 1. FoodHub -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-blue">📊</div>
+      <span class="card-domain">Data Analysis</span>
+    </div>
+    <h3>FoodHub Order Analysis</h3>
+    <p>Exploratory analysis of 1,898 food delivery orders across 178 NYC restaurants. Answered 17 business questions on demand patterns, delivery SLAs, and revenue using Python and statistical visualization.</p>
+    <div class="card-result">
+      <span class="result-label">Key insight:</span>
+      <span class="result-value blue">10.5% orders exceed 60-min SLA</span>
+    </div>
+    <div class="card-tags">
+      <span class="tag">pandas</span>
+      <span class="tag">NumPy</span>
+      <span class="tag">Seaborn</span>
+      <span class="tag">EDA</span>
+      <span class="tag">Business Analytics</span>
+    </div>
+  </div>
+
+  <!-- 2. Loan Prediction -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-green">🏦</div>
+      <span class="card-domain">Classification</span>
+    </div>
+    <h3>AllLife Bank Loan Prediction</h3>
+    <p>Predicted personal loan acceptance for 5,000 bank customers. Built and compared pre-pruned and post-pruned Decision Trees using cost-complexity pruning to find the optimal generalization-accuracy tradeoff.</p>
+    <div class="card-result">
+      <span class="result-label">Technique:</span>
+      <span class="result-value green">Decision Tree + ccp_alpha pruning</span>
+    </div>
+    <div class="card-tags">
+      <span class="tag">scikit-learn</span>
+      <span class="tag">Decision Tree</span>
+      <span class="tag">Pre-pruning</span>
+      <span class="tag">Post-pruning</span>
+    </div>
+  </div>
+
+  <!-- 3. EasyVisa -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-orange">🛂</div>
+      <span class="card-domain">Ensemble ML</span>
+    </div>
+    <h3>EasyVisa Certification Prediction</h3>
+    <p>US visa application outcome prediction on 25,480 OFLC records. Compared 6 ensemble classifiers across 3 sampling strategies (original, SMOTE, undersampling) to maximize recall on certifiable candidates.</p>
+    <div class="card-result">
+      <span class="result-label">Best model:</span>
+      <span class="result-value orange">XGBoost + SMOTE — F1 0.81, Recall 0.85</span>
+    </div>
+    <div class="card-tags">
+      <span class="tag">XGBoost</span>
+      <span class="tag">Random Forest</span>
+      <span class="tag">Gradient Boosting</span>
+      <span class="tag">SMOTE</span>
+    </div>
+  </div>
+
+  <!-- 4. Bank Churn -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-red">🧠</div>
+      <span class="card-domain">Deep Learning</span>
+    </div>
+    <h3>Bank Churn Prediction (ANN)</h3>
+    <p>Predicted 6-month customer churn for 10,000 bank customers (20.4% churn rate). Built 6 ANN variants comparing SGD vs Adam optimizers, dropout regularization, and SMOTE oversampling.</p>
+    <div class="card-result">
+      <span class="result-label">Best config:</span>
+      <span class="result-value blue">SMOTE + Adam + Dropout</span>
+    </div>
+    <div class="card-tags">
+      <span class="tag">TensorFlow</span>
+      <span class="tag">Keras</span>
+      <span class="tag">ANN</span>
+      <span class="tag">Dropout</span>
+      <span class="tag">SMOTE</span>
+    </div>
+  </div>
+
+  <!-- 5. ReneWind -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-teal">⚡</div>
+      <span class="card-domain">Predictive Maintenance</span>
+    </div>
+    <h3>ReneWind Turbine Failure Prediction</h3>
+    <p>Predictive maintenance for wind turbines using 40 anonymized sensor features across 20K observations. Optimized for Recall — a missed failure costs far more than a false alarm. Built 6 ANN variants with class weights.</p>
+    <div class="card-result">
+      <span class="result-label">Priority metric:</span>
+      <span class="result-value green">Recall — minimize undetected failures</span>
+    </div>
+    <div class="card-tags">
+      <span class="tag">TensorFlow</span>
+      <span class="tag">BatchNorm</span>
+      <span class="tag">Class Weights</span>
+      <span class="tag">Imbalanced Data</span>
+    </div>
+  </div>
+
+  <!-- 6. HelmNet -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-yellow">👷</div>
+      <span class="card-domain">Computer Vision</span>
+    </div>
+    <h3>HelmNet — Safety Helmet Detection</h3>
+    <p>Binary image classifier for construction site safety compliance — "With Helmet" vs "Without Helmet". Progressed from a custom CNN to VGG-16 transfer learning with data augmentation.</p>
+    <div class="card-result">
+      <span class="result-label">Final accuracy:</span>
+      <span class="result-value green">100% — VGG-16 + Augmentation</span>
+    </div>
+    <div class="card-tags">
+      <span class="tag">CNN</span>
+      <span class="tag">VGG-16</span>
+      <span class="tag">Transfer Learning</span>
+      <span class="tag">Data Augmentation</span>
+      <span class="tag">OpenCV</span>
+    </div>
+  </div>
+
+  <!-- 7. SuperKart -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-purple">🚀</div>
+      <span class="card-domain">MLOps / Deployment</span>
+    </div>
+    <h3>SuperKart Sales Forecasting + Deployment</h3>
+    <p>End-to-end ML pipeline from training to live production. Retail sales forecasting with a Flask REST API backend, Streamlit frontend UI, Dockerized container, and full deployment on HuggingFace Spaces.</p>
+    <div class="card-result">
+      <span class="result-label">Deployed:</span>
+      <span class="result-value purple">Flask API + Streamlit on HuggingFace</span>
+    </div>
+    <div class="card-tags">
+      <span class="tag">Flask</span>
+      <span class="tag">Streamlit</span>
+      <span class="tag">Docker</span>
+      <span class="tag">HuggingFace</span>
+      <span class="tag">joblib</span>
+      <span class="tag">XGBoost</span>
+    </div>
+  </div>
+
+  <!-- 8. Medical RAG -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-pink">🏥</div>
+      <span class="card-domain">NLP / GenAI</span>
+    </div>
+    <h3>Medical RAG Assistant</h3>
+    <p>Retrieval-Augmented Generation system over the 4,000-page Merck Manual. Grounded Mistral-7B responses in real clinical content via ChromaDB vector search — eliminating hallucinations and truncated answers from the baseline LLM.</p>
+    <div class="card-result">
+      <span class="result-label">Result:</span>
+      <span class="result-value blue">RAG eliminated hallucinations across 5 clinical queries</span>
+    </div>
+    <div class="card-tags">
+      <span class="tag">LangChain</span>
+      <span class="tag">RAG</span>
+      <span class="tag">ChromaDB</span>
+      <span class="tag">Mistral-7B</span>
+      <span class="tag">SentenceTransformers</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Built by <strong>Ravisha Kaggundi Suryanarayana</strong> &nbsp;·&nbsp;
+  <a href="https://github.com/ravishakaggundi" target="_blank">GitHub</a> &nbsp;·&nbsp;
+  <a href="https://www.linkedin.com/in/ravisha-suryanarayana" target="_blank">LinkedIn</a>
+  </p>
+  <p style="margin-top:0.5rem;">UT Austin Post Graduate Program in AI/ML &nbsp;·&nbsp; 8 Capstone Projects</p>
+</footer>
+
+</body>
+</html>
