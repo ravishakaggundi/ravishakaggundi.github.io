@@ -311,22 +311,15 @@
 
     .cj-period { font-size: 0.65rem; font-weight: 700; color: var(--muted); margin-bottom: 0.5rem; letter-spacing: 0.3px; }
     .cj-logo {
-      width: 52px; height: 52px; border-radius: 10px; display: flex; align-items: center;
+      width: 56px; height: 56px; border-radius: 10px; display: flex; align-items: center;
       justify-content: center; margin-bottom: 0.5rem; overflow: hidden;
-      background: #fff; padding: 5px; flex-shrink: 0;
+      background: #fff; padding: 6px; flex-shrink: 0;
     }
-    .cj-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
-    /* fallback style when image fails to load */
-    .cj-logo.fb {
-      background: transparent; padding: 0;
-      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.5px;
+    .cj-logo svg { width: 100%; height: 100%; }
+    .cj-logo.cj-asp {
+      background: rgba(88,166,255,0.08); border: 1px dashed rgba(88,166,255,0.4);
+      color: var(--accent); font-size: 0.78rem; font-weight: 800; padding: 0;
     }
-    .cj-logo.fb-ge     { background: rgba(255,166,87,0.15); color: var(--accent5); border: 1px solid rgba(255,166,87,0.3); }
-    .cj-logo.fb-trilogy{ background: rgba(210,168,255,0.15); color: var(--accent4); border: 1px solid rgba(210,168,255,0.3); }
-    .cj-logo.fb-alc    { background: rgba(247,129,102,0.15); color: var(--accent3); border: 1px solid rgba(247,129,102,0.3); }
-    .cj-logo.fb-nokia  { background: rgba(63,185,80,0.15); color: var(--accent2); border: 1px solid rgba(63,185,80,0.3); }
-    .cj-logo.fb-sf     { background: rgba(88,166,255,0.15); color: var(--accent); border: 1px solid rgba(88,166,255,0.3); }
-    .cj-logo.fb-asp    { background: rgba(88,166,255,0.08); color: var(--accent); border: 1px dashed rgba(88,166,255,0.4); }
 
     .cj-company { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text); margin-bottom: 0.2rem; line-height: 1.3; }
     .cj-role { font-size: 0.64rem; color: var(--accent); font-weight: 600; margin-bottom: 0.15rem; line-height: 1.3; }
@@ -448,8 +441,12 @@
 
     <button class="cj-node" data-target="tl-ge" onclick="cjGo('tl-ge',this)">
       <div class="cj-period">1999–2007</div>
-      <div class="cj-logo" id="logo-ge">
-        <img src="https://logo.clearbit.com/ge.com" alt="GE" onerror="fallback('logo-ge','GE','fb-ge')">
+      <!-- GE logo: blue circle + italic GE monogram -->
+      <div class="cj-logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1B6FBA"/>
+          <text x="50" y="66" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="48" fill="#fff" letter-spacing="-2">GE</text>
+        </svg>
       </div>
       <div class="cj-company">GENERAL ELECTRIC</div>
       <div class="cj-role">Software Eng → Asst. VP</div>
@@ -465,8 +462,12 @@
 
     <button class="cj-node" data-target="tl-trilogy" onclick="cjGo('tl-trilogy',this)">
       <div class="cj-period">2007–2009</div>
-      <div class="cj-logo" id="logo-trilogy">
-        <img src="https://logo.clearbit.com/trilogy.com" alt="Trilogy" onerror="fallback('logo-trilogy','TRI','fb-trilogy')">
+      <!-- Trilogy: bold wordmark in brand dark blue -->
+      <div class="cj-logo">
+        <svg viewBox="0 0 120 44" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="44" rx="4" fill="#002147"/>
+          <text x="60" y="31" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="22" fill="#fff" letter-spacing="1">TRILOGY</text>
+        </svg>
       </div>
       <div class="cj-company">TRILOGY</div>
       <div class="cj-role">Project Manager</div>
@@ -482,8 +483,16 @@
 
     <button class="cj-node" data-target="tl-alc" onclick="cjGo('tl-alc',this)">
       <div class="cj-period">2009–2014</div>
-      <div class="cj-logo" id="logo-alc">
-        <img src="https://logo.clearbit.com/alcatel-lucent.com" alt="Alcatel-Lucent" onerror="fallback('logo-alc','AL','fb-alc')">
+      <!-- Alcatel-Lucent: red swirl + wordmark -->
+      <div class="cj-logo">
+        <svg viewBox="0 0 120 56" xmlns="http://www.w3.org/2000/svg">
+          <!-- swirl mark -->
+          <circle cx="14" cy="28" r="10" fill="none" stroke="#E3000F" stroke-width="3.5"/>
+          <circle cx="14" cy="28" r="5" fill="#E3000F"/>
+          <!-- wordmark two-line -->
+          <text x="30" y="24" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="13" fill="#E3000F">Alcatel</text>
+          <text x="30" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="13" fill="#333">Lucent</text>
+        </svg>
       </div>
       <div class="cj-company">ALCATEL-LUCENT</div>
       <div class="cj-role">Sr. Program Manager</div>
@@ -499,8 +508,12 @@
 
     <button class="cj-node" data-target="tl-nokia" onclick="cjGo('tl-nokia',this)">
       <div class="cj-period">2015–2021</div>
-      <div class="cj-logo" id="logo-nokia">
-        <img src="https://logo.clearbit.com/nokia.com" alt="Nokia" onerror="fallback('logo-nokia','NOK','fb-nokia')">
+      <!-- Nokia: brand blue rectangle + white wordmark -->
+      <div class="cj-logo">
+        <svg viewBox="0 0 120 44" xmlns="http://www.w3.org/2000/svg">
+          <rect width="120" height="44" rx="4" fill="#005AFF"/>
+          <text x="60" y="31" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="24" fill="#fff" letter-spacing="2">NOKIA</text>
+        </svg>
       </div>
       <div class="cj-company">NOKIA</div>
       <div class="cj-role">Practice Manager</div>
@@ -516,8 +529,13 @@
 
     <button class="cj-node cj-node-current" data-target="tl-sf" onclick="cjGo('tl-sf',this)">
       <div class="cj-period">2021–Present</div>
-      <div class="cj-logo" id="logo-sf">
-        <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="fallback('logo-sf','SF','fb-sf')">
+      <!-- Salesforce: cloud icon in brand blue -->
+      <div class="cj-logo">
+        <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
+          <!-- Salesforce cloud shape -->
+          <path d="M41 52 C29 52 20 43 20 32 C20 21 29 12 41 12 C44 7 50 4 57 4 C66 4 73 10 75 18 C77 17 80 17 82 17 C89 17 95 23 95 30 C95 37 89 43 82 43 L41 52 Z" fill="#00A1E0"/>
+          <text x="50" y="38" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="11" fill="#fff">Salesforce</text>
+        </svg>
       </div>
       <div class="cj-company">SALESFORCE</div>
       <div class="cj-role">Director, Engagement Delivery</div>
@@ -533,7 +551,7 @@
 
     <div class="cj-node cj-node-aspiration">
       <div class="cj-period">ASPIRATION · 2026+</div>
-      <div class="cj-logo fb fb-asp">AI</div>
+      <div class="cj-logo cj-asp">AI 🤖</div>
       <div class="cj-company">AI LEADERSHIP</div>
       <div class="cj-role">Delivery AI Transformation At Scale</div>
       <div class="cj-loc">&nbsp;</div>
@@ -1459,13 +1477,6 @@
 <script>
   function toggle(id) {
     document.getElementById(id).classList.toggle('open');
-  }
-
-  function fallback(id, text, fbClass) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    el.textContent = text;
-    el.classList.add('fb', fbClass);
   }
 
   function cjGo(targetId, btn) {
