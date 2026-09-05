@@ -311,16 +311,22 @@
 
     .cj-period { font-size: 0.65rem; font-weight: 700; color: var(--muted); margin-bottom: 0.5rem; letter-spacing: 0.3px; }
     .cj-logo {
-      width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center;
-      justify-content: center; font-size: 0.72rem; font-weight: 800; margin-bottom: 0.5rem;
-      letter-spacing: 0.5px;
+      width: 52px; height: 52px; border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; margin-bottom: 0.5rem; overflow: hidden;
+      background: #fff; padding: 5px; flex-shrink: 0;
     }
-    .cj-ge     { background: rgba(255,166,87,0.15); color: var(--accent5); border: 1px solid rgba(255,166,87,0.3); }
-    .cj-trilogy{ background: rgba(210,168,255,0.15); color: var(--accent4); border: 1px solid rgba(210,168,255,0.3); }
-    .cj-alc    { background: rgba(247,129,102,0.15); color: var(--accent3); border: 1px solid rgba(247,129,102,0.3); }
-    .cj-nokia  { background: rgba(63,185,80,0.15); color: var(--accent2); border: 1px solid rgba(63,185,80,0.3); }
-    .cj-sf     { background: rgba(88,166,255,0.15); color: var(--accent); border: 1px solid rgba(88,166,255,0.3); }
-    .cj-asp    { background: rgba(88,166,255,0.08); color: var(--accent); border: 1px dashed rgba(88,166,255,0.4); }
+    .cj-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    /* fallback style when image fails to load */
+    .cj-logo.fb {
+      background: transparent; padding: 0;
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.5px;
+    }
+    .cj-logo.fb-ge     { background: rgba(255,166,87,0.15); color: var(--accent5); border: 1px solid rgba(255,166,87,0.3); }
+    .cj-logo.fb-trilogy{ background: rgba(210,168,255,0.15); color: var(--accent4); border: 1px solid rgba(210,168,255,0.3); }
+    .cj-logo.fb-alc    { background: rgba(247,129,102,0.15); color: var(--accent3); border: 1px solid rgba(247,129,102,0.3); }
+    .cj-logo.fb-nokia  { background: rgba(63,185,80,0.15); color: var(--accent2); border: 1px solid rgba(63,185,80,0.3); }
+    .cj-logo.fb-sf     { background: rgba(88,166,255,0.15); color: var(--accent); border: 1px solid rgba(88,166,255,0.3); }
+    .cj-logo.fb-asp    { background: rgba(88,166,255,0.08); color: var(--accent); border: 1px dashed rgba(88,166,255,0.4); }
 
     .cj-company { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text); margin-bottom: 0.2rem; line-height: 1.3; }
     .cj-role { font-size: 0.64rem; color: var(--accent); font-weight: 600; margin-bottom: 0.15rem; line-height: 1.3; }
@@ -442,7 +448,9 @@
 
     <button class="cj-node" data-target="tl-ge" onclick="cjGo('tl-ge',this)">
       <div class="cj-period">1999–2007</div>
-      <div class="cj-logo cj-ge">GE</div>
+      <div class="cj-logo" id="logo-ge">
+        <img src="https://logo.clearbit.com/ge.com" alt="GE" onerror="fallback('logo-ge','GE','fb-ge')">
+      </div>
       <div class="cj-company">GENERAL ELECTRIC</div>
       <div class="cj-role">Software Eng → Asst. VP</div>
       <div class="cj-loc">Bangalore, India</div>
@@ -457,7 +465,9 @@
 
     <button class="cj-node" data-target="tl-trilogy" onclick="cjGo('tl-trilogy',this)">
       <div class="cj-period">2007–2009</div>
-      <div class="cj-logo cj-trilogy">TRI</div>
+      <div class="cj-logo" id="logo-trilogy">
+        <img src="https://logo.clearbit.com/trilogy.com" alt="Trilogy" onerror="fallback('logo-trilogy','TRI','fb-trilogy')">
+      </div>
       <div class="cj-company">TRILOGY</div>
       <div class="cj-role">Project Manager</div>
       <div class="cj-loc">Austin, TX</div>
@@ -472,7 +482,9 @@
 
     <button class="cj-node" data-target="tl-alc" onclick="cjGo('tl-alc',this)">
       <div class="cj-period">2009–2014</div>
-      <div class="cj-logo cj-alc">AL</div>
+      <div class="cj-logo" id="logo-alc">
+        <img src="https://logo.clearbit.com/alcatel-lucent.com" alt="Alcatel-Lucent" onerror="fallback('logo-alc','AL','fb-alc')">
+      </div>
       <div class="cj-company">ALCATEL-LUCENT</div>
       <div class="cj-role">Sr. Program Manager</div>
       <div class="cj-loc">Bangalore, India</div>
@@ -487,7 +499,9 @@
 
     <button class="cj-node" data-target="tl-nokia" onclick="cjGo('tl-nokia',this)">
       <div class="cj-period">2015–2021</div>
-      <div class="cj-logo cj-nokia">NOK</div>
+      <div class="cj-logo" id="logo-nokia">
+        <img src="https://logo.clearbit.com/nokia.com" alt="Nokia" onerror="fallback('logo-nokia','NOK','fb-nokia')">
+      </div>
       <div class="cj-company">NOKIA</div>
       <div class="cj-role">Practice Manager</div>
       <div class="cj-loc">Austin, TX</div>
@@ -502,7 +516,9 @@
 
     <button class="cj-node cj-node-current" data-target="tl-sf" onclick="cjGo('tl-sf',this)">
       <div class="cj-period">2021–Present</div>
-      <div class="cj-logo cj-sf">SF</div>
+      <div class="cj-logo" id="logo-sf">
+        <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce" onerror="fallback('logo-sf','SF','fb-sf')">
+      </div>
       <div class="cj-company">SALESFORCE</div>
       <div class="cj-role">Director, Engagement Delivery</div>
       <div class="cj-loc">Round Rock, TX</div>
@@ -517,7 +533,7 @@
 
     <div class="cj-node cj-node-aspiration">
       <div class="cj-period">ASPIRATION · 2026+</div>
-      <div class="cj-logo cj-asp">AI</div>
+      <div class="cj-logo fb fb-asp">AI</div>
       <div class="cj-company">AI LEADERSHIP</div>
       <div class="cj-role">Delivery AI Transformation At Scale</div>
       <div class="cj-loc">&nbsp;</div>
@@ -1443,6 +1459,13 @@
 <script>
   function toggle(id) {
     document.getElementById(id).classList.toggle('open');
+  }
+
+  function fallback(id, text, fbClass) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = text;
+    el.classList.add('fb', fbClass);
   }
 
   function cjGo(targetId, btn) {
