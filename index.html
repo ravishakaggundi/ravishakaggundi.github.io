@@ -254,6 +254,15 @@
     }
     .articles-placeholder strong { color: var(--text); display: block; margin-bottom: 0.4rem; }
 
+    /* ── PROJECT SUBSECTIONS ── */
+    .projects-sublabel {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px;
+      color: var(--muted); margin-bottom: 1rem; margin-top: 0;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .projects-sublabel::before { content: ''; width: 3px; height: 14px; border-radius: 2px; background: var(--accent); flex-shrink: 0; }
+    .projects-sublabel.passion::before { background: var(--accent4); }
+
     /* ── RECOMMENDATIONS ── */
     .rec-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.25rem;
@@ -1201,7 +1210,7 @@
 
 <!-- ── PROJECTS ── -->
 <section class="section" id="projects">
-  <div class="section-label">AI/ML · UT Austin PGP Capstones</div>
+  <div class="section-label">AI/ML · Capstones &amp; Passion Projects</div>
   <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:0.5rem;">
     <div class="section-title" style="margin:0;">Projects</div>
     <a href="https://www.mygreatlearning.com/eportfolio/ravisha-kaggundi-suryanarayana" target="_blank" rel="noopener"
@@ -1211,6 +1220,7 @@
       <span style="font-size:0.75rem; font-weight:700; color:#BF5700; line-height:1.2;">TEXAS McCombs<br><span style="font-weight:400; color:#555; font-size:0.68rem;">PGP · AI &amp; Machine Learning</span></span>
     </a>
   </div>
+  <div class="projects-sublabel" style="margin-top:1.5rem;">UT Austin PGP · AI &amp; Machine Learning Capstones</div>
   <div class="projects-list">
 
     <!-- 1. FoodHub -->
@@ -1666,6 +1676,82 @@
           </div>
         </div>
         <div class="card-tags"><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">Mistral-7B</span><span class="tag">llama.cpp</span><span class="tag">PyMuPDF</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── PASSION PROJECTS ── -->
+  <div class="projects-sublabel passion" style="margin-top:2.5rem;">Passion Projects · Built on Weekends &amp; After Hours</div>
+  <div class="projects-list">
+
+    <!-- PM Twin -->
+    <div class="project-card" id="pp1">
+      <div class="card-top" onclick="toggle('pp1')">
+        <div class="card-icon icon-purple">🤖</div>
+        <div class="card-top-content">
+          <div class="card-top-row">
+            <span class="card-domain">Agentic AI · Multi-Agent Platform</span>
+            <span class="card-domain" style="color:var(--accent4); border-color:var(--accent4);">Passion Project</span>
+          </div>
+          <h3>PM Twin — AI-Native Project Management Platform</h3>
+          <p class="card-summary">A multi-agent AI command center that automates the full project management lifecycle — RAID management, resource validation, status reporting, delivery tracking, and governance — built after hours as a real-world application of AI engineering on top of Claude AI.</p>
+          <div class="card-metrics">
+            <div class="metric"><span class="metric-label">Agents</span><span class="metric-value mv-purple">12 specialized</span></div>
+            <div class="metric"><span class="metric-label">Domains</span><span class="metric-value mv-blue">8 PM job domains</span></div>
+            <div class="metric"><span class="metric-label">Deployments</span><span class="metric-value mv-green">CLI + Web + Agentforce</span></div>
+          </div>
+        </div>
+        <div class="card-chevron">▼</div>
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <div class="detail-section">
+            <h4>What It Does</h4>
+            <ul>
+              <li><strong>PM Twin:</strong> Scheduled autonomous monitoring — runs pulse checks, trend analysis, confidence scoring, and quality audits across all active projects, then exits</li>
+              <li><strong>PM Partner:</strong> Interactive AI companion for open-ended project work — ask anything, run any task, stays engaged for the full session</li>
+              <li><strong>Portfolio view:</strong> Cross-project RAG dashboard with confidence heatmap and escalation inbox for delivery leaders</li>
+              <li>Covers the full engagement lifecycle: kickoff → RAID → resource → comms → governance → delivery → hypercare</li>
+            </ul>
+          </div>
+          <div class="detail-section green">
+            <h4>Agent Capabilities</h4>
+            <ul>
+              <li><strong>Setup:</strong> Project kickoff — folders, Slack channels, onboarding docs, CRM record creation</li>
+              <li><strong>RAID:</strong> Seed from SOW, continuous multi-source scanning (Drive, Slack, Jira, GitHub, meeting transcripts), auto-escalation</li>
+              <li><strong>Resource:</strong> 5-check automated validation of resource requests against SOW — role, timeline, skill, budget, overlap</li>
+              <li><strong>Comms:</strong> Weekly status reports, EVA burn reports, meeting agendas, post-meeting notes, Sales→Delivery handoffs</li>
+              <li><strong>Governance:</strong> DAF health scoring, RASIC matrix, scope validation, budget burn analysis</li>
+              <li><strong>Delivery:</strong> Sprint velocity, blocker triage, go-live forecasting, delivery risk report</li>
+              <li><strong>Schedule:</strong> Build from SOW + estimate sheets; push to Smartsheet / Jira / Asana; drift detection, phase gates</li>
+              <li><strong>Meeting Intel:</strong> Transcript ingestion → extract RAID/scope/resource/sentiment signals automatically</li>
+            </ul>
+          </div>
+          <div class="detail-section purple">
+            <h4>Architecture</h4>
+            <ul>
+              <li><strong>v1 — CLI + Web:</strong> Node.js ESM CLI with Express 5 web server; each agent domain is a standalone script orchestrated by Claude AI (Anthropic SDK); real-time WebSocket streaming to browser UI</li>
+              <li><strong>v2 — Agentforce:</strong> Native Salesforce deployment — Agentforce Topics/Actions, Apex <code>@InvocableMethod</code>, AutoLaunched Flows, and Einstein Prompt Templates embedded on CRM record pages</li>
+              <li><strong>Self-managing dev team:</strong> 8 specialized AI sub-agents (Vision, Atlas, Forge, Sentinel, etc.) handling the full software dev lifecycle with a human gate on all production deploys</li>
+              <li><strong>Storage:</strong> PostgreSQL (sessions, metrics, memory), Google Drive (project artifacts), Slack (comms), Salesforce CRM (records)</li>
+            </ul>
+          </div>
+          <div class="detail-section orange">
+            <h4>Why I Built It</h4>
+            <ul>
+              <li>After 25 years in program management, I wanted to see how much of the administrative overhead could be eliminated with AI — the answer turned out to be: most of it</li>
+              <li>Hands-on way to go deep on agentic AI patterns: multi-agent orchestration, tool use, RAG, structured output, and real-world integration with Slack, Drive, and Salesforce APIs</li>
+              <li>Built entirely in personal time — weeknights and weekends — as a genuine engineering challenge, not a demo</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Claude AI</span><span class="tag">Anthropic SDK</span><span class="tag">Node.js</span><span class="tag">Express 5</span>
+          <span class="tag">PostgreSQL</span><span class="tag">WebSockets</span><span class="tag">Salesforce Agentforce</span>
+          <span class="tag">Apex</span><span class="tag">Einstein Prompt Templates</span><span class="tag">RAG</span>
+          <span class="tag">Google Drive API</span><span class="tag">Slack API</span><span class="tag">Playwright</span>
+        </div>
       </div>
     </div>
 
