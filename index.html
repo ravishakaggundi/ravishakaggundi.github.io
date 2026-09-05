@@ -483,21 +483,25 @@
     <button class="cj-node" data-target="tl-alc" onclick="cjGo('tl-alc',this)">
       <div class="cj-period">2009–2014</div>
       <div class="cj-logo">
-        <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-          <rect width="56" height="56" rx="10" fill="#fff"/>
-          <!-- Purple sphere -->
-          <defs>
-            <radialGradient id="alc-sphere" cx="40%" cy="32%" r="60%">
-              <stop offset="0%" stop-color="#9B4FC8"/>
-              <stop offset="100%" stop-color="#4B0082"/>
-            </radialGradient>
-          </defs>
-          <circle cx="28" cy="22" r="18" fill="url(#alc-sphere)"/>
-          <!-- Stylised white 'a' swirl: stem + loop + curl -->
-          <path d="M24 28 C22 20 26 14 30 16 C34 18 34 24 30 26 C26 28 22 26 22 30 C22 33 25 34 28 33" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M30 26 L30 33" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
-          <!-- Wordmark: Alcatel·Lucent -->
-          <text x="28" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="6.2" fill="#333" letter-spacing="0.2">Alcatel<tspan fill="#555">·</tspan>Lucent</text>
+        <svg viewBox="0 0 56 60" xmlns="http://www.w3.org/2000/svg">
+          <rect width="56" height="60" rx="10" fill="#fff"/>
+          <!-- Flat purple circle -->
+          <circle cx="28" cy="22" r="19" fill="#7B3FB5"/>
+          <!--
+            White 'a' mark: two diagonal strokes (legs) meeting at bottom,
+            with a circular loop on the right side — accurate to the brand.
+            Left leg: top-left down to bottom-centre
+            Right leg: top-right down to bottom-centre
+            Loop: circle arc on upper-right
+          -->
+          <!-- Left leg of the 'a' -->
+          <path d="M18 33 C19 26 22 16 28 13" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+          <!-- Right leg of the 'a' -->
+          <path d="M38 33 C37 26 34 16 28 13" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+          <!-- Loop: oval on upper-right -->
+          <ellipse cx="33" cy="21" rx="6" ry="7" fill="none" stroke="#fff" stroke-width="2.4"/>
+          <!-- Wordmark: "Alcatel·Lucent" single line, dot in purple -->
+          <text x="28" y="53" text-anchor="middle" font-family="Georgia,serif" font-weight="400" font-size="6.5" fill="#1a1a1a">Alcatel<tspan fill="#7B3FB5" font-size="7">·</tspan>Lucent</text>
         </svg>
       </div>
       <div class="cj-company">ALCATEL-LUCENT</div>
