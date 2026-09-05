@@ -177,6 +177,19 @@
     .award-card.nokia { border-left: 3px solid var(--accent2); }
     .award-card.ge { border-left: 3px solid var(--accent5); }
     .award-card.academic { border-left: 3px solid var(--accent4); }
+    .award-quote {
+      background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent2);
+      border-radius: 8px; padding: 1.1rem 1.25rem; margin-top: 0.75rem;
+    }
+    .award-quote-text {
+      font-size: 0.875rem; color: var(--text); line-height: 1.7; font-style: italic;
+      position: relative; padding-left: 1.1rem;
+    }
+    .award-quote-text::before {
+      content: '\201C'; position: absolute; left: 0; top: -0.1rem;
+      font-size: 1.5rem; color: var(--accent2); line-height: 1; font-family: Georgia, serif;
+    }
+    .award-quote-attr { margin-top: 0.65rem; font-size: 0.75rem; color: var(--muted); padding-left: 1.1rem; }
 
     /* ── PROJECT CARDS (unchanged) ── */
     .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -1194,8 +1207,12 @@
     <div class="awards-company-label">Nokia — 3 Featured Awards</div>
     <div class="award-grid">
       <div class="award-card nokia"><div class="award-emoji">👏</div><div><div class="award-name">Applaud Excellence: Customer Success Mindset</div><div class="award-period">May 2020</div></div></div>
-      <div class="award-card nokia"><div class="award-emoji">🌍</div><div><div class="award-name">A&amp;A Business Excellence Award</div><div class="award-period">Nov 2017</div></div></div>
+      <div class="award-card nokia"><div class="award-emoji">🌍</div><div><div class="award-name">A&amp;A Business Excellence Award — Intrapreneurship Program</div><div class="award-period">Nov 2017</div></div></div>
       <div class="award-card nokia"><div class="award-emoji">💡</div><div><div class="award-name">Global Innovation Award</div><div class="award-period">2017</div></div></div>
+    </div>
+    <div class="award-quote">
+      <div class="award-quote-text">You dared to be different, by behaving like an entrepreneur within a large company. You and your team demonstrated significant and exceptional contribution to the program and supported the Nokia A&amp;A Innovation and Intrapreneurship spirit, and this is a great example to others to follow. Using your innovative ideas, we will be able to build new businesses, renew Nokia, and make Nokia one of the top 10 technology companies in the world. Thank you for your courage to renew A&amp;A.</div>
+      <div class="award-quote-attr">— Ron Haberman, CTO Nokia A&amp;A · A&amp;A Business Excellence Award, Nov 2017 · Recognising DigiFarm (Intrapreneurship@AA Seed Gate Phase 2)</div>
     </div>
   </div>
 
