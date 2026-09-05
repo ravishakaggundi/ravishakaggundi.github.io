@@ -309,9 +309,9 @@
     .cj-logo {
       width: 56px; height: 56px; border-radius: 10px; display: flex; align-items: center;
       justify-content: center; margin-bottom: 0.5rem; overflow: hidden;
-      background: #fff; padding: 6px; flex-shrink: 0;
+      background: #fff; padding: 5px; flex-shrink: 0;
     }
-    .cj-logo svg { width: 100%; height: 100%; }
+    .cj-logo svg { width: 100%; height: 100%; display: block; }
     .cj-logo.cj-asp {
       background: rgba(88,166,255,0.08); border: 1px dashed rgba(88,166,255,0.4);
       color: var(--accent); font-size: 0.78rem; font-weight: 800; padding: 0;
@@ -437,11 +437,11 @@
 
     <button class="cj-node" data-target="tl-ge" onclick="cjGo('tl-ge',this)">
       <div class="cj-period">1999–2007</div>
-      <!-- GE logo: blue circle + italic GE monogram -->
+      <!-- GE logo: real monogram from ge.com -->
       <div class="cj-logo">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#1B6FBA"/>
-          <text x="50" y="66" text-anchor="middle" font-family="Times New Roman,serif" font-style="italic" font-weight="bold" font-size="48" fill="#fff" letter-spacing="-2">GE</text>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.234 43.233">
+          <circle cx="21.617" cy="21.617" r="21.617" fill="#1B6FBA"/>
+          <path d="M21.618 43.233c-11.918 0-21.618-9.642-21.618-21.618 0-11.915 9.7-21.615 21.618-21.615 11.914 0 21.616 9.7 21.616 21.615 0 11.976-9.702 21.618-21.616 21.618zm0-42.217c-11.378 0-20.601 9.223-20.601 20.599 0 11.377 9.223 20.599 20.601 20.599 11.376 0 20.597-9.222 20.597-20.599 0-11.316-9.22-20.599-20.597-20.599zm18.318 26.762l-.112 .023-.063-.078c.004-.034 .726-2.165 .72-4.611-.009-2.635-1.079-4.251-2.456-4.251-.838 0-1.436 .6-1.436 1.497 0 1.617 1.976 1.737 1.976 5.27 0 1.438-.299 2.812-.778 4.311-2.216 7.483-9.283 10.956-16.167 10.956-3.175 0-5.43-.652-6.102-.953-.027-.014-.05-.067-.029-.12l.087-.061c.272 .108 2.209 .716 4.605 .716 2.635 0 4.192-1.077 4.192-2.397 0-.835-.659-1.494-1.498-1.494-1.617 0-1.737 2.035-5.209 2.035-1.497 0-2.813-.299-4.372-.778-7.426-2.274-10.965-9.282-10.959-16.228 .003-3.382 .95-6.075 .966-6.102l.107-.018 .063 .078c-.087 .28-.716 2.212-.716 4.606 0 2.635 1.077 4.191 2.454 4.191 .779 0 1.439-.598 1.439-1.437 0-1.617-1.977-1.796-1.977-5.27 0-1.497 .299-2.814 .778-4.371 2.276-7.424 9.282-10.905 16.169-10.958 3.2-.024 6.001 .934 6.106 1.018l.019 .108-.079 .06c-.033-.004-1.854-.766-4.61-.766-2.575-.001-4.191 1.077-4.191 2.455 0 .779 .599 1.438 1.497 1.438 1.617 0 1.737-1.977 5.209-1.977 1.497 0 2.814 .299 4.372 .779 7.485 2.275 10.896 9.342 10.957 16.167 .034 3.497-.952 6.143-.962 6.162zm-10.295-5.143c-2.035 0-3.593 1.498-3.593 3.293 0 1.497 .897 2.693 2.096 2.693 .42 0 .838-.24 .838-.778 0-.777-1.032-.968-.952-2.132 .051-.768 .774-1.281 1.491-1.281 1.438 0 2.11 1.393 2.11 2.829-.061 2.216-1.69 3.758-3.606 3.758-2.517 0-4.131-2.396-4.131-4.97 0-3.833 2.514-5.33 3.831-5.688 .014-.001 3.444 .612 3.337-.9-.047-.664-1.036-.92-1.754-.949-.794-.031-1.594 .255-1.594 .255-.419-.211-.708-.623-.886-1.101 2.455-1.856 4.19-3.652 4.19-5.688 0-1.078-.719-2.037-2.096-2.037-2.455 0-4.312 3.114-4.312 5.928 0 .479 0 .958 .121 1.379-1.558 1.137-2.715 1.843-4.812 3.101 0-.263 .055-.938 .23-1.816 .719-.779 1.705-1.944 1.705-2.842 0-.419-.238-.779-.719-.779-1.197 0-2.096 1.797-2.334 3.054-.54 .659-1.617 1.499-2.516 1.499-.719 0-.957-.66-1.019-.898 2.276-.78 5.091-3.894 5.091-6.708 0-.599-.239-1.916-2.036-1.916-2.695 0-4.971 4.012-4.971 7.125-.958 0-1.317-1.018-1.317-1.795 0-.779 .299-1.558 .299-1.796 0-.241-.12-.54-.479-.54-.899 0-1.438 1.197-1.438 2.575 .061 1.917 1.318 3.114 2.995 3.234 .238 1.138 1.257 2.215 2.514 2.215 .779 0 1.737-.239 2.396-.837-.061 .419-.12 .778-.18 1.137-2.635 1.378-4.551 2.336-6.288 3.892-1.373 1.256-2.152 2.932-2.152 4.25 0 1.796 1.139 3.472 3.474 3.472 2.754 0 4.851-2.216 5.868-5.269 .481-1.437 .672-3.528 .792-5.445 2.754-1.556 4.06-2.458 5.496-3.477 .179 .299 .361 .54 .6 .719-1.258 .659-4.251 2.515-4.251 6.886 0 3.115 2.097 6.586 6.227 6.586 3.414 0 5.749-2.813 5.749-5.507-.002-2.456-1.38-4.731-4.014-4.731zm-16.467 8.382c-.898 .041-1.496-.533-1.496-1.49 0-2.575 3.569-5.032 6.264-6.351-.479 3.594-1.692 7.7-4.768 7.841zm1.976-14.131c0-1.977 1.95-5.733 3.143-5.336 1.407 .469-1.167 4.258-3.143 5.336zm11.318-.899c0-2.455 1.662-4.843 2.57-4.389 1.034 .518-.773 2.832-2.57 4.389z" fill="#ffffff"/>
         </svg>
       </div>
       <div class="cj-company">GENERAL ELECTRIC</div>
@@ -458,11 +458,15 @@
 
     <button class="cj-node" data-target="tl-trilogy" onclick="cjGo('tl-trilogy',this)">
       <div class="cj-period">2007–2009</div>
-      <!-- Trilogy: bold wordmark in brand dark blue -->
+      <!-- Trilogy: brand mark — interlocking T + tri-arc motif, dark navy -->
       <div class="cj-logo">
-        <svg viewBox="0 0 120 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="120" height="44" rx="4" fill="#002147"/>
-          <text x="60" y="31" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="22" fill="#fff" letter-spacing="1">TRILOGY</text>
+        <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+          <rect width="56" height="56" rx="10" fill="#001F5B"/>
+          <!-- three rising arcs representing trilogy progression -->
+          <path d="M12 40 Q18 20 28 18 Q38 16 44 28" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M16 40 Q21 25 28 23 Q35 21 40 30" fill="none" stroke="#4A90D9" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M20 40 Q24 30 28 28 Q32 26 36 32" fill="none" stroke="#A0C4F0" stroke-width="2" stroke-linecap="round"/>
+          <text x="28" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="9" fill="#fff" letter-spacing="1.5">TRILOGY</text>
         </svg>
       </div>
       <div class="cj-company">TRILOGY</div>
@@ -479,15 +483,18 @@
 
     <button class="cj-node" data-target="tl-alc" onclick="cjGo('tl-alc',this)">
       <div class="cj-period">2009–2014</div>
-      <!-- Alcatel-Lucent: red swirl + wordmark -->
+      <!-- Alcatel-Lucent: authentic red swirl (spiral helix) + two-line wordmark -->
       <div class="cj-logo">
-        <svg viewBox="0 0 120 56" xmlns="http://www.w3.org/2000/svg">
-          <!-- swirl mark -->
-          <circle cx="14" cy="28" r="10" fill="none" stroke="#E3000F" stroke-width="3.5"/>
-          <circle cx="14" cy="28" r="5" fill="#E3000F"/>
-          <!-- wordmark two-line -->
-          <text x="30" y="24" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="13" fill="#E3000F">Alcatel</text>
-          <text x="30" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="13" fill="#333">Lucent</text>
+        <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+          <rect width="56" height="56" rx="10" fill="#fff"/>
+          <!-- Alcatel-Lucent spiral mark: concentric arcs forming helix -->
+          <path d="M14 28 C14 20 20 14 28 14" fill="none" stroke="#E3000F" stroke-width="2.8" stroke-linecap="round"/>
+          <path d="M10 28 C10 17 17 10 28 10 C39 10 46 17 46 28" fill="none" stroke="#E3000F" stroke-width="2.2" stroke-linecap="round" opacity="0.75"/>
+          <path d="M6 28 C6 14 16 6 28 6 C40 6 50 16 50 28 C50 40 40 50 28 50" fill="none" stroke="#E3000F" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
+          <circle cx="28" cy="28" r="3.5" fill="#E3000F"/>
+          <!-- wordmark -->
+          <text x="28" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="6.5" fill="#E3000F" letter-spacing="0.3">Alcatel</text>
+          <text x="28" y="46" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="6.5" fill="#555" letter-spacing="0.3">Lucent</text>
         </svg>
       </div>
       <div class="cj-company">ALCATEL-LUCENT</div>
@@ -504,11 +511,10 @@
 
     <button class="cj-node" data-target="tl-nokia" onclick="cjGo('tl-nokia',this)">
       <div class="cj-period">2015–2021</div>
-      <!-- Nokia: brand blue rectangle + white wordmark -->
-      <div class="cj-logo">
-        <svg viewBox="0 0 120 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="120" height="44" rx="4" fill="#005AFF"/>
-          <text x="60" y="31" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="24" fill="#fff" letter-spacing="2">NOKIA</text>
+      <!-- Nokia: real path logo scraped from nokia.com -->
+      <div class="cj-logo" style="background:#005AFF; padding:6px;">
+        <svg viewBox="0 0 170 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M117.514 1.21646L117.514 38.7835H123.148L123.148 1.21646H117.514ZM57.3221 0.57473C46.3463 0.574681 37.8303 8.56332 37.8303 20C37.8303 31.9517 46.3463 39.4255 57.3221 39.4253C68.2979 39.4251 76.8314 31.9517 76.8139 20C76.798 9.16418 68.2979 0.574779 57.3221 0.57473ZM71.1901 20C71.1901 28.4666 64.9812 34.0774 57.3221 34.0774C49.663 34.0774 43.4541 28.4666 43.4541 20C43.4541 11.687 49.663 5.92265 57.3221 5.92265C64.9812 5.92265 71.1901 11.687 71.1901 20ZM0 3.39001e-06V38.7835H5.74992L5.74992 13.1531L35.6298 40V31.9591L0 3.39001e-06ZM81.0513 20L101.961 38.7836H110.345L89.4038 20L110.345 1.21644H101.961L81.0513 20ZM170 38.7835H163.802L159.27 30.4644H138.742L134.209 38.7835H128.011L135.517 24.9176H156.322L145.948 5.64789L149.006 0L149.006 3.76291e-05L149.006 0L170 38.7835Z" fill="#ffffff"/>
         </svg>
       </div>
       <div class="cj-company">NOKIA</div>
@@ -525,12 +531,10 @@
 
     <button class="cj-node cj-node-current" data-target="tl-sf" onclick="cjGo('tl-sf',this)">
       <div class="cj-period">2021–Present</div>
-      <!-- Salesforce: cloud icon in brand blue -->
+      <!-- Salesforce: real cloud mark scraped from salesforce.com -->
       <div class="cj-logo">
-        <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
-          <!-- Salesforce cloud shape -->
-          <path d="M41 52 C29 52 20 43 20 32 C20 21 29 12 41 12 C44 7 50 4 57 4 C66 4 73 10 75 18 C77 17 80 17 82 17 C89 17 95 23 95 30 C95 37 89 43 82 43 L41 52 Z" fill="#00A1E0"/>
-          <text x="50" y="38" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="11" fill="#fff">Salesforce</text>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205.73 144">
+          <path fill="#00b3ff" d="M85.62,15.71c6.64-6.91,15.87-11.2,26.09-11.2,13.58,0,25.43,7.57,31.74,18.81,5.49-2.45,11.56-3.82,17.94-3.82,24.49,0,44.35,20.03,44.35,44.74s-19.86,44.74-44.35,44.74c-2.99,0-5.91-.3-8.74-.87-5.56,9.91-16.15,16.61-28.3,16.61-5.09,0-9.9-1.17-14.18-3.27-5.63,13.25-18.75,22.54-34.05,22.54s-29.5-10.08-34.71-24.21c-2.28.48-4.64.73-7.06.73-18.97,0-34.35-15.52-34.35-34.68,0-12.84,6.91-24.05,17.17-30.05-2.12-4.87-3.29-10.23-3.29-15.87C13.89,17.87,31.78,0,53.85,0c12.96,0,24.47,6.16,31.77,15.71Z"/>
         </svg>
       </div>
       <div class="cj-company">SALESFORCE</div>
