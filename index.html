@@ -482,18 +482,22 @@
 
     <button class="cj-node" data-target="tl-alc" onclick="cjGo('tl-alc',this)">
       <div class="cj-period">2009–2014</div>
-      <!-- Alcatel-Lucent: authentic red swirl (spiral helix) + two-line wordmark -->
       <div class="cj-logo">
         <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
           <rect width="56" height="56" rx="10" fill="#fff"/>
-          <!-- Alcatel-Lucent spiral mark: concentric arcs forming helix -->
-          <path d="M14 28 C14 20 20 14 28 14" fill="none" stroke="#E3000F" stroke-width="2.8" stroke-linecap="round"/>
-          <path d="M10 28 C10 17 17 10 28 10 C39 10 46 17 46 28" fill="none" stroke="#E3000F" stroke-width="2.2" stroke-linecap="round" opacity="0.75"/>
-          <path d="M6 28 C6 14 16 6 28 6 C40 6 50 16 50 28 C50 40 40 50 28 50" fill="none" stroke="#E3000F" stroke-width="1.6" stroke-linecap="round" opacity="0.45"/>
-          <circle cx="28" cy="28" r="3.5" fill="#E3000F"/>
-          <!-- wordmark -->
-          <text x="28" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="6.5" fill="#E3000F" letter-spacing="0.3">Alcatel</text>
-          <text x="28" y="46" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="6.5" fill="#555" letter-spacing="0.3">Lucent</text>
+          <!-- Purple sphere -->
+          <defs>
+            <radialGradient id="alc-sphere" cx="40%" cy="32%" r="60%">
+              <stop offset="0%" stop-color="#9B4FC8"/>
+              <stop offset="100%" stop-color="#4B0082"/>
+            </radialGradient>
+          </defs>
+          <circle cx="28" cy="22" r="18" fill="url(#alc-sphere)"/>
+          <!-- Stylised white 'a' swirl: stem + loop + curl -->
+          <path d="M24 28 C22 20 26 14 30 16 C34 18 34 24 30 26 C26 28 22 26 22 30 C22 33 25 34 28 33" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M30 26 L30 33" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+          <!-- Wordmark: Alcatel·Lucent -->
+          <text x="28" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="6.2" fill="#333" letter-spacing="0.2">Alcatel<tspan fill="#555">·</tspan>Lucent</text>
         </svg>
       </div>
       <div class="cj-company">ALCATEL-LUCENT</div>
