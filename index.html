@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ravisha Kaggundi Suryanarayana — AI/ML Portfolio</title>
+  <meta name="description" content="Ravisha Kaggundi Suryanarayana — Senior Delivery Manager at Salesforce, AI/ML practitioner, 25+ years in digital transformation. UT Austin PGP AI/ML." />
+  <title>Ravisha Kaggundi Suryanarayana — Portfolio</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -20,72 +21,174 @@
       --tag-bg: #1f2937;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(13,17,23,0.92); backdrop-filter: blur(8px);
+      background: rgba(13,17,23,0.95); backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px;
     }
-    .nav-brand { font-weight: 700; font-size: 1rem; color: var(--text); letter-spacing: -0.3px; }
-    .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color .2s; }
-    .nav-links a:hover { color: var(--text); }
+    .nav-brand { font-weight: 700; font-size: 0.95rem; color: var(--text); letter-spacing: -0.3px; white-space: nowrap; }
+    .nav-links { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.82rem;
+      transition: color .2s; padding: 0.25rem 0; border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); border-bottom-color: var(--accent); }
 
-    /* HERO */
-    .hero { max-width: 900px; margin: 0 auto; padding: 5rem 2rem 3rem; }
+    /* ── SECTION WRAPPER ── */
+    .section { max-width: 920px; margin: 0 auto; padding: 4rem 2rem; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1.2px; color: var(--muted); margin-bottom: 0.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .section-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -0.5px; }
+
+    /* ── HERO ── */
+    #about { padding-top: 5rem; }
     .hero-badge {
       display: inline-block;
       background: rgba(88,166,255,0.1); border: 1px solid rgba(88,166,255,0.3);
-      color: var(--accent); font-size: 0.75rem; font-weight: 600;
-      padding: 0.25rem 0.75rem; border-radius: 2rem; margin-bottom: 1.25rem;
+      color: var(--accent); font-size: 0.72rem; font-weight: 600;
+      padding: 0.22rem 0.7rem; border-radius: 2rem; margin-bottom: 1rem;
       letter-spacing: 0.5px; text-transform: uppercase;
     }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 1rem; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 0.4rem; }
     .hero h1 span { color: var(--accent); }
-    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin-bottom: 2rem; }
-    .hero-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.875rem; color: var(--muted); }
-    .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
+    .hero-role { font-size: 1rem; color: var(--accent2); font-weight: 600; margin-bottom: 1rem; }
+    .hero-tagline { font-size: 0.95rem; color: var(--muted); margin-bottom: 1rem; }
+    .hero-bio { font-size: 0.925rem; color: var(--muted); max-width: 640px; line-height: 1.7; margin-bottom: 1.75rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.82rem; color: var(--muted); margin-bottom: 2rem; }
+    .hero-meta span { display: flex; align-items: center; gap: 0.35rem; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.55rem 1.1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; transition: opacity .2s, transform .15s; cursor: pointer; border: none;
+    }
+    .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #0d1117; }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* SKILLS */
-    .skills-section { max-width: 900px; margin: 0 auto; padding: 0 2rem 3rem; }
-    .skills-section h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 1rem; }
-    .pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .pill { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.8rem; padding: 0.3rem 0.75rem; border-radius: 2rem; }
+    /* ── EXPERIENCE TIMELINE ── */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; left: 16px; top: 0; bottom: 0;
+      width: 2px; background: var(--border);
+    }
+    .tl-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; position: relative; }
+    .tl-dot {
+      width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; border: 2px solid var(--border); background: var(--surface2);
+      position: relative; z-index: 1; margin-top: 4px;
+    }
+    .tl-dot.current { border-color: var(--accent2); background: rgba(63,185,80,0.12); }
+    .tl-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.25rem 1.5rem; flex: 1;
+    }
+    .tl-card:hover { border-color: #444c56; }
+    .tl-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .tl-title { font-size: 1rem; font-weight: 700; }
+    .tl-company { font-size: 0.875rem; color: var(--accent); font-weight: 600; }
+    .tl-period {
+      font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+      color: var(--muted); background: var(--surface2); border: 1px solid var(--border);
+      padding: 0.18rem 0.55rem; border-radius: 4px; white-space: nowrap;
+    }
+    .tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.875rem; }
+    .tl-bullets li { font-size: 0.855rem; color: var(--muted); padding-left: 1rem; position: relative; line-height: 1.5; }
+    .tl-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--accent2); font-size: 0.65rem; top: 3px; }
+    .tl-bullets li strong { color: var(--text); }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .tl-tag { font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 4px; background: var(--tag-bg); color: var(--muted); border: 1px solid var(--border); }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .skill-group {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem;
+    }
+    .skill-group-title {
+      font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--muted); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem;
+    }
+    .skill-group-title span { font-size: 1rem; }
+    .pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .pill { background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-size: 0.78rem; padding: 0.25rem 0.65rem; border-radius: 2rem; }
     .pill.blue   { border-color: rgba(88,166,255,0.4);  color: var(--accent);  background: rgba(88,166,255,0.08); }
     .pill.green  { border-color: rgba(63,185,80,0.4);   color: var(--accent2); background: rgba(63,185,80,0.08); }
     .pill.purple { border-color: rgba(210,168,255,0.4); color: var(--accent4); background: rgba(210,168,255,0.08); }
     .pill.orange { border-color: rgba(255,166,87,0.4);  color: var(--accent5); background: rgba(255,166,87,0.08); }
     .pill.red    { border-color: rgba(247,129,102,0.4); color: var(--accent3); background: rgba(247,129,102,0.08); }
 
-    /* SECTION HEADER */
-    .section-header { max-width: 900px; margin: 0 auto; padding: 0 2rem 1.5rem; display: flex; align-items: baseline; gap: 1rem; }
-    .section-header h2 { font-size: 1.25rem; font-weight: 700; }
-    .section-header span { font-size: 0.8rem; color: var(--muted); }
+    /* ── CERTIFICATIONS ── */
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.875rem; }
+    .cert-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem 1.1rem; display: flex; align-items: center; gap: 0.875rem;
+      transition: border-color .2s;
+    }
+    .cert-card:hover { border-color: #444c56; }
+    .cert-icon {
+      width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .ci-orange { background: rgba(255,166,87,0.15); }
+    .ci-blue   { background: rgba(88,166,255,0.15); }
+    .ci-green  { background: rgba(63,185,80,0.15); }
+    .ci-purple { background: rgba(210,168,255,0.15); }
+    .ci-red    { background: rgba(247,129,102,0.15); }
+    .ci-teal   { background: rgba(56,189,248,0.15); }
+    .cert-info { min-width: 0; }
+    .cert-name { font-size: 0.8rem; font-weight: 600; line-height: 1.35; margin-bottom: 0.15rem; }
+    .cert-body { font-size: 0.7rem; color: var(--muted); }
 
-    /* PROJECT CARDS */
-    .projects { max-width: 900px; margin: 0 auto; padding: 0 2rem 5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .trailhead-row { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .trailhead-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-right: 0.25rem; }
+    .tbadge {
+      font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 2rem; font-weight: 600;
+      background: rgba(255,166,87,0.1); border: 1px solid rgba(255,166,87,0.3); color: var(--accent5);
+    }
 
+    /* ── AWARDS ── */
+    .awards-intro { font-size: 0.875rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .awards-intro strong { color: var(--text); }
+    .awards-company { margin-bottom: 1.75rem; }
+    .awards-company-label {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--muted); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .awards-company-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .award-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.75rem; }
+    .award-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.875rem 1rem; display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .award-emoji { font-size: 1.25rem; flex-shrink: 0; margin-top: 1px; }
+    .award-name { font-size: 0.845rem; font-weight: 600; line-height: 1.3; margin-bottom: 0.1rem; }
+    .award-period { font-size: 0.72rem; color: var(--muted); }
+    .award-card.sf { border-left: 3px solid var(--accent); }
+    .award-card.nokia { border-left: 3px solid var(--accent2); }
+    .award-card.ge { border-left: 3px solid var(--accent5); }
+    .award-card.academic { border-left: 3px solid var(--accent4); }
+
+    /* ── PROJECT CARDS (unchanged) ── */
+    .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
     .project-card {
       background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
       transition: border-color .2s;
     }
     .project-card:hover { border-color: #444c56; }
-
-    /* Card header (always visible) */
-    .card-top {
-      padding: 1.5rem; cursor: pointer; display: flex; align-items: flex-start; gap: 1rem;
-      user-select: none;
-    }
+    .card-top { padding: 1.5rem; cursor: pointer; display: flex; align-items: flex-start; gap: 1rem; user-select: none; }
     .card-top:hover { background: rgba(255,255,255,0.02); }
-
-    .card-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; flex-shrink: 0; margin-top: 2px;
-    }
+    .card-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
     .icon-blue   { background: rgba(88,166,255,0.15); }
     .icon-green  { background: rgba(63,185,80,0.15); }
     .icon-purple { background: rgba(210,168,255,0.15); }
@@ -94,23 +197,13 @@
     .icon-teal   { background: rgba(56,189,248,0.15); }
     .icon-pink   { background: rgba(244,114,182,0.15); }
     .icon-yellow { background: rgba(250,204,21,0.15); }
-
     .card-top-content { flex: 1; }
     .card-top-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
-    .card-domain {
-      font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px;
-      color: var(--muted); background: var(--surface2); border: 1px solid var(--border);
-      padding: 0.18rem 0.55rem; border-radius: 4px;
-    }
+    .card-domain { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); padding: 0.18rem 0.55rem; border-radius: 4px; }
     .card-top h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.35rem; }
     .card-summary { font-size: 0.875rem; color: var(--muted); line-height: 1.55; }
-
     .card-metrics { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
-    .metric {
-      display: flex; align-items: center; gap: 0.4rem;
-      background: var(--surface2); border: 1px solid var(--border); border-radius: 6px;
-      padding: 0.3rem 0.65rem; font-size: 0.78rem;
-    }
+    .metric { display: flex; align-items: center; gap: 0.4rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 0.3rem 0.65rem; font-size: 0.78rem; }
     .metric-label { color: var(--muted); }
     .metric-value { font-weight: 700; }
     .mv-blue   { color: var(--accent); }
@@ -118,33 +211,21 @@
     .mv-purple { color: var(--accent4); }
     .mv-orange { color: var(--accent5); }
     .mv-red    { color: var(--accent3); }
-
     .card-chevron { color: var(--muted); font-size: 0.75rem; margin-left: auto; padding-left: 1rem; flex-shrink: 0; transition: transform .25s; }
     .project-card.open .card-chevron { transform: rotate(180deg); }
-
-    /* Expandable body */
     .card-body { display: none; border-top: 1px solid var(--border); }
     .project-card.open .card-body { display: block; }
-
     .card-body-inner { padding: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    @media (max-width: 680px) { .card-body-inner { grid-template-columns: 1fr; } }
-
-    .detail-section h4 {
-      font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px;
-      color: var(--muted); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem;
-    }
+    .detail-section h4 { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem; }
     .detail-section h4::before { content: ''; display: inline-block; width: 3px; height: 12px; border-radius: 2px; background: var(--accent); }
     .detail-section.green h4::before { background: var(--accent2); }
     .detail-section.purple h4::before { background: var(--accent4); }
     .detail-section.orange h4::before { background: var(--accent5); }
     .detail-section.red h4::before { background: var(--accent3); }
-
     .detail-section ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
     .detail-section ul li { font-size: 0.85rem; color: var(--muted); padding-left: 1rem; position: relative; line-height: 1.5; }
     .detail-section ul li::before { content: '·'; position: absolute; left: 0; color: var(--border); }
     .detail-section ul li strong { color: var(--text); font-weight: 600; }
-
-    /* metric table */
     .metric-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
     .metric-table th { text-align: left; color: var(--muted); font-weight: 500; padding: 0.3rem 0.5rem; border-bottom: 1px solid var(--border); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.4px; }
     .metric-table td { padding: 0.35rem 0.5rem; border-bottom: 1px solid rgba(48,54,61,0.5); color: var(--text); }
@@ -152,662 +233,883 @@
     .metric-table .best td { background: rgba(63,185,80,0.06); }
     .metric-table .best td:first-child { border-left: 2px solid var(--accent2); }
     .num { font-family: 'SF Mono', Consolas, monospace; color: var(--accent2); font-weight: 600; }
-
-    /* conclusion box */
-    .conclusion-box {
-      grid-column: 1 / -1;
-      background: rgba(88,166,255,0.05); border: 1px solid rgba(88,166,255,0.2);
-      border-radius: 8px; padding: 1rem 1.25rem;
-    }
-    .conclusion-box h4 { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--accent); margin-bottom: 0.6rem; }
-    .conclusion-box ul { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
-    .conclusion-box ul li { font-size: 0.85rem; color: var(--muted); padding-left: 1.1rem; position: relative; line-height: 1.5; }
-    .conclusion-box ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 2px; }
-    .conclusion-box ul li strong { color: var(--text); }
-
     .card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0 1.5rem 1.25rem; }
     .tag { font-size: 0.72rem; padding: 0.18rem 0.55rem; border-radius: 4px; background: var(--tag-bg); color: var(--muted); border: 1px solid var(--border); }
 
-    /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
-    footer a { color: var(--accent); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    /* ── ARTICLES ── */
+    .article-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .article-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.25rem; display: flex; flex-direction: column; gap: 0.6rem;
+      text-decoration: none; color: inherit; transition: border-color .2s, transform .15s;
+    }
+    .article-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .article-pub { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); }
+    .article-title { font-size: 0.95rem; font-weight: 700; line-height: 1.35; color: var(--text); }
+    .article-excerpt { font-size: 0.825rem; color: var(--muted); line-height: 1.55; flex: 1; }
+    .article-link { font-size: 0.78rem; color: var(--accent); display: flex; align-items: center; gap: 0.3rem; }
 
-    @media (max-width: 600px) { .nav-links { display: none; } }
+    .articles-placeholder {
+      background: var(--surface); border: 1px dashed var(--border); border-radius: 10px;
+      padding: 2rem; text-align: center; color: var(--muted); font-size: 0.875rem;
+    }
+    .articles-placeholder strong { color: var(--text); display: block; margin-bottom: 0.4rem; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 2rem; }
+    .footer-inner { max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .card-body-inner { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links a[data-hide-mobile] { display: none; }
+      .hero h1 { font-size: 1.75rem; }
+    }
   </style>
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <nav>
   <div class="nav-brand">Ravisha K. Suryanarayana</div>
   <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills" data-hide-mobile>Skills</a>
+    <a href="#certifications" data-hide-mobile>Certs</a>
+    <a href="#awards" data-hide-mobile>Awards</a>
     <a href="#projects">Projects</a>
-    <a href="https://github.com/ravishakaggundi" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/ravisha-kaggundi-suryanarayana/" target="_blank">LinkedIn</a>
+    <a href="#articles" data-hide-mobile>Articles</a>
+    <a href="https://github.com/ravishakaggundi" target="_blank" data-hide-mobile>GitHub</a>
+    <a href="https://www.linkedin.com/in/ravisha-kaggundi-suryanarayana/" target="_blank" data-hide-mobile>LinkedIn</a>
   </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-badge">AI / ML Portfolio</div>
-  <h1>Building intelligent systems<br/>with <span>real-world data</span></h1>
-  <p>8 end-to-end machine learning projects spanning EDA, classification, deep learning, computer vision, NLP, and production deployment — completed through the UT Austin Post Graduate Program in AI/ML.</p>
-  <div class="hero-meta">
-    <span>🎓 UT Austin PGP in AI/ML</span>
-    <span>📍 Austin, TX</span>
-    <span>🤖 8 Capstone Projects</span>
-  </div>
-</section>
-
-<section class="skills-section">
-  <h2>Tech Stack</h2>
-  <div class="pills">
-    <span class="pill blue">Python</span>
-    <span class="pill blue">TensorFlow</span>
-    <span class="pill blue">Keras</span>
-    <span class="pill blue">scikit-learn</span>
-    <span class="pill blue">XGBoost</span>
-    <span class="pill green">LangChain</span>
-    <span class="pill green">RAG</span>
-    <span class="pill green">ChromaDB</span>
-    <span class="pill green">Mistral-7B</span>
-    <span class="pill purple">Flask</span>
-    <span class="pill purple">Streamlit</span>
-    <span class="pill purple">Docker</span>
-    <span class="pill purple">HuggingFace Spaces</span>
-    <span class="pill orange">VGG-16</span>
-    <span class="pill orange">CNN</span>
-    <span class="pill orange">Transfer Learning</span>
-    <span class="pill red">SMOTE</span>
-    <span class="pill red">pandas</span>
-    <span class="pill red">NumPy</span>
-    <span class="pill red">Seaborn</span>
-  </div>
-</section>
-
-<div class="section-header" id="projects">
-  <h2>Capstone Projects</h2>
-  <span>Click any card to expand — EDA · Approach · Model Results · Conclusions</span>
-</div>
-
-<div class="projects">
-
-  <!-- ─── 1. FOODHUB ─── -->
-  <div class="project-card" id="p1">
-    <div class="card-top" onclick="toggle('p1')">
-      <div class="card-icon icon-blue">📊</div>
-      <div class="card-top-content">
-        <div class="card-top-row">
-          <span class="card-domain">Data Analysis · EDA</span>
-        </div>
-        <h3>FoodHub Order Analysis</h3>
-        <p class="card-summary">Exploratory data analysis on 1,898 food delivery orders across 178 NYC restaurants. Answered 17 structured business questions to drive marketing, operations, and revenue strategy.</p>
-        <div class="card-metrics">
-          <div class="metric"><span class="metric-label">Net revenue</span><span class="metric-value mv-green">$6,166</span></div>
-          <div class="metric"><span class="metric-label">SLA breach</span><span class="metric-value mv-orange">10.54% orders &gt;60 min</span></div>
-          <div class="metric"><span class="metric-label">Top restaurant</span><span class="metric-value mv-blue">Shake Shack $3,579</span></div>
-        </div>
-      </div>
-      <div class="card-chevron">▼</div>
-    </div>
-    <div class="card-body">
-      <div class="card-body-inner">
-        <div class="detail-section">
-          <h4>Business Problem</h4>
-          <ul>
-            <li>FoodHub aggregates orders from multiple NYC restaurants via a single app and wants to understand demand patterns to improve customer experience and profitability</li>
-            <li><strong>Dataset:</strong> 1,898 orders · 9 features · order_id, restaurant, cuisine, cost, day, rating, prep time, delivery time</li>
-            <li><strong>Goal:</strong> Answer 17 business questions through EDA and recommend actionable improvements</li>
-          </ul>
-        </div>
-        <div class="detail-section green">
-          <h4>EDA Approach</h4>
-          <ul>
-            <li><strong>Univariate:</strong> Count plots for cuisine type and day-of-week distribution; histograms for order cost and delivery time</li>
-            <li><strong>Bivariate:</strong> Boxplots of delivery time vs. rating; pointplots of cost vs. prep time by cuisine</li>
-            <li><strong>Correlation heatmap:</strong> Numeric features to identify cost–prep time relationship</li>
-            <li><strong>Revenue calc:</strong> Tiered commission model — 15% (≤$5), 20% ($5–20), 25% (&gt;$20)</li>
-          </ul>
-        </div>
-        <div class="detail-section orange">
-          <h4>Key Findings</h4>
-          <ul>
-            <li><strong>Top cuisines:</strong> American, Japanese, Italian dominate; Vietnamese and Spanish have lowest order share</li>
-            <li><strong>Weekend effect:</strong> Significantly higher order volume; weekday mean delivery 28 min vs. weekend 22 min</li>
-            <li><strong>Rating gap:</strong> 39% of orders left unrated — major feedback blind spot</li>
-            <li><strong>Loyalty signal:</strong> Several customers placed 10+ orders — untapped loyalty program opportunity</li>
-            <li><strong>Promo eligibility:</strong> The Meatball Shop (4.51), Blue Ribbon Fried Chicken (4.33), Shake Shack (4.28) qualify on rating + volume</li>
-          </ul>
-        </div>
-        <div class="detail-section purple">
-          <h4>Conclusions &amp; Recommendations</h4>
-          <ul>
-            <li>Reduce high-delivery-time orders — 10.5% exceed 60-min SLA and negative ratings spike above that threshold</li>
-            <li>Launch weekday lunch combos and office-delivery discounts to close the weekday engagement gap</li>
-            <li>Loyalty program: discounts/freebies after N orders; personalized offers using order history</li>
-            <li>Run "Try Something New" campaigns for underordered cuisines (Vietnamese, Spanish)</li>
-            <li>Share detailed feedback reports with partner restaurants to help them optimize prep time</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card-tags">
-        <span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">EDA</span><span class="tag">Business Analytics</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── 2. ALLIFEBANK ─── -->
-  <div class="project-card" id="p2">
-    <div class="card-top" onclick="toggle('p2')">
-      <div class="card-icon icon-green">🏦</div>
-      <div class="card-top-content">
-        <div class="card-top-row">
-          <span class="card-domain">Supervised ML · Classification</span>
-        </div>
-        <h3>AllLife Bank Personal Loan Prediction</h3>
-        <p class="card-summary">Predicted personal loan acceptance for 5,000 liability customers. Compared baseline, pre-pruned, and post-pruned Decision Trees. Best model (post-pruning, ccp_alpha=0.000641) achieved 98.4% accuracy and 91.8% F1.</p>
-        <div class="card-metrics">
-          <div class="metric"><span class="metric-label">Accuracy</span><span class="metric-value mv-green">98.4%</span></div>
-          <div class="metric"><span class="metric-label">F1</span><span class="metric-value mv-blue">0.918</span></div>
-          <div class="metric"><span class="metric-label">Recall</span><span class="metric-value mv-orange">0.906</span></div>
-        </div>
-      </div>
-      <div class="card-chevron">▼</div>
-    </div>
-    <div class="card-body">
-      <div class="card-body-inner">
-        <div class="detail-section">
-          <h4>Business Problem</h4>
-          <ul>
-            <li>AllLife Bank wants to convert liability (deposit) customers into asset (loan) customers via targeted campaigns — without wasting budget on low-propensity customers</li>
-            <li><strong>Dataset:</strong> 5,000 customers · 14 features · Age, Income, CCAvg, Education, Mortgage, Family, Securities/CD accounts</li>
-            <li><strong>Class imbalance:</strong> Only 9.6% accepted the loan in the previous campaign</li>
-          </ul>
-        </div>
-        <div class="detail-section green">
-          <h4>EDA Approach</h4>
-          <ul>
-            <li><strong>Anomaly treatment:</strong> Negative Experience values identified and treated (data quality issue)</li>
-            <li><strong>Bivariate analysis:</strong> Loan acceptance vs. income bracket — strong positive correlation above $98.5K</li>
-            <li><strong>Education split:</strong> Grad/Professional (Level 2/3) show 10–20% higher acceptance than undergrads</li>
-            <li><strong>CCAvg:</strong> Higher monthly credit card spend correlated strongly with loan uptake</li>
-            <li><strong>CD account holders:</strong> 46.4% loan acceptance vs. 7.2% non-holders — strongest signal after income</li>
-          </ul>
-        </div>
-        <div class="detail-section orange">
-          <h4>Modeling Approach</h4>
-          <table class="metric-table">
-            <thead><tr><th>Model</th><th>Accuracy</th><th>Recall</th><th>F1</th></tr></thead>
-            <tbody>
-              <tr><td>Baseline DT</td><td class="num">0.982</td><td class="num">0.899</td><td class="num">0.908</td></tr>
-              <tr><td>Pre-Pruned DT</td><td class="num">0.779</td><td class="num">1.000</td><td class="num">0.474</td></tr>
-              <tr class="best"><td><strong>Post-Pruned DT ★</strong></td><td class="num">0.984</td><td class="num">0.906</td><td class="num">0.918</td></tr>
-            </tbody>
-          </table>
-          <ul style="margin-top:0.75rem">
-            <li>Pre-pruning achieved 100% recall but very low precision (0.310) — too many false positives for a marketing campaign</li>
-            <li>Post-pruning with <strong>ccp_alpha=0.000641</strong> delivered best accuracy–recall–F1 balance</li>
-          </ul>
-        </div>
-        <div class="detail-section purple">
-          <h4>Feature Importance &amp; Conclusions</h4>
-          <ul>
-            <li><strong>Income (0.82)</strong> — single strongest predictor; customers above $98.5K are primary targets</li>
-            <li><strong>Family size (0.158)</strong> — families of 3+ have higher propensity</li>
-            <li><strong>Education (0.141)</strong> — Graduate and Professional degree holders convert better</li>
-            <li><strong>CCAvg (0.055)</strong> — high spenders are more credit-comfortable</li>
-            <li>CD account holders (46.4% uptake) are the highest-value cross-sell segment</li>
-            <li>ZIP codes 93, 94, 95 cover 75%+ of customers — geo-targeted campaigns recommended</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card-tags">
-        <span class="tag">scikit-learn</span><span class="tag">Decision Tree</span><span class="tag">Pre-pruning</span><span class="tag">Post-pruning</span><span class="tag">ccp_alpha</span><span class="tag">Feature Importance</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── 3. EASYVISA ─── -->
-  <div class="project-card" id="p3">
-    <div class="card-top" onclick="toggle('p3')">
-      <div class="card-icon icon-orange">🛂</div>
-      <div class="card-top-content">
-        <div class="card-top-row">
-          <span class="card-domain">Ensemble ML · SMOTE</span>
-        </div>
-        <h3>EasyVisa Certification Prediction</h3>
-        <p class="card-summary">US visa outcome prediction on 25,480 OFLC applications. Compared 6 ensemble classifiers × 3 sampling strategies. Gradient Boosting + SMOTE achieved Recall 0.871 and F1 0.826 on test set.</p>
-        <div class="card-metrics">
-          <div class="metric"><span class="metric-label">Test Recall</span><span class="metric-value mv-green">0.871</span></div>
-          <div class="metric"><span class="metric-label">Test F1</span><span class="metric-value mv-blue">0.826</span></div>
-          <div class="metric"><span class="metric-label">Test Accuracy</span><span class="metric-value mv-orange">75.6%</span></div>
-        </div>
-      </div>
-      <div class="card-chevron">▼</div>
-    </div>
-    <div class="card-body">
-      <div class="card-body-inner">
-        <div class="detail-section">
-          <h4>Business Problem</h4>
-          <ul>
-            <li>OFLC processes 500K+ employer-sponsored visa applications/year. EasyVisa (consulting firm) needs a model to recommend Certified vs. Denied — enabling immigration lawyers and HR teams to prioritize strong candidates</li>
-            <li><strong>Dataset:</strong> 25,480 applications · 12 features · continent, education, job_experience, prevailing_wage, unit_of_wage, full_time_position, region</li>
-            <li><strong>Metric priority:</strong> Recall — missing a certifiable candidate is a direct revenue loss for the firm</li>
-          </ul>
-        </div>
-        <div class="detail-section green">
-          <h4>EDA &amp; Class Imbalance Strategy</h4>
-          <ul>
-            <li><strong>Class split:</strong> 67% Certified / 33% Denied — moderate imbalance</li>
-            <li><strong>Certification drivers:</strong> Doctorate (~87% certified), job experience (~74%), full-time roles, wages &gt;$70K, Europe/Africa origin</li>
-            <li><strong>Denial drivers:</strong> High School education (~34% certified), no experience, hourly wages, Island regions</li>
-            <li><strong>3 sampling strategies compared:</strong> Original · SMOTE oversampling · Random undersampling</li>
-            <li>SMOTE consistently outperformed on minority-class recall across all models</li>
-          </ul>
-        </div>
-        <div class="detail-section orange">
-          <h4>Model Comparison (SMOTE, validation set)</h4>
-          <table class="metric-table">
-            <thead><tr><th>Model</th><th>Recall</th><th>F1</th><th>Accuracy</th></tr></thead>
-            <tbody>
-              <tr><td>Random Forest</td><td class="num">0.842</td><td class="num">0.808</td><td class="num">0.733</td></tr>
-              <tr><td>AdaBoost</td><td class="num">0.836</td><td class="num">0.806</td><td class="num">0.732</td></tr>
-              <tr class="best"><td><strong>Gradient Boosting ★</strong></td><td class="num">0.846</td><td class="num">0.810</td><td class="num">0.735</td></tr>
-              <tr><td>XGBoost</td><td class="num">0.850</td><td class="num">0.812</td><td class="num">0.737</td></tr>
-            </tbody>
-          </table>
-          <ul style="margin-top:0.75rem">
-            <li>Best GBM params: <strong>n_estimators=175, lr=0.1, subsample=0.9, max_features=0.5</strong></li>
-            <li>Test set: Accuracy 0.756 · Recall 0.871 · Precision 0.786 · F1 0.826</li>
-          </ul>
-        </div>
-        <div class="detail-section purple">
-          <h4>Conclusions &amp; Recommendations</h4>
-          <ul>
-            <li>Deploy GBM model as a web API for real-time triage of new applications with a feature-impact dashboard</li>
-            <li>OFLC: auto-approve high-confidence (&gt;80%) predictions; audit for wage anomalies and Asian-origin approval bias</li>
-            <li>Applicants: pursue higher education, gain experience, target full-time roles with &gt;$70K wages</li>
-            <li>Retrain annually — immigration policy shifts affect approval patterns</li>
-            <li>Future: ensemble GBM + XGBoost; normalize wage units (hourly → annual) before modeling</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card-tags">
-        <span class="tag">XGBoost</span><span class="tag">Gradient Boosting</span><span class="tag">Random Forest</span><span class="tag">AdaBoost</span><span class="tag">SMOTE</span><span class="tag">GridSearchCV</span><span class="tag">imbalanced-learn</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── 4. BANK CHURN ─── -->
-  <div class="project-card" id="p4">
-    <div class="card-top" onclick="toggle('p4')">
-      <div class="card-icon icon-red">🧠</div>
-      <div class="card-top-content">
-        <div class="card-top-row">
-          <span class="card-domain">Deep Learning · ANN</span>
-        </div>
-        <h3>Bank Churn Prediction — Neural Networks</h3>
-        <p class="card-summary">Predicted 6-month churn for 10,000 customers (20.4% churn rate). Compared 6 ANN variants across optimizer choice, dropout, and SMOTE. Final model: SMOTE + Adam + Dropout → validation recall 0.705.</p>
-        <div class="card-metrics">
-          <div class="metric"><span class="metric-label">Val Recall</span><span class="metric-value mv-green">0.705</span></div>
-          <div class="metric"><span class="metric-label">Test Accuracy</span><span class="metric-value mv-blue">77%</span></div>
-          <div class="metric"><span class="metric-label">True Positives</span><span class="metric-value mv-orange">291 churners caught</span></div>
-        </div>
-      </div>
-      <div class="card-chevron">▼</div>
-    </div>
-    <div class="card-body">
-      <div class="card-body-inner">
-        <div class="detail-section">
-          <h4>Business Problem</h4>
-          <ul>
-            <li>Retaining a customer costs 5–25× less than acquiring one. Bank needs to flag churners 6 months out to enable proactive retention campaigns</li>
-            <li><strong>Dataset:</strong> 10,000 customers · 14 features · CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts, IsActiveMember, EstimatedSalary</li>
-            <li><strong>Class imbalance:</strong> 20.4% churned — SMOTE required on training set only (no leakage)</li>
-            <li><strong>Metric priority:</strong> Recall — missing a churner is costlier than contacting a non-churner</li>
-          </ul>
-        </div>
-        <div class="detail-section green">
-          <h4>EDA Key Findings</h4>
-          <ul>
-            <li><strong>Germany:</strong> ~32% churn vs. France/Spain significantly lower — geographic segmentation critical</li>
-            <li><strong>Inactive members:</strong> churn ~27% — nearly 2× active member rate</li>
-            <li><strong>Age 40–50:</strong> highest-risk cohort; younger customers more loyal</li>
-            <li><strong>Product count:</strong> customers with 1 or 4 products churn more than those with 2–3 (sweet spot)</li>
-            <li>Preprocessing: one-hot Geography, label-encode Gender, MinMax scale numerics, SMOTE on train set only</li>
-          </ul>
-        </div>
-        <div class="detail-section orange">
-          <h4>ANN Architecture Comparison</h4>
-          <table class="metric-table">
-            <thead><tr><th>Model</th><th>Val Recall</th><th>Train Recall</th></tr></thead>
-            <tbody>
-              <tr><td>SGD baseline</td><td class="num">0.197</td><td class="num">0.222</td></tr>
-              <tr><td>Adam optimizer</td><td class="num">0.440</td><td class="num">0.601</td></tr>
-              <tr><td>Adam + Dropout</td><td class="num">0.455</td><td class="num">0.566</td></tr>
-              <tr><td>SMOTE + SGD</td><td class="num">0.668</td><td class="num">0.760</td></tr>
-              <tr><td>SMOTE + Adam</td><td class="num">0.654</td><td class="num">0.951</td></tr>
-              <tr class="best"><td><strong>SMOTE + Adam + Dropout ★</strong></td><td class="num">0.705</td><td class="num">0.901</td></tr>
-            </tbody>
-          </table>
-          <ul style="margin-top:0.75rem">
-            <li>Final architecture: Input → Dense(64, ReLU) → Dropout(0.2) → Dense(32, ReLU) → Dropout(0.2) → Dense(8, ReLU) → Dense(1, Sigmoid)</li>
-          </ul>
-        </div>
-        <div class="detail-section purple">
-          <h4>Conclusions &amp; Recommendations</h4>
-          <ul>
-            <li>Deploy in CRM to flag customers with churn probability ≥0.5 for targeted retention outreach</li>
-            <li>High-risk profiles: inactive users + German customers + single-product holders + low credit score</li>
-            <li>Offer personalized retention: fee waivers, cross-sell discounts, loyalty rewards for these segments</li>
-            <li>Accept moderate false positives — over-contacting is cheaper than losing a customer</li>
-            <li>Retrain periodically as customer behavior and macroeconomic conditions evolve</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card-tags">
-        <span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">ANN</span><span class="tag">Dropout</span><span class="tag">Adam</span><span class="tag">SMOTE</span><span class="tag">Binary Crossentropy</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── 5. RENEWIND ─── -->
-  <div class="project-card" id="p5">
-    <div class="card-top" onclick="toggle('p5')">
-      <div class="card-icon icon-teal">⚡</div>
-      <div class="card-top-content">
-        <div class="card-top-row">
-          <span class="card-domain">Deep Learning · Predictive Maintenance</span>
-        </div>
-        <h3>ReneWind Turbine Failure Prediction</h3>
-        <p class="card-summary">Predictive maintenance on wind turbines using 40 anonymized sensor features (20K training samples, 5.55% failure rate). Model 5 — 256→128→64→32 ANN with Adam + Dropout — achieved 99.02% accuracy and 0.85 failure recall on test set.</p>
-        <div class="card-metrics">
-          <div class="metric"><span class="metric-label">Test Accuracy</span><span class="metric-value mv-green">99.02%</span></div>
-          <div class="metric"><span class="metric-label">Failure Recall</span><span class="metric-value mv-blue">0.85</span></div>
-          <div class="metric"><span class="metric-label">Failure Precision</span><span class="metric-value mv-orange">0.98</span></div>
-        </div>
-      </div>
-      <div class="card-chevron">▼</div>
-    </div>
-    <div class="card-body">
-      <div class="card-body-inner">
-        <div class="detail-section">
-          <h4>Business Problem</h4>
-          <ul>
-            <li>Undetected turbine generator failures cause catastrophic breakdowns — far more expensive than unnecessary maintenance checks</li>
-            <li><strong>Asymmetric cost:</strong> False negative (missed failure) &gt;&gt; False positive (unnecessary inspection) → Recall is the primary metric</li>
-            <li><strong>Dataset:</strong> 20K training + 5K test · 40 ciphered sensor features (V1–V40) · ~5.55% failure rate</li>
-            <li>Feature names anonymized — no domain interpretation possible; purely data-driven approach</li>
-          </ul>
-        </div>
-        <div class="detail-section green">
-          <h4>Modeling Approach</h4>
-          <ul>
-            <li><strong>Class imbalance strategy:</strong> Class weights via <code>compute_class_weight</code> (not SMOTE — sensor data continuity preserved)</li>
-            <li><strong>Architecture search:</strong> 7 models (Model 0–6), progressively deeper with regularization</li>
-            <li>Added BatchNormalization for training stability on deep architectures</li>
-            <li>50% Dropout to prevent co-adaptation in dense layers</li>
-            <li>Evaluated on recall-first basis — prioritized not missing failures over overall accuracy</li>
-          </ul>
-        </div>
-        <div class="detail-section orange">
-          <h4>Model Comparison (Validation Set)</h4>
-          <table class="metric-table">
-            <thead><tr><th>Model</th><th>Val Acc</th><th>Val Recall</th><th>Val F1</th></tr></thead>
-            <tbody>
-              <tr><td>Model 0 (baseline)</td><td class="num">0.990</td><td class="num">0.918</td><td class="num">0.949</td></tr>
-              <tr><td>Model 2 (+ Dropout)</td><td class="num">0.992</td><td class="num">0.932</td><td class="num">0.959</td></tr>
-              <tr><td>Model 3 (+ Class Wts)</td><td class="num">0.990</td><td class="num">0.946</td><td class="num">0.951</td></tr>
-              <tr class="best"><td><strong>Model 5 ★ (256→32, Adam)</strong></td><td class="num">0.991</td><td class="num">0.930</td><td class="num">0.956</td></tr>
-              <tr><td>Model 6 (+ Class Wts)</td><td class="num">0.991</td><td class="num">0.945</td><td class="num">0.957</td></tr>
-            </tbody>
-          </table>
-          <ul style="margin-top:0.75rem">
-            <li>Model 5 architecture: 256 → 128 → 64 → 32 neurons, ReLU, 50% Dropout, Adam, Sigmoid output</li>
-            <li>Test set: Accuracy 99.02% · Failure Recall 0.85 · Failure Precision 0.98 · F1 0.91</li>
-          </ul>
-        </div>
-        <div class="detail-section purple">
-          <h4>Conclusions &amp; Recommendations</h4>
-          <ul>
-            <li>Deploy Model 5 in turbine monitoring for real-time failure prediction; batch scoring for fleet-wide risk ranking</li>
-            <li>Lower decision threshold from 0.5 → 0.40–0.45 to increase recall if breakdown cost exceeds inspection cost</li>
-            <li>"Healthy" turbines (low failure probability) can have extended maintenance intervals — direct cost savings</li>
-            <li>Future: ensemble Model 5 + Model 6; add time-series features (vibration/temperature trends); retrain as sensor data accumulates</li>
-            <li>Slight recall drop from validation (0.93) to test (0.85) — investigate for distribution shift in test sensors</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card-tags">
-        <span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">BatchNormalization</span><span class="tag">Dropout</span><span class="tag">Class Weights</span><span class="tag">Adam</span><span class="tag">Imbalanced Data</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── 6. HELMNET ─── -->
-  <div class="project-card" id="p6">
-    <div class="card-top" onclick="toggle('p6')">
-      <div class="card-icon icon-yellow">👷</div>
-      <div class="card-top-content">
-        <div class="card-top-row">
-          <span class="card-domain">Computer Vision · Transfer Learning</span>
-        </div>
-        <h3>HelmNet — Safety Helmet Detection</h3>
-        <p class="card-summary">Binary image classifier for construction site PPE compliance — "With Helmet" vs "Without Helmet" on 631 images. Progressed from custom CNN to VGG-16 with data augmentation. Final model achieved 100% accuracy, precision, recall, and F1 on test set.</p>
-        <div class="card-metrics">
-          <div class="metric"><span class="metric-label">Test Accuracy</span><span class="metric-value mv-green">100%</span></div>
-          <div class="metric"><span class="metric-label">Precision / Recall / F1</span><span class="metric-value mv-blue">1.00 / 1.00 / 1.00</span></div>
-          <div class="metric"><span class="metric-label">Inference</span><span class="metric-value mv-orange">~78ms/step</span></div>
-        </div>
-      </div>
-      <div class="card-chevron">▼</div>
-    </div>
-    <div class="card-body">
-      <div class="card-body-inner">
-        <div class="detail-section">
-          <h4>Business Problem</h4>
-          <ul>
-            <li>Manual PPE compliance checking at construction/industrial sites is labor-intensive and misses violations in real time</li>
-            <li><strong>Dataset:</strong> 631 images · 311 "With Helmet" · 320 "Without Helmet" · varied environments (construction, factory, industrial)</li>
-            <li>Images resized to 200×200×3 RGB; loaded via Keras ImageDataGenerator with train/val/test split</li>
-            <li>Small dataset → transfer learning from ImageNet is essential</li>
-          </ul>
-        </div>
-        <div class="detail-section green">
-          <h4>Model Progression</h4>
-          <ul>
-            <li><strong>Model 1 — Custom CNN:</strong> Conv2D → MaxPool → Conv2D → MaxPool → Flatten → Dense → Sigmoid. Baseline from scratch</li>
-            <li><strong>Model 2 — VGG-16 frozen:</strong> ImageNet weights, no top layers, GlobalAvgPool + Sigmoid head. Leverages low-level edge/texture features</li>
-            <li><strong>Model 3 — VGG-16 fine-tuned:</strong> Unfroze upper VGG layers + Dense(256, ReLU) → Dropout → Sigmoid. Better domain adaptation</li>
-            <li><strong>Model 4 — VGG-16 + Augmentation:</strong> Added rotations, flips, shifts, zoom. Decisive factor for real-world generalization</li>
-          </ul>
-        </div>
-        <div class="detail-section orange">
-          <h4>Results — All Models</h4>
-          <table class="metric-table">
-            <thead><tr><th>Model</th><th>Train Acc</th><th>Val Acc</th><th>Test Acc</th></tr></thead>
-            <tbody>
-              <tr><td>Custom CNN</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">—</td></tr>
-              <tr><td>VGG-16 Frozen</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">—</td></tr>
-              <tr><td>VGG-16 + FFNN</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">—</td></tr>
-              <tr class="best"><td><strong>VGG-16 + Aug ★</strong></td><td class="num">1.00</td><td class="num">1.00</td><td class="num">1.00</td></tr>
-            </tbody>
-          </table>
-          <ul style="margin-top:0.75rem">
-            <li>Confusion matrix: 32 TP + 32 TN, <strong>zero errors</strong></li>
-            <li>Augmentation's value is not improving current metrics (already 100%) — it adds robustness for real-world deployment edge cases</li>
-          </ul>
-        </div>
-        <div class="detail-section purple">
-          <h4>Conclusions &amp; Recommendations</h4>
-          <ul>
-            <li>Export to TensorFlow Lite for edge deployment (Raspberry Pi, Android cameras at site entrances)</li>
-            <li>Apply 8-bit quantization → 75% model size reduction with no accuracy loss</li>
-            <li>Extend to YOLOv8 bounding-box detection for multi-person frame analysis</li>
-            <li>Add 500+ diverse images (dusk, rain, occlusion) to validate robustness on harder cases</li>
-            <li>Estimated ROI: <strong>20–30% reduction in PPE violations</strong> at construction sites</li>
-            <li>GDPR consideration: blur identifiable facial features before storing images in cloud pipelines</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card-tags">
-        <span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">VGG-16</span><span class="tag">Transfer Learning</span><span class="tag">Data Augmentation</span><span class="tag">ImageDataGenerator</span><span class="tag">OpenCV</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── 7. SUPERKART ─── -->
-  <div class="project-card" id="p7">
-    <div class="card-top" onclick="toggle('p7')">
-      <div class="card-icon icon-purple">🚀</div>
-      <div class="card-top-content">
-        <div class="card-top-row">
-          <span class="card-domain">MLOps · Model Deployment</span>
-        </div>
-        <h3>SuperKart Sales Forecasting + Full Deployment</h3>
-        <p class="card-summary">End-to-end ML pipeline — retail sales regression with a Flask REST API backend, Streamlit UI frontend, Dockerized container, and full deployment on HuggingFace Spaces. OUT004 (Supermarket Type 2, Tier 2) generated the highest revenue at 15.4M.</p>
-        <div class="card-metrics">
-          <div class="metric"><span class="metric-label">Top store revenue</span><span class="metric-value mv-green">15,427,583 (OUT004)</span></div>
-          <div class="metric"><span class="metric-label">Deployment</span><span class="metric-value mv-purple">Flask + Streamlit on HuggingFace</span></div>
-          <div class="metric"><span class="metric-label">Models compared</span><span class="metric-value mv-blue">6 regressors</span></div>
-        </div>
-      </div>
-      <div class="card-chevron">▼</div>
-    </div>
-    <div class="card-body">
-      <div class="card-body-inner">
-        <div class="detail-section">
-          <h4>Business Problem</h4>
-          <ul>
-            <li>SuperKart needs accurate quarterly sales forecasts per product-store combination to optimize inventory, reduce waste, and align supply chains</li>
-            <li><strong>Target:</strong> <code>Product_Store_Sales_Total</code> (quarterly revenue per product per store)</li>
-            <li><strong>Features:</strong> Product_Type, Product_MRP, Store_Size, Store_Location_City_Type, Store_Type, Store_Age_Years, Product_Fat_Content, Product_Visibility</li>
-            <li>4 stores (OUT001–OUT004) across Tier 1/2/3 cities and Supermarket/Grocery types</li>
-          </ul>
-        </div>
-        <div class="detail-section green">
-          <h4>EDA Key Findings</h4>
-          <ul>
-            <li><strong>OUT004</strong> (Supermarket Type 2, Tier 2, medium) — 53% of total revenue</li>
-            <li><strong>OUT002</strong> (Food Mart, Tier 3, small) — lowest revenue; different product mix needed</li>
-            <li>Fruits &amp; vegetables and snack foods are highest-selling categories across all stores</li>
-            <li>OUT003 (Departmental, Tier 1) supports highest per-product price range ($3,070–$8,000)</li>
-            <li>Store type + city tier + product MRP are the strongest revenue predictors</li>
-          </ul>
-        </div>
-        <div class="detail-section orange">
-          <h4>Deployment Pipeline</h4>
-          <ul>
-            <li><strong>Step 1:</strong> sklearn Pipeline — OneHotEncoder + numeric passthrough + regressor (consistent train/inference transforms)</li>
-            <li><strong>Step 2:</strong> GridSearchCV across 6 models — Decision Tree, Bagging, Random Forest, AdaBoost, GBM, XGBoost</li>
-            <li><strong>Step 3:</strong> joblib serialization of best pipeline to <code>.pkl</code></li>
-            <li><strong>Step 4:</strong> Flask REST API — <code>POST /v1/predict</code> endpoint with JSON input/output</li>
-            <li><strong>Step 5:</strong> Docker container for Flask API → deployed to HuggingFace Docker Space</li>
-            <li><strong>Step 6:</strong> Streamlit frontend UI → deployed to HuggingFace Streamlit Space</li>
-          </ul>
-        </div>
-        <div class="detail-section purple">
-          <h4>Conclusions &amp; Recommendations</h4>
-          <ul>
-            <li>API-driven forecasting enables supply chain and procurement teams to get per-product predictions without data science involvement</li>
-            <li>Tier 1 / Type 1 stores can support higher-MRP products; Tier 3 stores should focus on high-volume, lower-MRP staples</li>
-            <li>Increase display area allocation for snack foods and fruits/vegetables — highest-revenue categories consistently</li>
-            <li>This project demonstrates the full MLOps loop — from raw data to a publicly accessible REST API</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card-tags">
-        <span class="tag">scikit-learn Pipeline</span><span class="tag">XGBoost</span><span class="tag">Flask</span><span class="tag">Streamlit</span><span class="tag">Docker</span><span class="tag">HuggingFace Spaces</span><span class="tag">joblib</span><span class="tag">gunicorn</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── 8. MEDICAL RAG ─── -->
-  <div class="project-card" id="p8">
-    <div class="card-top" onclick="toggle('p8')">
-      <div class="card-icon icon-pink">🏥</div>
-      <div class="card-top-content">
-        <div class="card-top-row">
-          <span class="card-domain">NLP · RAG · Generative AI</span>
-        </div>
-        <h3>Medical RAG Assistant</h3>
-        <p class="card-summary">RAG-based Q&amp;A system over the 4,114-page Merck Manual using LangChain + ChromaDB + Mistral-7B. Baseline LLM hallucinated on all 5 clinical queries. RAG achieved perfect Groundedness (5/5) and high Relevance (4–5/5) across all queries.</p>
-        <div class="card-metrics">
-          <div class="metric"><span class="metric-label">Groundedness</span><span class="metric-value mv-green">5/5 all queries</span></div>
-          <div class="metric"><span class="metric-label">Relevance</span><span class="metric-value mv-blue">4–5/5 all queries</span></div>
-          <div class="metric"><span class="metric-label">Chunks indexed</span><span class="metric-value mv-orange">4,692 passages</span></div>
-        </div>
-      </div>
-      <div class="card-chevron">▼</div>
-    </div>
-    <div class="card-body">
-      <div class="card-body-inner">
-        <div class="detail-section">
-          <h4>Business Problem</h4>
-          <ul>
-            <li>The Merck Manual spans 4,114 pages across 23 clinical sections — clinicians cannot search it quickly during patient care</li>
-            <li>Baseline LLMs truncate responses at 128 tokens and hallucinate citations — clinically dangerous</li>
-            <li><strong>Goal:</strong> Build a grounded Q&amp;A system that answers medical queries with real citations from the Merck Manual, zero hallucinations</li>
-          </ul>
-        </div>
-        <div class="detail-section green">
-          <h4>RAG Pipeline Architecture</h4>
-          <ul>
-            <li><strong>Ingestion:</strong> PyMuPDFLoader → 4,114-page PDF → RecursiveCharacterTextSplitter (chunk_overlap=200) → 4,692 chunks</li>
-            <li><strong>Embeddings:</strong> SentenceTransformerEmbeddings (general-purpose; identified as upgrade opportunity → BioBERT)</li>
-            <li><strong>Vector store:</strong> ChromaDB (persistent) with k=3 retrieval (identified as too restrictive for multi-topic queries)</li>
-            <li><strong>LLM:</strong> Mistral-7B-Instruct-v0.2 (Q6_K quantized, llama.cpp) · max_tokens=128 · temperature=0</li>
-            <li><strong>Chain:</strong> LangChain RetrievalQA with custom medical prompt template</li>
-          </ul>
-        </div>
-        <div class="detail-section orange">
-          <h4>Experiment Results</h4>
-          <table class="metric-table">
-            <thead><tr><th>Query</th><th>Groundedness</th><th>Relevance</th></tr></thead>
-            <tbody>
-              <tr><td>Sepsis management</td><td class="num">5/5</td><td class="num">4/5</td></tr>
-              <tr><td>Appendicitis</td><td class="num">5/5</td><td class="num">4/5</td></tr>
-              <tr class="best"><td>Alopecia areata</td><td class="num">5/5</td><td class="num">5/5</td></tr>
-              <tr><td>Brain injury (TBI)</td><td class="num">5/5</td><td class="num">4/5</td></tr>
-              <tr><td>Wilderness leg fracture</td><td class="num">5/5</td><td class="num">4/5</td></tr>
-            </tbody>
-          </table>
-          <ul style="margin-top:0.75rem">
-            <li>Baseline LLM: hallucinated citations, truncated at 128 tokens, zero groundedness</li>
-            <li>Prompt engineering alone: marginal improvement, hallucination persisted</li>
-          </ul>
-        </div>
-        <div class="detail-section purple">
-          <h4>Conclusions &amp; Recommendations</h4>
-          <ul>
-            <li><strong>Immediate:</strong> Switch to BioBERT embeddings (+20% estimated retrieval accuracy); increase max_tokens to 256–512; increase k from 3 → 5–7</li>
-            <li><strong>Short-term:</strong> Expand eval to 100-query expert-validated test set; add confidence scoring to flag uncertain responses; hybrid search (semantic + keyword)</li>
-            <li><strong>Long-term:</strong> Pilot with 10–20 clinicians; multi-source KB integration; HIPAA/GDPR-compliant data handling</li>
-            <li>Add "This is not medical advice — consult a physician" disclaimer for any patient-facing deployment</li>
-            <li>Monetization: SaaS for clinics/hospitals; API licensing for EMR software vendors</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card-tags">
-        <span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">SentenceTransformers</span><span class="tag">Mistral-7B</span><span class="tag">llama.cpp</span><span class="tag">PyMuPDF</span><span class="tag">HuggingFace Hub</span>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<footer>
-  <p>Built by <strong>Ravisha Kaggundi Suryanarayana</strong> &nbsp;·&nbsp;
-  <a href="https://github.com/ravishakaggundi" target="_blank">GitHub</a> &nbsp;·&nbsp;
-  <a href="https://www.linkedin.com/in/ravisha-kaggundi-suryanarayana/" target="_blank">LinkedIn</a>
+<!-- ── HERO / ABOUT ── -->
+<section class="section" id="about">
+  <div class="hero-badge">Full-Stack AI/ML · Digital Transformation · 25+ Years</div>
+  <h1 class="hero">Ravisha <span>Kaggundi</span> Suryanarayana</h1>
+  <div class="hero-role">Senior Delivery Manager · Salesforce MuleSoft Professional Services</div>
+  <div class="hero-tagline">25+ years leading enterprise digital transformation · AI/ML practitioner · UT Austin PGP AI/ML (GPA 4.33, Top 5 of 150+)</div>
+  <p class="hero-bio">
+    From selling farm produce as a street vendor in rural India to leading $12M+ professional services engagements at Salesforce — my career has been defined by transforming complexity into value. I started as a software engineer at GE, built and scaled 100+ person teams at Nokia, and now lead strategic digital transformation programs at Salesforce. In 2025 I completed UT Austin's Post Graduate Program in AI/ML, adding deep technical AI skills to 25 years of enterprise delivery leadership.
   </p>
-  <p style="margin-top:0.5rem;">UT Austin Post Graduate Program in AI/ML &nbsp;·&nbsp; 8 Capstone Projects</p>
+  <div class="hero-meta">
+    <span>📍 Austin, TX</span>
+    <span>🏢 Salesforce · MuleSoft</span>
+    <span>🎓 UT Austin PGP AI/ML · BMS College BE</span>
+    <span>⏱ 25+ years experience</span>
+  </div>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="Ravisha_Kaggundi_Resume.pdf" download>⬇ Download Resume</a>
+    <a class="btn btn-outline" href="https://www.linkedin.com/in/ravisha-kaggundi-suryanarayana/" target="_blank">LinkedIn</a>
+    <a class="btn btn-outline" href="https://github.com/ravishakaggundi" target="_blank">GitHub</a>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section class="section" id="experience">
+  <div class="section-label">Career</div>
+  <div class="section-title">Experience</div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot current">☁</div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Senior Delivery Manager (Engagement Delivery Senior Manager)</div>
+            <div class="tl-company">Salesforce · MuleSoft Professional Services</div>
+          </div>
+          <span class="tl-period">Sep 2021 – Present</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Delivered <strong>$12M+ in professional services revenue</strong> across 5 strategic engagements; influenced <strong>$6M+ in expansion revenue</strong> (Hertz $3.3M, GM $2.5M, Daikin $1.3M+)</li>
+          <li>Led GM OnCRM ($4M engagement) achieving <strong>$11M TCO reduction</strong>; Daikin multi-cloud ($4.1M) delivering <strong>34% attrition reduction</strong> and $30M+ in partner value</li>
+          <li>Maintained <strong>5/5 CSAT</strong> for 4 consecutive quarters; <strong>127% utilization</strong> Q1 FY25; 200+ integrations and 530+ use cases delivered</li>
+          <li>Mentored 2 Delivery Managers and 3 Solution Architects; contributed to hiring 3 top-performing DMs</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">MuleSoft Anypoint</span><span class="tl-tag">Salesforce Multi-Cloud</span><span class="tl-tag">CloudHub 2.0</span><span class="tl-tag">P&L Management</span><span class="tl-tag">Agile/SAFe</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">📡</div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Customer Program Manager — Cloud &amp; Network Services</div>
+            <div class="tl-company">Nokia</div>
+          </div>
+          <span class="tl-period">Jan 2015 – Aug 2021</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Delivered <strong>$75M+ in revenue</strong>, <strong>$100M+ in cost avoidance</strong>, and <strong>$10M+ in productivity savings</strong> across AT&T, Verizon, and other Tier-1 carriers</li>
+          <li>AT&T engagement: 400+ use cases, 40+ integrations; <strong>grew single Nokia account from $100K to $16M</strong> annual revenue</li>
+          <li>Nokia Verizon: <strong>$4M productivity savings</strong>, $25M revenue at 50% margin; built 100+ person professional services organization</li>
+          <li>Recipient of Nokia Applaud Excellence, A&A Business Excellence, and Global Innovation Award (2017)</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">Cloud Network Services</span><span class="tl-tag">AT&T</span><span class="tl-tag">Verizon</span><span class="tl-tag">P&L</span><span class="tl-tag">Team Leadership</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">📡</div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Senior Program Manager — Professional Services</div>
+            <div class="tl-company">Alcatel-Lucent</div>
+          </div>
+          <span class="tl-period">Aug 2009 – Dec 2015</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Led large-scale network transformation programs for Tier-1 telecom operators across North America and Europe</li>
+          <li>Built and scaled professional services delivery capability; managed cross-functional teams of 50+ across time zones</li>
+          <li>Established delivery standards and frameworks that became organizational best practices</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">Network Transformation</span><span class="tl-tag">Professional Services</span><span class="tl-tag">Telecom</span><span class="tl-tag">Cross-Functional Leadership</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">💻</div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Project Manager</div>
+            <div class="tl-company">Trilogy (Ford/FordDirect.com)</div>
+          </div>
+          <span class="tl-period">Jun 2007 – Jul 2009</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Delivered <strong>$16M FordDirect.com</strong> digital program with 30+ engineers across 4 countries at <strong>70% margin</strong></li>
+          <li>Managed full SDLC from requirements through production launch for high-traffic consumer automotive platform</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">Ford</span><span class="tl-tag">Digital Platforms</span><span class="tl-tag">Distributed Teams</span><span class="tl-tag">SDLC</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">⚡</div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Senior Software Engineer → Assistant Vice President</div>
+            <div class="tl-company">General Electric · GE Capital</div>
+          </div>
+          <span class="tl-period">Dec 1999 – May 2007</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Established <strong>MIS Reporting Center of Excellence</strong> generating <strong>$2M annual revenue</strong>; PLM/PDM automation delivering <strong>$2M+ annual cost savings</strong>, 200+ use cases</li>
+          <li>Led GE Consumer Finance digital transformation — <strong>Diamond Award recipient (2007)</strong></li>
+          <li>Rose from software engineer to AVP across 7 years; 10+ Management Awards for digital transformation</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">Java/J2EE</span><span class="tl-tag">PLM/PDM</span><span class="tl-tag">MIS</span><span class="tl-tag">Six Sigma Green Belt</span><span class="tl-tag">Digital Transformation</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section class="section" id="skills">
+  <div class="section-label">Capabilities</div>
+  <div class="section-title">Skills &amp; Tech Stack</div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title"><span>🤖</span> AI/ML &amp; Data Science</div>
+      <div class="pills">
+        <span class="pill blue">Python</span><span class="pill blue">TensorFlow</span><span class="pill blue">Keras</span>
+        <span class="pill blue">scikit-learn</span><span class="pill blue">XGBoost</span><span class="pill blue">PyTorch</span>
+        <span class="pill blue">LangChain</span><span class="pill blue">RAG</span><span class="pill blue">ChromaDB</span>
+        <span class="pill blue">Mistral-7B</span><span class="pill blue">MLOps</span><span class="pill blue">Prompt Engineering</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span>☁</span> Cloud &amp; Integration</div>
+      <div class="pills">
+        <span class="pill green">AWS</span><span class="pill green">Google Cloud</span>
+        <span class="pill green">Salesforce Multi-Cloud</span><span class="pill green">MuleSoft Anypoint</span>
+        <span class="pill green">CloudHub 2.0</span><span class="pill green">Runtime Fabric</span>
+        <span class="pill green">REST/SOAP APIs</span><span class="pill green">Microservices</span>
+        <span class="pill green">API Management</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span>🛠</span> DevOps &amp; Deployment</div>
+      <div class="pills">
+        <span class="pill purple">Docker</span><span class="pill purple">Kubernetes</span>
+        <span class="pill purple">Git</span><span class="pill purple">CI/CD</span>
+        <span class="pill purple">Terraform</span><span class="pill purple">Flask</span>
+        <span class="pill purple">Streamlit</span><span class="pill purple">HuggingFace Spaces</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span>📊</span> Data &amp; Analytics</div>
+      <div class="pills">
+        <span class="pill orange">pandas</span><span class="pill orange">NumPy</span>
+        <span class="pill orange">Matplotlib</span><span class="pill orange">Seaborn</span>
+        <span class="pill orange">SMOTE</span><span class="pill orange">Feature Engineering</span>
+        <span class="pill orange">EDA</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span>🎯</span> Leadership &amp; Strategy</div>
+      <div class="pills">
+        <span class="pill red">P&amp;L Management</span><span class="pill red">Digital Transformation</span>
+        <span class="pill red">Executive Stakeholder Mgmt</span><span class="pill red">Agile/SAFe</span>
+        <span class="pill red">Team Leadership (50+)</span><span class="pill red">Change Management</span>
+        <span class="pill red">Vendor Management</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ── -->
+<section class="section" id="certifications">
+  <div class="section-label">Credentials</div>
+  <div class="section-title">Certifications</div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon ci-orange">☁</div>
+      <div class="cert-info">
+        <div class="cert-name">AWS Certified Cloud Practitioner</div>
+        <div class="cert-body">Amazon Web Services</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon ci-blue">📋</div>
+      <div class="cert-info">
+        <div class="cert-name">Project Management Professional (PMP)</div>
+        <div class="cert-body">Project Management Institute</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon ci-teal">⚡</div>
+      <div class="cert-info">
+        <div class="cert-name">SAFe 6 Agilist</div>
+        <div class="cert-body">Scaled Agile</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon ci-teal">🔄</div>
+      <div class="cert-info">
+        <div class="cert-name">SAFe 6 Advanced Scrum Master</div>
+        <div class="cert-body">Scaled Agile</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon ci-blue">🤖</div>
+      <div class="cert-info">
+        <div class="cert-name">Salesforce AI Specialist (Agentforce)</div>
+        <div class="cert-body">Salesforce</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon ci-blue">🧠</div>
+      <div class="cert-info">
+        <div class="cert-name">Salesforce Certified AI Associate</div>
+        <div class="cert-body">Salesforce</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon ci-blue">☁</div>
+      <div class="cert-info">
+        <div class="cert-name">Salesforce Data Cloud Consultant</div>
+        <div class="cert-body">Salesforce</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon ci-blue">🛡</div>
+      <div class="cert-info">
+        <div class="cert-name">Salesforce Certified Administrator</div>
+        <div class="cert-body">Salesforce</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon ci-green">🎯</div>
+      <div class="cert-info">
+        <div class="cert-name">Six Sigma Green Belt</div>
+        <div class="cert-body">General Electric</div>
+      </div>
+    </div>
+  </div>
+  <div class="trailhead-row">
+    <span class="trailhead-label">Trailhead</span>
+    <span class="tbadge">⭐⭐ Double Star Ranger</span>
+    <span class="tbadge">🏆 AgentBlazer Champion 2025</span>
+    <span class="tbadge">💡 AgentBlazer Innovator 2025</span>
+    <span class="tbadge">🌟 AgentBlazer Legend 2025</span>
+  </div>
+</section>
+
+<!-- ── AWARDS ── -->
+<section class="section" id="awards">
+  <div class="section-label">Recognition</div>
+  <div class="section-title">Awards &amp; Achievements</div>
+  <p class="awards-intro">
+    <strong>20+ awards</strong> across Salesforce, Nokia, and GE spanning customer success, innovation, and leadership excellence. UT Austin AI/ML GPA <strong>4.33/4.0</strong>, ranked <strong>top 5 of 150+</strong> students.
+  </p>
+
+  <div class="awards-company">
+    <div class="awards-company-label">Salesforce / MuleSoft — 7 Awards</div>
+    <div class="award-grid">
+      <div class="award-card sf"><div class="award-emoji">🥇</div><div><div class="award-name">Top Engagement Consultant of Q4</div><div class="award-period">2024</div></div></div>
+      <div class="award-card sf"><div class="award-emoji">⚡</div><div><div class="award-name">Speed to Value Award</div><div class="award-period">2023</div></div></div>
+      <div class="award-card sf"><div class="award-emoji">🏆</div><div><div class="award-name">MVP of the Quarter</div><div class="award-period">Dec 2023</div></div></div>
+      <div class="award-card sf"><div class="award-emoji">🌎</div><div><div class="award-name">AMER Digital Transformation Award</div><div class="award-period">Q2 2022</div></div></div>
+      <div class="award-card sf"><div class="award-emoji">✅</div><div><div class="award-name">Doing It Right Award</div><div class="award-period">Q1 2022</div></div></div>
+      <div class="award-card sf"><div class="award-emoji">🚀</div><div><div class="award-name">Rookie of the Quarter</div><div class="award-period">Q4 2021</div></div></div>
+      <div class="award-card sf"><div class="award-emoji">💪</div><div><div class="award-name">Being Fearless Award</div><div class="award-period">Q4 2021</div></div></div>
+    </div>
+  </div>
+
+  <div class="awards-company">
+    <div class="awards-company-label">Nokia — 3 Featured Awards</div>
+    <div class="award-grid">
+      <div class="award-card nokia"><div class="award-emoji">👏</div><div><div class="award-name">Applaud Excellence: Customer Success Mindset</div><div class="award-period">May 2020</div></div></div>
+      <div class="award-card nokia"><div class="award-emoji">🌍</div><div><div class="award-name">A&amp;A Business Excellence Award</div><div class="award-period">Nov 2017</div></div></div>
+      <div class="award-card nokia"><div class="award-emoji">💡</div><div><div class="award-name">Global Innovation Award</div><div class="award-period">2017</div></div></div>
+    </div>
+  </div>
+
+  <div class="awards-company">
+    <div class="awards-company-label">General Electric &amp; Academic</div>
+    <div class="award-grid">
+      <div class="award-card ge"><div class="award-emoji">💎</div><div><div class="award-name">Diamond Award — GE Consumer Finance Digital Transformation</div><div class="award-period">2007</div></div></div>
+      <div class="award-card academic"><div class="award-emoji">🎓</div><div><div class="award-name">UT Austin AI/ML — GPA 4.33/4.0, Top 5 of 150+ Students</div><div class="award-period">2025</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section class="section" id="projects">
+  <div class="section-label">AI/ML · UT Austin PGP Capstones</div>
+  <div class="section-title">Projects</div>
+  <div class="projects-list">
+
+    <!-- 1. FoodHub -->
+    <div class="project-card" id="p1">
+      <div class="card-top" onclick="toggle('p1')">
+        <div class="card-icon icon-blue">📊</div>
+        <div class="card-top-content">
+          <div class="card-top-row"><span class="card-domain">Data Analysis · EDA</span></div>
+          <h3>FoodHub Order Analysis</h3>
+          <p class="card-summary">Exploratory data analysis on 1,898 food delivery orders across 178 NYC restaurants. Answered 17 structured business questions to drive marketing, operations, and revenue strategy.</p>
+          <div class="card-metrics">
+            <div class="metric"><span class="metric-label">Net revenue</span><span class="metric-value mv-green">$6,166</span></div>
+            <div class="metric"><span class="metric-label">SLA breach</span><span class="metric-value mv-orange">10.54% orders &gt;60 min</span></div>
+            <div class="metric"><span class="metric-label">Top restaurant</span><span class="metric-value mv-blue">Shake Shack $3,579</span></div>
+          </div>
+        </div>
+        <div class="card-chevron">▼</div>
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <div class="detail-section">
+            <h4>Business Problem</h4>
+            <ul>
+              <li>FoodHub aggregates orders from multiple NYC restaurants via a single app and wants to understand demand patterns to improve customer experience and profitability</li>
+              <li><strong>Dataset:</strong> 1,898 orders · 9 features · order_id, restaurant, cuisine, cost, day, rating, prep time, delivery time</li>
+              <li><strong>Goal:</strong> Answer 17 business questions through EDA and recommend actionable improvements</li>
+            </ul>
+          </div>
+          <div class="detail-section green">
+            <h4>EDA Approach</h4>
+            <ul>
+              <li><strong>Univariate:</strong> Count plots for cuisine type and day-of-week distribution; histograms for order cost and delivery time</li>
+              <li><strong>Bivariate:</strong> Boxplots of delivery time vs. rating; pointplots of cost vs. prep time by cuisine</li>
+              <li><strong>Correlation heatmap:</strong> Numeric features to identify cost–prep time relationship</li>
+              <li><strong>Revenue calc:</strong> Tiered commission model — 15% (≤$5), 20% ($5–20), 25% (&gt;$20)</li>
+            </ul>
+          </div>
+          <div class="detail-section orange">
+            <h4>Key Findings</h4>
+            <ul>
+              <li><strong>Top cuisines:</strong> American, Japanese, Italian dominate; Vietnamese and Spanish have lowest order share</li>
+              <li><strong>Weekend effect:</strong> Significantly higher order volume; weekday mean delivery 28 min vs. weekend 22 min</li>
+              <li><strong>Rating gap:</strong> 39% of orders left unrated — major feedback blind spot</li>
+              <li><strong>Promo eligibility:</strong> The Meatball Shop (4.51), Blue Ribbon Fried Chicken (4.33), Shake Shack (4.28) qualify</li>
+            </ul>
+          </div>
+          <div class="detail-section purple">
+            <h4>Conclusions &amp; Recommendations</h4>
+            <ul>
+              <li>10.5% of orders exceed 60-min SLA; negative ratings spike above that threshold — prioritize logistics optimization</li>
+              <li>Launch weekday lunch combos and office-delivery discounts to close the weekday engagement gap</li>
+              <li>Loyalty program with personalized offers using order history to retain high-frequency customers</li>
+              <li>Share detailed feedback reports with partner restaurants to help reduce prep time</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">EDA</span></div>
+      </div>
+    </div>
+
+    <!-- 2. AllLife Bank -->
+    <div class="project-card" id="p2">
+      <div class="card-top" onclick="toggle('p2')">
+        <div class="card-icon icon-green">🏦</div>
+        <div class="card-top-content">
+          <div class="card-top-row"><span class="card-domain">Supervised ML · Classification</span></div>
+          <h3>AllLife Bank Personal Loan Prediction</h3>
+          <p class="card-summary">Predicted personal loan acceptance for 5,000 liability customers. Compared baseline, pre-pruned, and post-pruned Decision Trees. Best model (post-pruning, ccp_alpha=0.000641) achieved 98.4% accuracy and 91.8% F1.</p>
+          <div class="card-metrics">
+            <div class="metric"><span class="metric-label">Accuracy</span><span class="metric-value mv-green">98.4%</span></div>
+            <div class="metric"><span class="metric-label">F1</span><span class="metric-value mv-blue">0.918</span></div>
+            <div class="metric"><span class="metric-label">Recall</span><span class="metric-value mv-orange">0.906</span></div>
+          </div>
+        </div>
+        <div class="card-chevron">▼</div>
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <div class="detail-section">
+            <h4>Business Problem</h4>
+            <ul>
+              <li>AllLife Bank wants to convert liability (deposit) customers into asset (loan) customers via targeted campaigns</li>
+              <li><strong>Dataset:</strong> 5,000 customers · 14 features · Age, Income, CCAvg, Education, Mortgage, Family</li>
+              <li><strong>Class imbalance:</strong> Only 9.6% accepted the loan — recall is critical</li>
+            </ul>
+          </div>
+          <div class="detail-section green">
+            <h4>EDA Approach</h4>
+            <ul>
+              <li>Treated negative Experience values (data quality anomaly)</li>
+              <li>Bivariate: loan acceptance vs. income bracket — strong positive correlation above $98.5K</li>
+              <li><strong>CD account holders:</strong> 46.4% loan acceptance vs. 7.2% non-holders — strongest signal after income</li>
+            </ul>
+          </div>
+          <div class="detail-section orange">
+            <h4>Model Comparison</h4>
+            <table class="metric-table">
+              <thead><tr><th>Model</th><th>Accuracy</th><th>Recall</th><th>F1</th></tr></thead>
+              <tbody>
+                <tr><td>Baseline DT</td><td class="num">0.982</td><td class="num">0.899</td><td class="num">0.908</td></tr>
+                <tr><td>Pre-Pruned DT</td><td class="num">0.779</td><td class="num">1.000</td><td class="num">0.474</td></tr>
+                <tr class="best"><td><strong>Post-Pruned DT ★</strong></td><td class="num">0.984</td><td class="num">0.906</td><td class="num">0.918</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="detail-section purple">
+            <h4>Conclusions</h4>
+            <ul>
+              <li><strong>Income (0.82)</strong> is the strongest predictor; target customers above $98.5K</li>
+              <li>CD account holders (46.4% uptake) are the highest-value cross-sell segment</li>
+              <li>ZIP codes 93, 94, 95 cover 75%+ of customers — geo-targeted campaigns recommended</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">scikit-learn</span><span class="tag">Decision Tree</span><span class="tag">Pre-pruning</span><span class="tag">Post-pruning</span><span class="tag">ccp_alpha</span></div>
+      </div>
+    </div>
+
+    <!-- 3. EasyVisa -->
+    <div class="project-card" id="p3">
+      <div class="card-top" onclick="toggle('p3')">
+        <div class="card-icon icon-orange">🛂</div>
+        <div class="card-top-content">
+          <div class="card-top-row"><span class="card-domain">Ensemble ML · SMOTE</span></div>
+          <h3>EasyVisa Certification Prediction</h3>
+          <p class="card-summary">US visa outcome prediction on 25,480 OFLC applications. Compared 6 ensemble classifiers × 3 sampling strategies. Gradient Boosting + SMOTE achieved Recall 0.871 and F1 0.826 on test set.</p>
+          <div class="card-metrics">
+            <div class="metric"><span class="metric-label">Test Recall</span><span class="metric-value mv-green">0.871</span></div>
+            <div class="metric"><span class="metric-label">Test F1</span><span class="metric-value mv-blue">0.826</span></div>
+            <div class="metric"><span class="metric-label">Test Accuracy</span><span class="metric-value mv-orange">75.6%</span></div>
+          </div>
+        </div>
+        <div class="card-chevron">▼</div>
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <div class="detail-section">
+            <h4>Business Problem</h4>
+            <ul>
+              <li>OFLC processes 500K+ employer-sponsored visa applications/year. EasyVisa needs a model to triage Certified vs. Denied</li>
+              <li><strong>Dataset:</strong> 25,480 applications · 12 features · education, experience, prevailing_wage, region</li>
+              <li><strong>Metric priority:</strong> Recall — missing a certifiable candidate is direct revenue loss</li>
+            </ul>
+          </div>
+          <div class="detail-section green">
+            <h4>EDA &amp; Sampling Strategy</h4>
+            <ul>
+              <li>Doctorate (~87% certified), job experience (~74%), full-time roles, wages &gt;$70K are strongest positive signals</li>
+              <li>SMOTE consistently outperformed original data and undersampling across all models</li>
+            </ul>
+          </div>
+          <div class="detail-section orange">
+            <h4>Model Comparison (SMOTE)</h4>
+            <table class="metric-table">
+              <thead><tr><th>Model</th><th>Recall</th><th>F1</th></tr></thead>
+              <tbody>
+                <tr><td>Random Forest</td><td class="num">0.842</td><td class="num">0.808</td></tr>
+                <tr><td>AdaBoost</td><td class="num">0.836</td><td class="num">0.806</td></tr>
+                <tr class="best"><td><strong>Gradient Boosting ★</strong></td><td class="num">0.871</td><td class="num">0.826</td></tr>
+                <tr><td>XGBoost</td><td class="num">0.850</td><td class="num">0.812</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="detail-section purple">
+            <h4>Conclusions</h4>
+            <ul>
+              <li>Deploy GBM as web API for real-time triage; build feature-impact dashboard for lawyers</li>
+              <li>Best params: n_estimators=175, lr=0.1, subsample=0.9, max_features=0.5</li>
+              <li>Retrain annually — immigration policy shifts affect approval patterns</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">XGBoost</span><span class="tag">Gradient Boosting</span><span class="tag">Random Forest</span><span class="tag">SMOTE</span><span class="tag">GridSearchCV</span></div>
+      </div>
+    </div>
+
+    <!-- 4. Bank Churn -->
+    <div class="project-card" id="p4">
+      <div class="card-top" onclick="toggle('p4')">
+        <div class="card-icon icon-red">🧠</div>
+        <div class="card-top-content">
+          <div class="card-top-row"><span class="card-domain">Deep Learning · ANN</span></div>
+          <h3>Bank Churn Prediction — Neural Networks</h3>
+          <p class="card-summary">Predicted 6-month churn for 10,000 customers (20.4% churn rate). Compared 6 ANN variants. Final model: SMOTE + Adam + Dropout → validation recall 0.705, test accuracy 77%.</p>
+          <div class="card-metrics">
+            <div class="metric"><span class="metric-label">Val Recall</span><span class="metric-value mv-green">0.705</span></div>
+            <div class="metric"><span class="metric-label">Test Accuracy</span><span class="metric-value mv-blue">77%</span></div>
+            <div class="metric"><span class="metric-label">Churners caught</span><span class="metric-value mv-orange">291 / 407</span></div>
+          </div>
+        </div>
+        <div class="card-chevron">▼</div>
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <div class="detail-section">
+            <h4>Business Problem</h4>
+            <ul>
+              <li>Retention costs 5–25× less than acquisition. Bank needs to flag churners 6 months out for proactive intervention</li>
+              <li><strong>Dataset:</strong> 10,000 customers · 14 features · Geography, Age, Balance, NumOfProducts, IsActiveMember</li>
+              <li>SMOTE applied on training set only — no data leakage</li>
+            </ul>
+          </div>
+          <div class="detail-section green">
+            <h4>EDA Key Findings</h4>
+            <ul>
+              <li><strong>Germany:</strong> ~32% churn vs. France/Spain much lower</li>
+              <li><strong>Inactive members:</strong> churn ~27% — nearly 2× active member rate</li>
+              <li><strong>Age 40–50:</strong> highest-risk cohort; product count 1 or 4 also high-risk</li>
+            </ul>
+          </div>
+          <div class="detail-section orange">
+            <h4>ANN Comparison</h4>
+            <table class="metric-table">
+              <thead><tr><th>Model</th><th>Val Recall</th></tr></thead>
+              <tbody>
+                <tr><td>SGD baseline</td><td class="num">0.197</td></tr>
+                <tr><td>Adam optimizer</td><td class="num">0.440</td></tr>
+                <tr><td>SMOTE + SGD</td><td class="num">0.668</td></tr>
+                <tr class="best"><td><strong>SMOTE + Adam + Dropout ★</strong></td><td class="num">0.705</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="detail-section purple">
+            <h4>Conclusions</h4>
+            <ul>
+              <li>Deploy in CRM to flag churn probability ≥0.5 for targeted retention outreach</li>
+              <li>High-risk profiles: inactive + German + single-product + low credit score customers</li>
+              <li>Accept moderate false positives — over-contacting is cheaper than losing a customer</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">ANN</span><span class="tag">Dropout</span><span class="tag">Adam</span><span class="tag">SMOTE</span></div>
+      </div>
+    </div>
+
+    <!-- 5. ReneWind -->
+    <div class="project-card" id="p5">
+      <div class="card-top" onclick="toggle('p5')">
+        <div class="card-icon icon-teal">⚡</div>
+        <div class="card-top-content">
+          <div class="card-top-row"><span class="card-domain">Deep Learning · Predictive Maintenance</span></div>
+          <h3>ReneWind Turbine Failure Prediction</h3>
+          <p class="card-summary">Predictive maintenance on wind turbines using 40 anonymized sensor features (20K training samples, 5.55% failure rate). Model 5 — 256→128→64→32 ANN with Adam + Dropout — achieved 99.02% accuracy and 0.85 failure recall.</p>
+          <div class="card-metrics">
+            <div class="metric"><span class="metric-label">Test Accuracy</span><span class="metric-value mv-green">99.02%</span></div>
+            <div class="metric"><span class="metric-label">Failure Recall</span><span class="metric-value mv-blue">0.85</span></div>
+            <div class="metric"><span class="metric-label">Failure Precision</span><span class="metric-value mv-orange">0.98</span></div>
+          </div>
+        </div>
+        <div class="card-chevron">▼</div>
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <div class="detail-section">
+            <h4>Business Problem</h4>
+            <ul>
+              <li>Undetected turbine failures cost far more than unnecessary inspections — Recall is the primary metric</li>
+              <li><strong>Dataset:</strong> 20K training + 5K test · 40 ciphered sensor features · 5.55% failure rate</li>
+              <li>Class weights via <code>compute_class_weight</code> (not SMOTE — sensor data continuity preserved)</li>
+            </ul>
+          </div>
+          <div class="detail-section green">
+            <h4>Architecture Search</h4>
+            <ul>
+              <li>7 ANN models (Model 0–6) progressively deeper with BatchNorm, Dropout, and class weighting</li>
+              <li>Final: 256 → 128 → 64 → 32 neurons, ReLU, 50% Dropout, Adam, Sigmoid output</li>
+            </ul>
+          </div>
+          <div class="detail-section orange">
+            <h4>Best Model Results</h4>
+            <table class="metric-table">
+              <thead><tr><th>Set</th><th>Accuracy</th><th>Recall</th><th>F1</th></tr></thead>
+              <tbody>
+                <tr><td>Validation</td><td class="num">99.1%</td><td class="num">0.930</td><td class="num">0.956</td></tr>
+                <tr class="best"><td><strong>Test ★</strong></td><td class="num">99.0%</td><td class="num">0.850</td><td class="num">0.910</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="detail-section purple">
+            <h4>Conclusions</h4>
+            <ul>
+              <li>Deploy Model 5 for real-time failure prediction; lower threshold 0.5→0.40 to further increase recall</li>
+              <li>"Healthy" turbines can have extended maintenance intervals — direct cost savings</li>
+              <li>Recall drop val (0.93)→test (0.85): investigate for distribution shift in test sensors</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">BatchNorm</span><span class="tag">Dropout</span><span class="tag">Class Weights</span></div>
+      </div>
+    </div>
+
+    <!-- 6. HelmNet -->
+    <div class="project-card" id="p6">
+      <div class="card-top" onclick="toggle('p6')">
+        <div class="card-icon icon-yellow">👷</div>
+        <div class="card-top-content">
+          <div class="card-top-row"><span class="card-domain">Computer Vision · Transfer Learning</span></div>
+          <h3>HelmNet — Safety Helmet Detection</h3>
+          <p class="card-summary">Binary image classifier for construction site PPE compliance on 631 images. Progressed from custom CNN to VGG-16 + data augmentation. Final model achieved 100% accuracy, precision, recall, and F1 — zero errors on test set.</p>
+          <div class="card-metrics">
+            <div class="metric"><span class="metric-label">Test Accuracy</span><span class="metric-value mv-green">100%</span></div>
+            <div class="metric"><span class="metric-label">Precision / Recall</span><span class="metric-value mv-blue">1.00 / 1.00</span></div>
+            <div class="metric"><span class="metric-label">Inference</span><span class="metric-value mv-orange">~78ms/step</span></div>
+          </div>
+        </div>
+        <div class="card-chevron">▼</div>
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <div class="detail-section">
+            <h4>Business Problem</h4>
+            <ul>
+              <li>Manual PPE compliance at construction/industrial sites misses violations in real time</li>
+              <li><strong>Dataset:</strong> 631 images · 311 "With Helmet" · 320 "Without Helmet" · varied industrial environments</li>
+              <li>Small dataset → transfer learning from ImageNet essential</li>
+            </ul>
+          </div>
+          <div class="detail-section green">
+            <h4>Model Progression</h4>
+            <ul>
+              <li><strong>Model 1:</strong> Custom CNN from scratch — baseline</li>
+              <li><strong>Model 2:</strong> VGG-16 frozen (ImageNet) — immediate improvement</li>
+              <li><strong>Model 3:</strong> VGG-16 fine-tuned + FFNN head</li>
+              <li><strong>Model 4:</strong> VGG-16 + augmentation (rotations, flips, shifts) → <strong>100% accuracy</strong></li>
+            </ul>
+          </div>
+          <div class="detail-section orange">
+            <h4>Results</h4>
+            <ul>
+              <li>Confusion matrix: 32 TP + 32 TN, <strong>zero errors</strong></li>
+              <li>Augmentation's key value: robustness for real-world helmet orientations and lighting, not just current metrics</li>
+            </ul>
+          </div>
+          <div class="detail-section purple">
+            <h4>Conclusions</h4>
+            <ul>
+              <li>Export to TensorFlow Lite for edge deployment (Raspberry Pi, site entrance cameras)</li>
+              <li>8-bit quantization → 75% model size reduction with no accuracy loss</li>
+              <li>Estimated ROI: <strong>20–30% reduction in PPE violations</strong> at construction sites</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">TensorFlow</span><span class="tag">VGG-16</span><span class="tag">Transfer Learning</span><span class="tag">Data Augmentation</span><span class="tag">OpenCV</span></div>
+      </div>
+    </div>
+
+    <!-- 7. SuperKart -->
+    <div class="project-card" id="p7">
+      <div class="card-top" onclick="toggle('p7')">
+        <div class="card-icon icon-purple">🚀</div>
+        <div class="card-top-content">
+          <div class="card-top-row"><span class="card-domain">MLOps · Model Deployment</span></div>
+          <h3>SuperKart Sales Forecasting + Full Deployment</h3>
+          <p class="card-summary">End-to-end ML pipeline — retail sales regression with Flask REST API, Streamlit UI, Docker container, deployed on HuggingFace Spaces. OUT004 generated highest revenue at 15.4M.</p>
+          <div class="card-metrics">
+            <div class="metric"><span class="metric-label">Top store revenue</span><span class="metric-value mv-green">15,427,583 (OUT004)</span></div>
+            <div class="metric"><span class="metric-label">Deployment</span><span class="metric-value mv-purple">Flask + Streamlit on HuggingFace</span></div>
+          </div>
+        </div>
+        <div class="card-chevron">▼</div>
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <div class="detail-section">
+            <h4>Business Problem</h4>
+            <ul>
+              <li>SuperKart needs quarterly sales forecasts per product-store to optimize inventory and supply chains</li>
+              <li><strong>4 stores</strong> (OUT001–OUT004) across Tier 1/2/3 cities and Supermarket/Grocery types</li>
+            </ul>
+          </div>
+          <div class="detail-section green">
+            <h4>EDA Key Findings</h4>
+            <ul>
+              <li>OUT004 (Supermarket Type 2, Tier 2, medium) accounts for 53% of total revenue</li>
+              <li>Fruits &amp; vegetables and snack foods are highest-selling categories across all stores</li>
+              <li>Store type + city tier + product MRP are the strongest revenue predictors</li>
+            </ul>
+          </div>
+          <div class="detail-section orange">
+            <h4>Deployment Pipeline</h4>
+            <ul>
+              <li>sklearn Pipeline (OneHotEncoder + regressor) → consistent train/inference transforms</li>
+              <li>GridSearchCV across 6 models → joblib serialization → Flask API → Docker → HuggingFace</li>
+              <li>Streamlit frontend deployed as separate HuggingFace Space</li>
+            </ul>
+          </div>
+          <div class="detail-section purple">
+            <h4>Conclusions</h4>
+            <ul>
+              <li>API-driven forecasting enables supply chain teams to get per-product predictions without DS involvement</li>
+              <li>Tier 1 stores support higher-MRP products; Tier 3 stores benefit from high-volume, lower-MRP staples</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">sklearn Pipeline</span><span class="tag">XGBoost</span><span class="tag">Flask</span><span class="tag">Streamlit</span><span class="tag">Docker</span><span class="tag">HuggingFace</span></div>
+      </div>
+    </div>
+
+    <!-- 8. Medical RAG -->
+    <div class="project-card" id="p8">
+      <div class="card-top" onclick="toggle('p8')">
+        <div class="card-icon icon-pink">🏥</div>
+        <div class="card-top-content">
+          <div class="card-top-row"><span class="card-domain">NLP · RAG · Generative AI</span></div>
+          <h3>Medical RAG Assistant</h3>
+          <p class="card-summary">RAG-based Q&amp;A over the 4,114-page Merck Manual using LangChain + ChromaDB + Mistral-7B. Baseline LLM hallucinated on all 5 clinical queries. RAG achieved perfect Groundedness (5/5) and Relevance (4–5/5) across all queries.</p>
+          <div class="card-metrics">
+            <div class="metric"><span class="metric-label">Groundedness</span><span class="metric-value mv-green">5/5 all queries</span></div>
+            <div class="metric"><span class="metric-label">Relevance</span><span class="metric-value mv-blue">4–5/5 all queries</span></div>
+            <div class="metric"><span class="metric-label">Chunks indexed</span><span class="metric-value mv-orange">4,692 passages</span></div>
+          </div>
+        </div>
+        <div class="card-chevron">▼</div>
+      </div>
+      <div class="card-body">
+        <div class="card-body-inner">
+          <div class="detail-section">
+            <h4>Business Problem</h4>
+            <ul>
+              <li>Merck Manual spans 4,114 pages across 23 sections — clinicians can't search it in real time</li>
+              <li>Baseline LLMs truncate at 128 tokens and hallucinate citations — clinically dangerous</li>
+              <li><strong>Goal:</strong> Grounded Q&amp;A with real Merck Manual citations, zero hallucinations</li>
+            </ul>
+          </div>
+          <div class="detail-section green">
+            <h4>RAG Pipeline</h4>
+            <ul>
+              <li>PyMuPDFLoader → RecursiveCharacterTextSplitter (overlap=200) → 4,692 chunks</li>
+              <li>SentenceTransformerEmbeddings → ChromaDB (k=3 retrieval)</li>
+              <li>Mistral-7B-Instruct-v0.2 (Q6_K quantized, llama.cpp) · temp=0</li>
+            </ul>
+          </div>
+          <div class="detail-section orange">
+            <h4>Evaluation Results</h4>
+            <table class="metric-table">
+              <thead><tr><th>Query</th><th>Grounded</th><th>Relevance</th></tr></thead>
+              <tbody>
+                <tr><td>Sepsis management</td><td class="num">5/5</td><td class="num">4/5</td></tr>
+                <tr><td>Appendicitis</td><td class="num">5/5</td><td class="num">4/5</td></tr>
+                <tr class="best"><td>Alopecia areata</td><td class="num">5/5</td><td class="num">5/5</td></tr>
+                <tr><td>TBI treatment</td><td class="num">5/5</td><td class="num">4/5</td></tr>
+                <tr><td>Wilderness fracture</td><td class="num">5/5</td><td class="num">4/5</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="detail-section purple">
+            <h4>Conclusions</h4>
+            <ul>
+              <li>Switch to BioBERT embeddings (+20% est. retrieval accuracy); increase max_tokens to 256–512</li>
+              <li>Expand k from 3→5–7 for multi-topic clinical queries</li>
+              <li>HIPAA/GDPR compliance required for any patient-facing deployment</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">Mistral-7B</span><span class="tag">llama.cpp</span><span class="tag">PyMuPDF</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ARTICLES ── -->
+<section class="section" id="articles">
+  <div class="section-label">Writing</div>
+  <div class="section-title">Articles &amp; Publications</div>
+  <div class="articles-placeholder">
+    <strong>Coming soon</strong>
+    Articles and publications will appear here. Share your article links to populate this section.
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="https://www.linkedin.com/in/ravisha-kaggundi-suryanarayana/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/ravishakaggundi" target="_blank">GitHub</a>
+      <a href="Ravisha_Kaggundi_Resume.pdf" download>Download Resume</a>
+    </div>
+    <div class="footer-copy">
+      Ravisha Kaggundi Suryanarayana · Senior Delivery Manager, Salesforce · UT Austin PGP AI/ML
+    </div>
+  </div>
 </footer>
 
 <script>
   function toggle(id) {
-    const card = document.getElementById(id);
-    card.classList.toggle('open');
+    document.getElementById(id).classList.toggle('open');
   }
+
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => observer.observe(s));
 </script>
 
 </body>
