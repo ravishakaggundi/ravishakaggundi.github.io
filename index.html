@@ -254,6 +254,34 @@
     }
     .articles-placeholder strong { color: var(--text); display: block; margin-bottom: 0.4rem; }
 
+    /* ── RECOMMENDATIONS ── */
+    .rec-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.25rem;
+    }
+    .rec-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.85rem;
+      transition: border-color .2s, transform .15s;
+    }
+    .rec-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .rec-quote {
+      font-size: 0.875rem; color: var(--text); line-height: 1.65;
+      position: relative; padding-left: 1.1rem;
+    }
+    .rec-quote::before {
+      content: '\201C'; position: absolute; left: 0; top: -0.15rem;
+      font-size: 1.6rem; color: var(--accent); line-height: 1; font-family: Georgia, serif;
+    }
+    .rec-meta { display: flex; align-items: flex-start; gap: 0.75rem; margin-top: auto; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+    .rec-avatar {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      background: var(--surface2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; color: var(--accent);
+    }
+    .rec-name { font-size: 0.875rem; font-weight: 700; color: var(--text); }
+    .rec-title { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
+
     /* ── CAREER JOURNEY INFOGRAPHIC ── */
     .cj-wrap {
       max-width: 1060px; margin: 0 auto; padding: 2rem 1.5rem 0;
@@ -408,6 +436,7 @@
     <a href="#awards" data-hide-mobile>Awards</a>
     <a href="#projects">Projects</a>
     <a href="#articles" data-hide-mobile>Articles</a>
+    <a href="#recommendations" data-hide-mobile>Recommendations</a>
     <a href="https://github.com/ravishakaggundi" target="_blank" data-hide-mobile>GitHub</a>
     <a href="https://www.linkedin.com/in/ravisha-kaggundi-suryanarayana/" target="_blank" data-hide-mobile>LinkedIn</a>
   </div>
@@ -1722,6 +1751,81 @@
   </div>
 </section>
 
+<!-- ── RECOMMENDATIONS ── -->
+<section class="section" id="recommendations">
+  <div class="section-label">Testimonials</div>
+  <div class="section-title">Recommendations</div>
+  <div class="rec-grid">
+
+    <div class="rec-card">
+      <div class="rec-quote">Ravisha is one of the best people I have ever worked with. He is highly energetic and result oriented leader. His passion for business impact and out-of-box thinking makes him an asset to any team. Thinks strategically and executes to his commitments. He will find a way to weather any storm with a smile.</div>
+      <div class="rec-meta">
+        <div class="rec-avatar">MG</div>
+        <div>
+          <div class="rec-name">Muralidhar Gandepalli</div>
+          <div class="rec-title">Engineering Director, AI Garage · Google</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-quote">Ravisha was our leader of Information technology for the analytics division with GE Consumer Finance Americas business. A diligent and solution oriented professional, the value that Ravisha's leadership added to the division was invaluable. Highly recommended for anyone looking for a result oriented technology leader.</div>
+      <div class="rec-meta">
+        <div class="rec-avatar">MR</div>
+        <div>
+          <div class="rec-name">Manu Rajan</div>
+          <div class="rec-title">Division CEO · Cellcard (formerly Genpact / GE)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-quote">Ravisha was very professional and proficient in his role as the Nokia Program lead for my projects. He possesses an excellent balance of technical understanding and program management skills. He communicated very well with his clients and mine! Our common project goals were very successful during this timeframe thanks to Ravisha's skills and dedication.</div>
+      <div class="rec-meta">
+        <div class="rec-avatar">SB</div>
+        <div>
+          <div class="rec-name">Steve Burgess</div>
+          <div class="rec-title">Vendor Manager / Program Manager · AT&amp;T (via Nokia engagement)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-quote">Ravisha's approach was always thoughtful and practical, and he delivered solutions with excellence. Ravisha and I worked virtually for several years before finally meeting face to face, which is a testament to his strong communication skills. I would be happy to have the opportunity to work with my friend again in the future.</div>
+      <div class="rec-meta">
+        <div class="rec-avatar">AC</div>
+        <div>
+          <div class="rec-name">Andrea Croslyn</div>
+          <div class="rec-title">EVP, Business Process &amp; Sustainability · Bakelite Synthetics</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-quote">Ravish is a calm headed program manager who listens well and takes a collaborative approach to decision making. He is adept at handling large and complex accounts. One of the important aspects of program management is to be able to influence without authority. Ravish does this well, bringing both his personality and experience to the fore.</div>
+      <div class="rec-meta">
+        <div class="rec-avatar">GR</div>
+        <div>
+          <div class="rec-name">Ganesh Ramamoorthy</div>
+          <div class="rec-title">Managing Director, India · Kickdrum Technology Group (formerly Trilogy)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <div class="rec-quote">His knowledge spanned both theoretical concepts of software programming and implementing them in code as a very hands-on practitioner. His clarity of thought, conviction in recommendations, and clear articulation skills were very refreshing to experience. A thorough technology consultant, and a hands on practitioner who could build enterprise scale solutions.</div>
+      <div class="rec-meta">
+        <div class="rec-avatar">SR</div>
+        <div>
+          <div class="rec-name">Santhanakrishnan Ramabadran</div>
+          <div class="rec-title">Vice President, Analytics Consulting · Tiger Analytics (formerly GE)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-inner">
@@ -1729,6 +1833,7 @@
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#recommendations">Recommendations</a>
       <a href="https://www.linkedin.com/in/ravisha-kaggundi-suryanarayana/" target="_blank">LinkedIn</a>
       <a href="https://github.com/ravishakaggundi" target="_blank">GitHub</a>
       <a href="Ravisha_Kaggundi_Resume.pdf" download>Download Resume</a>
