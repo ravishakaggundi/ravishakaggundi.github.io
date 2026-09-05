@@ -129,22 +129,23 @@
     .pill.red    { border-color: rgba(247,129,102,0.4); color: var(--accent3); background: rgba(247,129,102,0.08); }
 
     /* ── CERTIFICATIONS ── */
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.875rem; }
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.875rem; }
     .cert-card {
       background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
       padding: 1rem 1.1rem; display: flex; align-items: center; gap: 0.875rem;
-      transition: border-color .2s;
+      transition: border-color .2s, transform .15s;
+      text-decoration: none; color: inherit;
     }
-    .cert-card:hover { border-color: #444c56; }
+    .cert-card:hover { border-color: var(--accent); transform: translateY(-2px); }
     .cert-icon {
-      width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0;
+      width: 52px; height: 52px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      overflow: hidden; background: #fff; padding: 3px;
     }
-    .cert-icon svg { width: 100%; height: 100%; }
+    .cert-icon img { width: 52px; height: 52px; object-fit: contain; border-radius: 6px; }
     .cert-info { min-width: 0; }
     .cert-name { font-size: 0.8rem; font-weight: 600; line-height: 1.35; margin-bottom: 0.15rem; }
     .cert-body { font-size: 0.7rem; color: var(--muted); }
+    .cert-verify { font-size: 0.65rem; color: var(--accent); margin-top: 0.2rem; }
 
     .trailhead-row { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
     .trailhead-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-right: 0.25rem; }
@@ -787,195 +788,159 @@
   <div class="section-label">Credentials</div>
   <div class="section-title">Certifications</div>
   <div class="cert-grid">
-    <!-- Google Cloud Digital Leader -->
-    <div class="cert-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="44" height="44" rx="6" fill="#fff"/>
-          <!-- Google Cloud 4-color logo mark -->
-          <path d="M22 10 C17 10 13 14 13 19 C10 20 8 23 8 26 C8 30 11 33 15 33 L29 33 C33 33 36 30 36 26 C36 22 33 19 29 19 C29 14 26 10 22 10 Z" fill="#4285F4"/>
-          <path d="M22 10 C26 10 29 13 29 17 L29 19 C33 19 36 22 36 26 L29 33 C33 33 36 30 36 26 C36 22 33 19 29 19 C29 14 26 10 22 10 Z" fill="#34A853" opacity="0.7"/>
-          <text x="22" y="41" text-anchor="middle" font-family="Arial,sans-serif" font-size="5" font-weight="700" fill="#4285F4">Google Cloud</text>
-        </svg>
-      </div>
-      <div class="cert-info">
-        <div class="cert-name">Google Cloud Digital Leader</div>
-        <div class="cert-body">Google Cloud</div>
-      </div>
-    </div>
 
-    <!-- Google Cloud Generative AI Leader -->
-    <div class="cert-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="44" height="44" rx="6" fill="#fff"/>
-          <path d="M22 10 C17 10 13 14 13 19 C10 20 8 23 8 26 C8 30 11 33 15 33 L29 33 C33 33 36 30 36 26 C36 22 33 19 29 19 C29 14 26 10 22 10 Z" fill="#EA4335"/>
-          <path d="M22 10 C26 10 29 13 29 17 L29 19 C33 19 36 22 36 26 L29 33 C33 33 36 30 36 26 C36 22 33 19 29 19 C29 14 26 10 22 10 Z" fill="#FBBC04" opacity="0.9"/>
-          <!-- sparkle for Gen AI -->
-          <circle cx="22" cy="24" r="3" fill="#fff" opacity="0.9"/>
-          <text x="22" y="41" text-anchor="middle" font-family="Arial,sans-serif" font-size="5" font-weight="700" fill="#EA4335">Gen AI Leader</text>
-        </svg>
-      </div>
+    <a class="cert-card" href="https://www.credly.com/badges/ce83b79d-2edf-40e3-b827-c74e1e5b23b2" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://images.credly.com/images/44994cda-b5b0-44cb-9a6d-d29b57163073/image.png" alt="Google Cloud Digital Leader badge" loading="lazy"></div>
       <div class="cert-info">
-        <div class="cert-name">Google Cloud Generative AI Leader</div>
+        <div class="cert-name">Cloud Digital Leader</div>
         <div class="cert-body">Google Cloud</div>
+        <div class="cert-verify">✓ Verify on Credly</div>
       </div>
-    </div>
+    </a>
 
-    <!-- AWS Cloud Practitioner -->
-    <div class="cert-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="44" height="44" rx="6" fill="#232F3E"/>
-          <!-- AWS smile arrow -->
-          <text x="22" y="20" text-anchor="middle" font-family="Arial Black,sans-serif" font-weight="900" font-size="11" fill="#FF9900">AWS</text>
-          <!-- smile curve -->
-          <path d="M11 26 Q22 33 33 26" fill="none" stroke="#FF9900" stroke-width="2.5" stroke-linecap="round"/>
-          <polygon points="31,24 34,26 31,28" fill="#FF9900"/>
-          <text x="22" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" fill="#fff">Cloud Practitioner</text>
-        </svg>
+    <a class="cert-card" href="https://www.credly.com/badges/17468348-db92-440f-a669-d555fe1014ab" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://images.credly.com/images/ec23e41a-0f32-4a98-9c00-28925621b281/blob" alt="Google Cloud Generative AI Leader badge" loading="lazy"></div>
+      <div class="cert-info">
+        <div class="cert-name">Generative AI Leader</div>
+        <div class="cert-body">Google Cloud</div>
+        <div class="cert-verify">✓ Verify on Credly</div>
       </div>
+    </a>
+
+    <a class="cert-card" href="https://www.credly.com/badges/3bea8b1d-17c0-45bf-996a-49e280bbd320" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" alt="AWS Certified Cloud Practitioner badge" loading="lazy"></div>
       <div class="cert-info">
         <div class="cert-name">AWS Certified Cloud Practitioner</div>
         <div class="cert-body">Amazon Web Services</div>
+        <div class="cert-verify">✓ Verify on Credly</div>
       </div>
-    </div>
+    </a>
 
-    <!-- PMP -->
-    <div class="cert-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="44" height="44" rx="6" fill="#003087"/>
-          <!-- PMI diamond shape -->
-          <polygon points="22,6 38,22 22,38 6,22" fill="#009FDA" opacity="0.9"/>
-          <text x="22" y="26" text-anchor="middle" font-family="Arial Black,sans-serif" font-weight="900" font-size="10" fill="#fff">PMP</text>
-        </svg>
-      </div>
+    <a class="cert-card" href="https://www.credly.com/badges/3e2c3018-955e-476b-aed1-ddad4b7dd27b" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png" alt="AWS Solutions Architect Associate badge" loading="lazy"></div>
       <div class="cert-info">
-        <div class="cert-name">Project Management Professional (PMP)</div>
+        <div class="cert-name">AWS Solutions Architect – Associate</div>
+        <div class="cert-body">Amazon Web Services</div>
+        <div class="cert-verify">✓ Verify on Credly</div>
+      </div>
+    </a>
+
+    <a class="cert-card" href="https://www.credly.com/badges/15569871-9f24-44c8-a6ff-daf3857c7370" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://images.credly.com/images/731e7ef4-9b0c-4d7b-ab65-23cc699c0aa3/blob" alt="PMP badge" loading="lazy"></div>
+      <div class="cert-info">
+        <div class="cert-name">Project Management Professional (PMP)®</div>
         <div class="cert-body">Project Management Institute</div>
+        <div class="cert-verify">✓ Verify on Credly</div>
       </div>
-    </div>
+    </a>
 
-    <!-- SAFe 6 Agilist -->
-    <div class="cert-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="44" height="44" rx="6" fill="#0077C8"/>
-          <!-- SAFe triangle-in-circle motif -->
-          <circle cx="22" cy="20" r="12" fill="none" stroke="#fff" stroke-width="2"/>
-          <polygon points="22,12 29,24 15,24" fill="#fff"/>
-          <text x="22" y="38" text-anchor="middle" font-family="Arial Black,sans-serif" font-weight="900" font-size="7" fill="#fff">SAFe® 6</text>
-        </svg>
-      </div>
+    <a class="cert-card" href="https://www.credly.com/badges/f2341384-42e6-4c37-a306-00b3a133b66c" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://images.credly.com/images/3e987079-3013-4359-9ad3-578c0b864e3d/image.png" alt="SAFe 6 Agilist badge" loading="lazy"></div>
       <div class="cert-info">
-        <div class="cert-name">SAFe 6 Agilist</div>
+        <div class="cert-name">Certified SAFe® 6 Agilist</div>
         <div class="cert-body">Scaled Agile</div>
+        <div class="cert-verify">✓ Verify on Credly</div>
       </div>
-    </div>
+    </a>
 
-    <!-- SAFe 6 Advanced Scrum Master -->
-    <div class="cert-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="44" height="44" rx="6" fill="#0077C8"/>
-          <circle cx="22" cy="19" r="12" fill="none" stroke="#fff" stroke-width="2"/>
-          <!-- SASM: double triangle -->
-          <polygon points="22,11 28,21 16,21" fill="#fff"/>
-          <polygon points="22,17 28,27 16,27" fill="#fff" opacity="0.5"/>
-          <text x="22" y="38" text-anchor="middle" font-family="Arial Black,sans-serif" font-weight="900" font-size="5.5" fill="#fff">SASM SAFe® 6</text>
-        </svg>
-      </div>
+    <a class="cert-card" href="https://www.credly.com/badges/e0f1b9d8-6fa5-4e90-846d-1d862cf7622c" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://images.credly.com/images/df865efc-aae6-4263-90ba-9c4d6cb7fc43/image.png" alt="SAFe 6 Advanced Scrum Master badge" loading="lazy"></div>
       <div class="cert-info">
-        <div class="cert-name">SAFe 6 Advanced Scrum Master</div>
+        <div class="cert-name">Certified SAFe® 6 Advanced Scrum Master</div>
         <div class="cert-body">Scaled Agile</div>
+        <div class="cert-verify">✓ Verify on Credly</div>
       </div>
-    </div>
+    </a>
 
-    <!-- Salesforce AI Specialist -->
-    <div class="cert-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="44" height="44" rx="6" fill="#00A1E0"/>
-          <!-- Salesforce cloud -->
-          <path d="M18 28 C12 28 8 24 8 19 C8 14 12 10 18 10 C19 7 22 5 26 5 C31 5 35 9 35 14 C37 14 39 16 39 19 C39 22 37 24 35 24 L18 28 Z" fill="#fff" opacity="0.95"/>
-          <!-- AI spark -->
-          <text x="22" y="24" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="8" fill="#00A1E0" font-weight="900">AI</text>
-          <text x="22" y="37" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" fill="#fff">AI Specialist</text>
-        </svg>
+    <a class="cert-card" href="https://www.credly.com/badges/92ce7677-9878-4490-9616-91505eb64f20" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://images.credly.com/images/6b977b69-580f-4dfd-8e4c-e895fdbfe9dd/blob" alt="AI-Empowered SAFe SASM badge" loading="lazy"></div>
+      <div class="cert-info">
+        <div class="cert-name">Certified AI-Empowered SAFe® Advanced Scrum Master</div>
+        <div class="cert-body">Scaled Agile</div>
+        <div class="cert-verify">✓ Verify on Credly</div>
       </div>
+    </a>
+
+    <a class="cert-card" href="https://www.credly.com/badges/3151e23d-a894-434a-8ae6-5e6575b501e4" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://images.credly.com/images/17f0ef5d-557f-488f-a58c-3016e9d66033/blob" alt="AI Skills for Scrum Masters badge" loading="lazy"></div>
+      <div class="cert-info">
+        <div class="cert-name">AI Skills for Scrum Masters and Team Coaches</div>
+        <div class="cert-body">Scaled Agile</div>
+        <div class="cert-verify">✓ Verify on Credly</div>
+      </div>
+    </a>
+
+    <a class="cert-card" href="https://www.credly.com/badges/ff052190-6c0c-4a2e-97ab-a18579fff543" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://images.credly.com/images/90b92982-adc0-4826-afeb-455be8609899/blob" alt="Applied Data Science with Python badge" loading="lazy"></div>
+      <div class="cert-info">
+        <div class="cert-name">Applied Data Science with Python – Level 2</div>
+        <div class="cert-body">IBM</div>
+        <div class="cert-verify">✓ Verify on Credly</div>
+      </div>
+    </a>
+
+    <a class="cert-card" href="https://www.credly.com/badges/2643eee8-25c4-4d07-b52b-b22e06b8fe6e" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://images.credly.com/images/2f9eee24-6834-4595-b2b6-e8e585190a0d/IBM-Blockchain-Essentials-V2.png" alt="IBM Blockchain Essentials badge" loading="lazy"></div>
+      <div class="cert-info">
+        <div class="cert-name">IBM Blockchain Essentials V2</div>
+        <div class="cert-body">IBM</div>
+        <div class="cert-verify">✓ Verify on Credly</div>
+      </div>
+    </a>
+
+    <!-- Salesforce certs — Trailhead only, no Credly listing -->
+    <a class="cert-card" href="https://trailhead.salesforce.com/credentials/aispecialist" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://developer.salesforce.com/resources2/certification-site/images/Certifications-Logo/AI-Specialist.png" alt="Salesforce AI Specialist" loading="lazy" onerror="this.style.display='none';this.parentNode.style.background='#00A1E0';this.parentNode.textContent='AI'"></div>
       <div class="cert-info">
         <div class="cert-name">Salesforce Certified AI Specialist</div>
-        <div class="cert-body">Salesforce</div>
+        <div class="cert-body">Salesforce · Trailhead</div>
+        <div class="cert-verify">✓ Verify on Trailhead</div>
       </div>
-    </div>
+    </a>
 
-    <!-- Salesforce AI Associate -->
-    <div class="cert-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="44" height="44" rx="6" fill="#032D60"/>
-          <path d="M18 27 C12 27 8 23 8 18 C8 13 12 9 18 9 C19 6 22 4 26 4 C31 4 35 8 35 13 C37 13 39 15 39 18 C39 21 37 23 35 23 L18 27 Z" fill="#00A1E0" opacity="0.9"/>
-          <text x="22" y="23" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="7" fill="#fff" font-weight="900">AI</text>
-          <text x="22" y="37" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" fill="#fff">AI Associate</text>
-        </svg>
-      </div>
+    <a class="cert-card" href="https://trailhead.salesforce.com/credentials/aiassociate" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://developer.salesforce.com/resources2/certification-site/images/Certifications-Logo/AI-Associate.png" alt="Salesforce AI Associate" loading="lazy" onerror="this.style.display='none';this.parentNode.style.background='#032D60';this.parentNode.textContent='AI'"></div>
       <div class="cert-info">
         <div class="cert-name">Salesforce Certified AI Associate</div>
-        <div class="cert-body">Salesforce</div>
+        <div class="cert-body">Salesforce · Trailhead</div>
+        <div class="cert-verify">✓ Verify on Trailhead</div>
       </div>
-    </div>
+    </a>
 
-    <!-- Salesforce Data 360 Consultant -->
-    <div class="cert-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="44" height="44" rx="6" fill="#00A1E0"/>
-          <path d="M18 26 C12 26 8 22 8 17 C8 12 12 8 18 8 C19 5 22 3 26 3 C31 3 35 7 35 12 C37 12 39 14 39 17 C39 20 37 22 35 22 L18 26 Z" fill="#fff" opacity="0.95"/>
-          <text x="22" y="22" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="7" fill="#00A1E0" font-weight="900">D360</text>
-          <text x="22" y="37" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" fill="#fff">Data 360</text>
-        </svg>
-      </div>
+    <a class="cert-card" href="https://trailhead.salesforce.com/credentials/datacloudconsultant" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://developer.salesforce.com/resources2/certification-site/images/Certifications-Logo/Data-Cloud-Consultant.png" alt="Salesforce Data 360 Consultant" loading="lazy" onerror="this.style.display='none';this.parentNode.style.background='#00A1E0';this.parentNode.textContent='D360'"></div>
       <div class="cert-info">
         <div class="cert-name">Salesforce Data 360 Consultant</div>
-        <div class="cert-body">Salesforce</div>
+        <div class="cert-body">Salesforce · Trailhead</div>
+        <div class="cert-verify">✓ Verify on Trailhead</div>
       </div>
-    </div>
+    </a>
 
-    <!-- Salesforce Administrator -->
-    <div class="cert-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="44" height="44" rx="6" fill="#00A1E0"/>
-          <path d="M18 26 C12 26 8 22 8 17 C8 12 12 8 18 8 C19 5 22 3 26 3 C31 3 35 7 35 12 C37 12 39 14 39 17 C39 20 37 22 35 22 L18 26 Z" fill="#fff" opacity="0.95"/>
-          <text x="22" y="22" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="7" fill="#00A1E0" font-weight="900">ADM</text>
-          <text x="22" y="37" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.5" fill="#fff">Administrator</text>
-        </svg>
-      </div>
+    <a class="cert-card" href="https://trailhead.salesforce.com/credentials/administrator" target="_blank" rel="noopener">
+      <div class="cert-icon"><img src="https://developer.salesforce.com/resources2/certification-site/images/Certifications-Logo/Admin.png" alt="Salesforce Administrator" loading="lazy" onerror="this.style.display='none';this.parentNode.style.background='#00A1E0';this.parentNode.textContent='ADM'"></div>
       <div class="cert-info">
         <div class="cert-name">Salesforce Certified Administrator</div>
-        <div class="cert-body">Salesforce</div>
+        <div class="cert-body">Salesforce · Trailhead</div>
+        <div class="cert-verify">✓ Verify on Trailhead</div>
       </div>
-    </div>
+    </a>
 
-    <!-- Six Sigma Green Belt -->
     <div class="cert-card">
       <div class="cert-icon">
-        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-          <rect width="44" height="44" rx="6" fill="#fff"/>
-          <!-- Green belt: circle with belt through it -->
-          <circle cx="22" cy="19" r="12" fill="none" stroke="#00863B" stroke-width="3"/>
-          <rect x="8" y="17" width="28" height="4" rx="2" fill="#00863B"/>
-          <!-- GE blue accent -->
-          <circle cx="22" cy="19" r="4" fill="#1B6FBA"/>
-          <text x="22" y="37" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="5" fill="#00863B" font-weight="900">SIX SIGMA GB</text>
+        <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="8" fill="#fff"/>
+          <circle cx="26" cy="22" r="14" fill="none" stroke="#00863B" stroke-width="3.5"/>
+          <rect x="9" y="20" width="34" height="4.5" rx="2.2" fill="#00863B"/>
+          <circle cx="26" cy="22" r="5" fill="#1B6FBA"/>
+          <text x="26" y="44" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="6" font-weight="900" fill="#00863B">SIX SIGMA GB</text>
         </svg>
       </div>
       <div class="cert-info">
-        <div class="cert-name">Six Sigma Green Belt</div>
+        <div class="cert-name">GE Six Sigma Green Belt</div>
         <div class="cert-body">General Electric</div>
       </div>
     </div>
+
   </div>
   <div class="trailhead-row">
     <span class="trailhead-label">Trailhead</span>
