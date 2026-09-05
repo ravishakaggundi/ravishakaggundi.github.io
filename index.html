@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ravisha Kaggundi Suryanarayana — Director of Engagement Delivery at Salesforce, Agentic AI transformation leader, 25+ years in digital transformation. UT Austin PGP AI/ML." />
+  <meta name="description" content="Ravisha Kaggundi Suryanarayana — AI Transformation Leader · VP / Head of AI · 25+ years delivering enterprise AI and digital transformation at Salesforce, Nokia, GE. UT Austin PGP AI/ML. Builder of PM Twin autonomous agent platform." />
   <title>Ravisha Kaggundi Suryanarayana — Portfolio</title>
   <style>
     :root {
@@ -71,14 +71,29 @@
     }
 
     /* ── SECTION WRAPPER ── */
-    .section { max-width: 920px; margin: 0 auto; padding: 4rem 2rem; }
+    .section { max-width: 920px; margin: 0 auto; padding: 4rem 2rem; transition: padding-bottom 0.28s ease; }
     .section-label {
       font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
       letter-spacing: 1.2px; color: var(--muted); margin-bottom: 0.5rem;
       display: flex; align-items: center; gap: 0.5rem;
     }
     .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .section-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -0.5px; }
+    .section-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -0.5px; transition: margin-bottom 0.28s ease; }
+
+    /* ── SECTION COLLAPSE ── */
+    .section-head { cursor: pointer; user-select: none; -webkit-user-select: none; }
+    .section-head:hover .section-label { color: var(--text); }
+    .section-head:hover .section-chevron { color: var(--text); }
+    .section-chevron {
+      font-size: 0.68rem; color: var(--muted); flex-shrink: 0; display: inline-block;
+      transition: transform 0.25s ease, color 0.18s; order: 2; margin-left: 0.25rem;
+    }
+    .sec-collapsed .section-chevron { transform: rotate(-90deg); }
+    .sec-collapsed .section-title { margin-bottom: 0; }
+    .sec-collapsed { padding-bottom: 1.5rem; }
+    .section-body-wrap { display: grid; grid-template-rows: 1fr; transition: grid-template-rows 0.3s ease; }
+    .section-body-wrap > div { overflow: hidden; min-height: 0; }
+    .sec-collapsed .section-body-wrap { grid-template-rows: 0fr; }
 
     /* ── HERO ── */
     #about { padding-top: 1.5rem; }
@@ -301,6 +316,23 @@
     }
     .articles-placeholder strong { color: var(--text); display: block; margin-bottom: 0.4rem; }
 
+    /* ── AI TRANSFORMATION PHILOSOPHY ── */
+    .philosophy-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    }
+    .philosophy-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .philosophy-card:hover { border-color: rgba(88,166,255,0.4); box-shadow: 0 4px 16px rgba(88,166,255,0.07); }
+    .philosophy-icon { font-size: 1.6rem; line-height: 1; }
+    .philosophy-title { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .philosophy-body { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+    @media (max-width: 600px) {
+      .philosophy-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── PROJECT SUBSECTIONS ── */
     .projects-sublabel {
       font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px;
@@ -309,6 +341,7 @@
     }
     .projects-sublabel::before { content: ''; width: 3px; height: 14px; border-radius: 2px; background: var(--accent); flex-shrink: 0; }
     .projects-sublabel.passion::before { background: var(--accent4); }
+    .projects-sublabel[style*="accent4"]::before { background: var(--accent4); }
 
     /* ── RECOMMENDATIONS ── */
     .rec-grid {
@@ -548,6 +581,7 @@
   </button>
   <div class="nav-links" id="navLinks">
     <a href="#about">About</a>
+    <a href="#philosophy" data-hide-mobile>AI Philosophy</a>
     <a href="#experience">Experience</a>
     <a href="#skills" data-hide-mobile>Skills</a>
     <a href="#certifications" data-hide-mobile>Certs</a>
@@ -566,12 +600,12 @@
 
   <!-- Header -->
   <div class="cj-header">
-    <div class="cj-header-title">CAREER JOURNEY OF <span>RAVISHA KAGGUNDI SURYANARAYANA</span></div>
-    <div class="cj-header-sub">Agentic AI Transformation Leader · Director of Engagement Delivery, Salesforce</div>
+    <div class="cj-header-title">RAVISHA <span>KAGGUNDI SURYANARAYANA</span></div>
+    <div class="cj-header-sub">I turn AI pilots into enterprise transformation — at the intersection of 25 years of delivery leadership and hands-on AI engineering.</div>
   </div>
 
   <!-- Banner -->
-  <div class="cj-banner">25+ Years of Digital Transformation Leadership</div>
+  <div class="cj-banner">25+ Years of Enterprise Transformation · AI Architect · Delivery Leader at Scale</div>
 
   <!-- KPI bar -->
   <div class="cj-kpis">
@@ -708,8 +742,9 @@
     <div class="cj-about">
       <div class="cj-about-title">ABOUT ME</div>
       <div class="cj-about-body">
-        Remote village background, street vendor 10–16, moved to Austin 2015, Family of 4.<br>
-        B.E. Chemical Engineering (First Class) · PGP AI/ML UT Austin GPA 4.33 · 4th Rank
+        I grew up in rural India — no running water, no electricity, selling vegetables as a teenager. Engineering school changed everything. 25 years later, I've led AI and digital transformation across GE, Nokia, and Salesforce for Fortune 500 companies on four continents.<br><br>
+        Digital transformation isn't about deploying technology — it's about reimagining business models through intelligent automation, predictive analytics, and AI-powered decision-making. I've built and shipped production AI systems: multi-agent orchestration platforms, MLOps pipelines, NLP/RAG applications, and enterprise Agentforce deployments.<br><br>
+        <em>Ready to lead your AI transformation.</em>
       </div>
       <div class="cj-about-cta">
         <a class="btn btn-primary" href="Ravisha_Kaggundi_Resume.pdf" download>⬇ Resume</a>
@@ -752,6 +787,34 @@
 </div><!-- /cj-wrap -->
 </section>
 
+<!-- ── AI TRANSFORMATION PHILOSOPHY ── -->
+<section class="section" id="philosophy" style="padding-top:2rem; padding-bottom:2rem;">
+  <div class="section-label">Approach</div>
+  <div class="section-title">AI Transformation Philosophy</div>
+  <div class="philosophy-grid">
+    <div class="philosophy-card">
+      <div class="philosophy-icon">🧠</div>
+      <div class="philosophy-title">Business Model First</div>
+      <div class="philosophy-body">Transformation isn't about deploying tools — it's about reimagining how value is created. I start with the business outcome and work backwards to the AI architecture, not the other way around.</div>
+    </div>
+    <div class="philosophy-card">
+      <div class="philosophy-icon">⚙️</div>
+      <div class="philosophy-title">Production Over Pilots</div>
+      <div class="philosophy-body">AI that stays in a sandbox delivers zero value. I build systems that handle real-world load, integrate with enterprise infrastructure, and scale beyond the proof-of-concept phase.</div>
+    </div>
+    <div class="philosophy-card">
+      <div class="philosophy-icon">🔄</div>
+      <div class="philosophy-title">Humans in the Loop</div>
+      <div class="philosophy-body">Autonomous agents need guardrails — governance checkpoints, explainability, and escalation paths. Velocity without trust stalls adoption. I design for both.</div>
+    </div>
+    <div class="philosophy-card">
+      <div class="philosophy-icon">📈</div>
+      <div class="philosophy-title">Measure What Matters</div>
+      <div class="philosophy-body">AI transformation is measured in attrition reduced, hours saved, revenue unlocked, and TCO eliminated — not model accuracy or deployment count. I track outcomes, not outputs.</div>
+    </div>
+  </div>
+</section>
+
 <!-- ── EXPERIENCE ── -->
 <section class="section" id="experience">
   <div class="section-label">Career</div>
@@ -771,10 +834,10 @@
           <span class="tl-period">Sep 2021 – Present</span>
         </div>
         <ul class="tl-bullets">
-          <li>Led a multi-million dollar <strong>API migration</strong> for a Tier 1 car rental company — cut incidents by <strong>50%</strong>, improved performance across 60K daily customer interactions, unlocked significant expansion revenue</li>
-          <li>Directed a <strong>multi-cloud Agentforce program</strong> for a leading HVAC manufacturer across 12+ enterprise systems — reduced dealer attrition by <strong>34%</strong>, accelerated case resolution by <strong>56%</strong>, eliminated <strong>$4M in annual operating costs</strong></li>
-          <li>Rescued a failing <strong>CRM Agentforce transformation</strong> (70+ integrations, 300+ use cases) at risk of cancellation — rebuilt governance, delivered <strong>$11M TCO savings</strong>, 35% lift in CSAT, and drove expansion</li>
-          <li>Built a <strong>"PM Twin" Multi-Agent Eco-System</strong> using Claude Code with 65+ features and an autonomous agents-only dev team — delivered <strong>25% operational efficiency</strong> across 100+ Salesforce project managers</li>
+          <li>Architected and delivered an <strong>AI-powered integration transformation</strong> for a Tier 1 car rental company — replaced legacy APIs with intelligent event-driven architecture, cut incidents by <strong>50%</strong> across 60K daily customer interactions, unlocked significant expansion revenue</li>
+          <li>Led a <strong>multi-cloud AI transformation</strong> (Agentforce + CRM + Service Cloud) for a Fortune 500 HVAC manufacturer — deployed intelligent automation across 12+ enterprise systems, reduced dealer attrition by <strong>34%</strong>, accelerated case resolution by <strong>56%</strong>, eliminated <strong>$4M in annual operating costs</strong></li>
+          <li>Rescued a failing <strong>enterprise AI transformation</strong> (70+ integrations, 300+ Agentforce use cases) at risk of cancellation — rebuilt AI governance, delivered <strong>$11M TCO savings</strong>, 35% lift in CSAT, and drove expansion</li>
+          <li>Designed and shipped <strong>PM Twin</strong> — an autonomous 12-agent AI platform built on Claude AI that automates the full project management lifecycle — delivering <strong>25% operational efficiency</strong> across 100+ Salesforce project managers</li>
         </ul>
         <div class="tl-tags">
           <span class="tl-tag">Agentforce</span><span class="tl-tag">MuleSoft Anypoint</span><span class="tl-tag">Salesforce Multi-Cloud</span><span class="tl-tag">Agentic AI</span><span class="tl-tag">P&L Management</span><span class="tl-tag">Agile/SAFe</span>
@@ -1372,9 +1435,9 @@
 
 <!-- ── PROJECTS ── -->
 <section class="section" id="projects">
-  <div class="section-label">AI/ML · Capstones &amp; Passion Projects</div>
-  <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:0.5rem;">
-    <div class="section-title" style="margin:0;">Projects</div>
+  <div class="section-label">AI Engineering · Projects &amp; Deployments</div>
+  <div class="section-title">Projects</div>
+  <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:0.5rem; margin-top:-1rem;">
     <a href="https://www.mygreatlearning.com/eportfolio/ravisha-kaggundi-suryanarayana" target="_blank" rel="noopener"
        style="display:inline-flex; align-items:center; gap:0.5rem; background:#fff; border:1px solid #e0e0e0; border-radius:8px; padding:0.3rem 0.75rem; text-decoration:none;">
       <img src="https://www.mccombs.utexas.edu/wp-content/uploads/2024/10/mccombs_favicon-300x300.png"
@@ -1843,25 +1906,26 @@
 
   </div>
 
-  <!-- ── PASSION PROJECTS ── -->
-  <div class="projects-sublabel passion" style="margin-top:2.5rem;">Passion Projects · Built on Weekends &amp; After Hours</div>
+  <!-- ── FLAGSHIP AI PROJECT ── -->
+  <div class="projects-sublabel" style="margin-top:2.5rem; color:var(--accent4);">Flagship AI Engineering Project</div>
   <div class="projects-list">
 
     <!-- PM Twin -->
-    <div class="project-card" id="pp1">
+    <div class="project-card" id="pp1" style="border-color: rgba(210,168,255,0.4); box-shadow: 0 0 0 1px rgba(210,168,255,0.15), 0 4px 24px rgba(210,168,255,0.08);">
       <div class="card-top" onclick="toggle('pp1')">
         <div class="card-icon icon-purple">🤖</div>
         <div class="card-top-content">
           <div class="card-top-row">
             <span class="card-domain">Agentic AI · Multi-Agent Platform</span>
-            <span class="card-domain" style="color:var(--accent4); border-color:var(--accent4);">Passion Project</span>
+            <span class="card-domain" style="color:var(--accent4); border-color:var(--accent4);">Enterprise AI Engineering</span>
           </div>
-          <h3>PM Twin — AI-Native Project Management Platform</h3>
-          <p class="card-summary">A multi-agent AI command center that automates the full project management lifecycle — RAID management, resource validation, status reporting, delivery tracking, and governance — built after hours as a real-world application of AI engineering on top of Claude AI.</p>
+          <h3>PM Twin — Autonomous AI Project Management Platform</h3>
+          <p class="card-summary">A production-grade multi-agent AI platform that autonomously runs the full project management lifecycle — RAID management, resource validation, schedule tracking, governance, and delivery reporting — across 100+ Salesforce project managers. 12 specialized agents. Built on Claude AI with an agents-only development team.</p>
           <div class="card-metrics">
             <div class="metric"><span class="metric-label">Agents</span><span class="metric-value mv-purple">12 specialized</span></div>
-            <div class="metric"><span class="metric-label">Domains</span><span class="metric-value mv-blue">8 PM job domains</span></div>
-            <div class="metric"><span class="metric-label">Deployments</span><span class="metric-value mv-green">CLI + Web + Agentforce</span></div>
+            <div class="metric"><span class="metric-label">Users</span><span class="metric-value mv-green">100+ PMs</span></div>
+            <div class="metric"><span class="metric-label">Efficiency gain</span><span class="metric-value mv-blue">25% operational</span></div>
+            <div class="metric"><span class="metric-label">Deployments</span><span class="metric-value mv-orange">CLI + Web + Agentforce</span></div>
           </div>
         </div>
         <div class="card-chevron">▼</div>
@@ -1900,11 +1964,11 @@
             </ul>
           </div>
           <div class="detail-section orange">
-            <h4>Why I Built It</h4>
+            <h4>Why It Matters</h4>
             <ul>
-              <li>After 25 years in program management, I wanted to see how much of the administrative overhead could be eliminated with AI — the answer turned out to be: most of it</li>
-              <li>Hands-on way to go deep on agentic AI patterns: multi-agent orchestration, tool use, RAG, structured output, and real-world integration with Slack, Drive, and Salesforce APIs</li>
-              <li>Built entirely in personal time — weeknights and weekends — as a genuine engineering challenge, not a demo</li>
+              <li>After 25 years in program management, I built the AI platform I always wished existed — one that eliminates the administrative overhead and lets PMs focus on decisions, not documentation</li>
+              <li>Proof that agentic AI can work in enterprise contexts: real multi-agent orchestration, RAG over live project data, structured output, WebSocket streaming, and deep integration with Slack, Drive, and Salesforce APIs</li>
+              <li>Built, deployed, and used in production — not a demo, not a prototype — serving real project managers with real outcomes</li>
             </ul>
           </div>
         </div>
@@ -1916,6 +1980,12 @@
         </div>
       </div>
     </div>
+
+  </div>
+
+  <!-- ── OTHER PASSION PROJECTS ── -->
+  <div class="projects-sublabel passion" style="margin-top:2.5rem;">More Passion Projects · Built After Hours</div>
+  <div class="projects-list">
 
     <!-- NatyaVibe -->
     <div class="project-card" id="pp2">
@@ -2313,6 +2383,54 @@
       navToggle.classList.remove('open');
       navToggle.setAttribute('aria-expanded', false);
     }
+  });
+
+  // ── SECTION COLLAPSE ──
+  // Skip the hero (#about) — always visible; collapse everything else
+  document.querySelectorAll('section.section[id]').forEach(function(sec) {
+    if (sec.id === 'about') return;
+
+    // Wrap label + title in a clickable head
+    var label = sec.querySelector('.section-label');
+    var title = sec.querySelector('.section-title');
+    if (!label) return;
+
+    var head = document.createElement('div');
+    head.className = 'section-head';
+    head.setAttribute('role', 'button');
+    head.setAttribute('aria-expanded', 'true');
+    head.setAttribute('tabindex', '0');
+
+    // Chevron inside the label row (after the ::after line)
+    var chev = document.createElement('span');
+    chev.className = 'section-chevron';
+    chev.setAttribute('aria-hidden', 'true');
+    chev.textContent = '▼';
+    label.appendChild(chev);
+
+    // Insert head before label, move label+title into it
+    sec.insertBefore(head, label);
+    head.appendChild(label);
+    if (title) head.appendChild(title);
+
+    // Wrap all remaining children in section-body-wrap > div
+    var remaining = Array.from(sec.childNodes).filter(function(n) { return n !== head; });
+    var outer = document.createElement('div');
+    outer.className = 'section-body-wrap';
+    var inner = document.createElement('div');
+    remaining.forEach(function(n) { inner.appendChild(n); });
+    outer.appendChild(inner);
+    sec.appendChild(outer);
+
+    // Toggle on click / Enter / Space
+    function collapseToggle() {
+      var collapsed = sec.classList.toggle('sec-collapsed');
+      head.setAttribute('aria-expanded', !collapsed);
+    }
+    head.addEventListener('click', collapseToggle);
+    head.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); collapseToggle(); }
+    });
   });
 
   // Active nav highlight on scroll
