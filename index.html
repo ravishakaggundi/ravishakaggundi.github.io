@@ -255,6 +255,129 @@
     }
     .articles-placeholder strong { color: var(--text); display: block; margin-bottom: 0.4rem; }
 
+    /* ── CAREER JOURNEY INFOGRAPHIC ── */
+    .cj-wrap {
+      max-width: 1060px; margin: 0 auto; padding: 2rem 1.5rem 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .cj-header { text-align: center; margin-bottom: 0.75rem; }
+    .cj-header-title {
+      font-size: clamp(0.85rem, 2vw, 1.1rem); font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.5px; color: var(--text);
+    }
+    .cj-header-title span { color: var(--accent); }
+    .cj-header-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+
+    .cj-banner {
+      background: linear-gradient(135deg, #1a3a5c 0%, #0f4c8a 50%, #1a3a5c 100%);
+      color: #fff; text-align: center; font-size: 0.95rem; font-weight: 700;
+      padding: 0.6rem 1rem; border-radius: 8px; margin-bottom: 0.875rem;
+      letter-spacing: 0.3px;
+    }
+
+    .cj-kpis {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .cj-kpi {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0.875rem; display: flex; align-items: center; gap: 0.5rem; flex: 1; min-width: 130px;
+    }
+    .cj-kpi-icon { font-size: 1.1rem; }
+    .cj-kpi-val { font-size: 0.9rem; font-weight: 800; color: var(--accent); white-space: nowrap; }
+    .cj-kpi-lbl { font-size: 0.68rem; color: var(--muted); line-height: 1.3; }
+
+    .cj-timeline {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .cj-node {
+      background: var(--surface); border: 1.5px solid var(--border); border-radius: 12px;
+      padding: 0.875rem 0.7rem; display: flex; flex-direction: column; align-items: center;
+      text-align: center; cursor: pointer; transition: border-color .2s, transform .15s, box-shadow .2s;
+      position: relative; font-size: inherit; color: inherit; font-family: inherit;
+      text-decoration: none;
+    }
+    .cj-node:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 6px 24px rgba(88,166,255,0.15); }
+    .cj-node.cj-active { border-color: var(--accent2); box-shadow: 0 0 0 2px rgba(63,185,80,0.3); }
+    .cj-node-current { border-color: rgba(88,166,255,0.5); }
+    .cj-node-aspiration {
+      background: rgba(88,166,255,0.05); border: 1.5px dashed rgba(88,166,255,0.4);
+      border-radius: 12px; padding: 0.875rem 0.7rem; display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+    }
+
+    .cj-period { font-size: 0.65rem; font-weight: 700; color: var(--muted); margin-bottom: 0.5rem; letter-spacing: 0.3px; }
+    .cj-logo {
+      width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; font-size: 0.72rem; font-weight: 800; margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+    .cj-ge     { background: rgba(255,166,87,0.15); color: var(--accent5); border: 1px solid rgba(255,166,87,0.3); }
+    .cj-trilogy{ background: rgba(210,168,255,0.15); color: var(--accent4); border: 1px solid rgba(210,168,255,0.3); }
+    .cj-alc    { background: rgba(247,129,102,0.15); color: var(--accent3); border: 1px solid rgba(247,129,102,0.3); }
+    .cj-nokia  { background: rgba(63,185,80,0.15); color: var(--accent2); border: 1px solid rgba(63,185,80,0.3); }
+    .cj-sf     { background: rgba(88,166,255,0.15); color: var(--accent); border: 1px solid rgba(88,166,255,0.3); }
+    .cj-asp    { background: rgba(88,166,255,0.08); color: var(--accent); border: 1px dashed rgba(88,166,255,0.4); }
+
+    .cj-company { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text); margin-bottom: 0.2rem; line-height: 1.3; }
+    .cj-role { font-size: 0.64rem; color: var(--accent); font-weight: 600; margin-bottom: 0.15rem; line-height: 1.3; }
+    .cj-loc { font-size: 0.6rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .cj-facts { list-style: none; text-align: left; width: 100%; display: flex; flex-direction: column; gap: 0.2rem; }
+    .cj-facts li { font-size: 0.64rem; color: var(--muted); line-height: 1.4; }
+    .cj-arrow {
+      position: absolute; right: -0.55rem; top: 50%; transform: translateY(-50%);
+      background: var(--surface2); border: 1px solid var(--border);
+      color: var(--accent); font-size: 0.7rem; width: 18px; height: 18px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      z-index: 2;
+    }
+    .cj-future { color: var(--accent4); }
+
+    .cj-bottom {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .cj-about, .cj-learning {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+    }
+    .cj-about-title, .cj-learning-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--muted); margin-bottom: 0.6rem;
+    }
+    .cj-about-body { font-size: 0.82rem; color: var(--text); line-height: 1.6; margin-bottom: 0.875rem; }
+    .cj-about-cta { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .cj-badges { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .cj-badge-item {
+      display: flex; flex-direction: column; align-items: center; gap: 0.15rem;
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 10px;
+      padding: 0.65rem 0.75rem; text-decoration: none; color: inherit;
+      transition: border-color .2s, transform .15s; flex: 1; min-width: 70px;
+    }
+    .cj-badge-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .cj-badge-icon { font-size: 1.3rem; }
+    .cj-badge-val { font-size: 0.85rem; font-weight: 800; color: var(--accent); }
+    .cj-badge-lbl { font-size: 0.62rem; color: var(--muted); text-align: center; line-height: 1.3; }
+
+    /* highlight pulse on targeted tl-item */
+    .tl-item.cj-highlight .tl-card {
+      border-color: var(--accent2);
+      box-shadow: 0 0 0 2px rgba(63,185,80,0.25), 0 4px 20px rgba(63,185,80,0.1);
+      transition: border-color .3s, box-shadow .3s;
+    }
+
+    @media (max-width: 860px) {
+      .cj-timeline { grid-template-columns: repeat(3, 1fr); }
+      .cj-arrow { display: none; }
+    }
+    @media (max-width: 560px) {
+      .cj-timeline { grid-template-columns: repeat(2, 1fr); }
+      .cj-bottom { grid-template-columns: 1fr; }
+    }
+
     /* ── FOOTER ── */
     footer { border-top: 1px solid var(--border); padding: 2.5rem 2rem; }
     .footer-inner { max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
@@ -293,25 +416,168 @@
 </nav>
 
 <!-- ── HERO / ABOUT ── -->
-<section class="section" id="about">
-  <div class="hero-badge">Agentic AI Transformation · Digital Transformation · 25+ Years</div>
-  <h1 class="hero">Ravisha <span>Kaggundi</span> Suryanarayana</h1>
-  <div class="hero-role">Director of Engagement Delivery · Salesforce Professional Services</div>
-  <div class="hero-tagline">25+ years leading large-scale cloud, integration &amp; digital transformation · Agentic AI practitioner · UT Austin PGP AI/ML (GPA 4.33, 4th Rank)</div>
-  <p class="hero-bio">
-    From selling farm produce as a street vendor in rural India to directing $100M+ delivery portfolios at Salesforce — my career has been defined by transforming complexity into measurable value. I started as a software engineer at GE, built and scaled 100+ person teams at Nokia, and now lead strategic Agentic AI and digital transformation programs at Salesforce. In 2026 I completed UT Austin's Post Graduate Program in AI/ML (4th rank), adding deep technical AI skills to 25 years of enterprise delivery leadership.
-  </p>
-  <div class="hero-meta">
-    <span>📍 Round Rock, TX</span>
-    <span>🏢 Salesforce Professional Services</span>
-    <span>🎓 UT Austin PGP AI/ML (4th Rank) · BMS College BE</span>
-    <span>⏱ 25+ years experience</span>
+<section id="about" style="padding-top:4rem; padding-bottom:0;">
+<div class="cj-wrap">
+
+  <!-- Header -->
+  <div class="cj-header">
+    <div class="cj-header-title">CAREER JOURNEY OF <span>RAVISHA KAGGUNDI SURYANARAYANA</span></div>
+    <div class="cj-header-sub">Agentic AI Transformation Leader · Director of Engagement Delivery, Salesforce</div>
   </div>
-  <div class="hero-cta">
-    <a class="btn btn-primary" href="Ravisha_Kaggundi_Resume.pdf" download>⬇ Download Resume</a>
-    <a class="btn btn-outline" href="https://www.linkedin.com/in/ravisha-kaggundi-suryanarayana/" target="_blank">LinkedIn</a>
-    <a class="btn btn-outline" href="https://github.com/ravishakaggundi" target="_blank">GitHub</a>
+
+  <!-- Banner -->
+  <div class="cj-banner">25+ Years of Digital Transformation Leadership</div>
+
+  <!-- KPI bar -->
+  <div class="cj-kpis">
+    <div class="cj-kpi"><span class="cj-kpi-icon">📈</span><span class="cj-kpi-val">$100M+</span><span class="cj-kpi-lbl">Revenue Led</span></div>
+    <div class="cj-kpi"><span class="cj-kpi-icon">💰</span><span class="cj-kpi-val">$100M+</span><span class="cj-kpi-lbl">Cost Avoidance</span></div>
+    <div class="cj-kpi"><span class="cj-kpi-icon">⭐</span><span class="cj-kpi-val">5/5</span><span class="cj-kpi-lbl">CSAT</span></div>
+    <div class="cj-kpi"><span class="cj-kpi-icon">🎓</span><span class="cj-kpi-val">GPA 4.33</span><span class="cj-kpi-lbl">UT Austin AI/ML · 4th Rank</span></div>
+    <div class="cj-kpi"><span class="cj-kpi-icon">🏆</span><span class="cj-kpi-val">17+</span><span class="cj-kpi-lbl">Awards</span></div>
   </div>
+
+  <!-- Timeline nodes -->
+  <div class="cj-timeline">
+
+    <button class="cj-node" data-target="tl-ge" onclick="cjGo('tl-ge',this)">
+      <div class="cj-period">1999–2007</div>
+      <div class="cj-logo cj-ge">GE</div>
+      <div class="cj-company">GENERAL ELECTRIC</div>
+      <div class="cj-role">Software Eng → Asst. VP</div>
+      <div class="cj-loc">Bangalore, India</div>
+      <ul class="cj-facts">
+        <li>💎 Diamond Award</li>
+        <li>💵 $2M+$2M savings</li>
+        <li>👥 30+ team</li>
+        <li>⚙ PLM/PDM · MIS CoE</li>
+      </ul>
+      <div class="cj-arrow">→</div>
+    </button>
+
+    <button class="cj-node" data-target="tl-trilogy" onclick="cjGo('tl-trilogy',this)">
+      <div class="cj-period">2007–2009</div>
+      <div class="cj-logo cj-trilogy">TRI</div>
+      <div class="cj-company">TRILOGY</div>
+      <div class="cj-role">Project Manager</div>
+      <div class="cj-loc">Austin, TX</div>
+      <ul class="cj-facts">
+        <li>💵 $16M program</li>
+        <li>📊 70% margin</li>
+        <li>🌍 4-country team</li>
+        <li>👥 50+ engineers</li>
+      </ul>
+      <div class="cj-arrow">→</div>
+    </button>
+
+    <button class="cj-node" data-target="tl-alc" onclick="cjGo('tl-alc',this)">
+      <div class="cj-period">2009–2014</div>
+      <div class="cj-logo cj-alc">AL</div>
+      <div class="cj-company">ALCATEL-LUCENT</div>
+      <div class="cj-role">Sr. Program Manager</div>
+      <div class="cj-loc">Bangalore, India</div>
+      <ul class="cj-facts">
+        <li>💵 $10M+ programs</li>
+        <li>🌍 8 Fortune 500 clients</li>
+        <li>👥 50+ engineers</li>
+        <li>📋 100% on-time delivery</li>
+      </ul>
+      <div class="cj-arrow">→</div>
+    </button>
+
+    <button class="cj-node" data-target="tl-nokia" onclick="cjGo('tl-nokia',this)">
+      <div class="cj-period">2015–2021</div>
+      <div class="cj-logo cj-nokia">NOK</div>
+      <div class="cj-company">NOKIA</div>
+      <div class="cj-role">Practice Manager</div>
+      <div class="cj-loc">Austin, TX</div>
+      <ul class="cj-facts">
+        <li>💵 $23M ARR P&amp;L</li>
+        <li>📈 $100K→$16M ARR</li>
+        <li>⚡ $4M savings · 60% faster</li>
+        <li>🌍 SAFe · 3 continents</li>
+      </ul>
+      <div class="cj-arrow">→</div>
+    </button>
+
+    <button class="cj-node cj-node-current" data-target="tl-sf" onclick="cjGo('tl-sf',this)">
+      <div class="cj-period">2021–Present</div>
+      <div class="cj-logo cj-sf">SF</div>
+      <div class="cj-company">SALESFORCE</div>
+      <div class="cj-role">Director, Engagement Delivery</div>
+      <div class="cj-loc">Round Rock, TX</div>
+      <ul class="cj-facts">
+        <li>🤖 Agentforce · PM Twin</li>
+        <li>💵 $10M+ expansion</li>
+        <li>⭐ 5/5 CSAT</li>
+        <li>🏆 7 Salesforce awards</li>
+      </ul>
+      <div class="cj-arrow cj-future">→</div>
+    </button>
+
+    <div class="cj-node cj-node-aspiration">
+      <div class="cj-period">ASPIRATION · 2026+</div>
+      <div class="cj-logo cj-asp">AI</div>
+      <div class="cj-company">AI LEADERSHIP</div>
+      <div class="cj-role">Delivery AI Transformation At Scale</div>
+      <div class="cj-loc">&nbsp;</div>
+      <ul class="cj-facts">
+        <li>🤖 Agentforce</li>
+        <li>🧠 Production ML</li>
+        <li>📚 RAG · MLOps</li>
+        <li>👁 Computer Vision</li>
+      </ul>
+    </div>
+
+  </div><!-- /cj-timeline -->
+
+  <!-- Bottom row: About Me + Learning Journey -->
+  <div class="cj-bottom">
+    <div class="cj-about">
+      <div class="cj-about-title">ABOUT ME</div>
+      <div class="cj-about-body">
+        Remote village background, street vendor 10–16, moved to Austin 2015, Family of 4.<br>
+        B.E. Chemical Engineering (First Class) · PGP AI/ML UT Austin GPA 4.33 · 4th Rank
+      </div>
+      <div class="cj-about-cta">
+        <a class="btn btn-primary" href="Ravisha_Kaggundi_Resume.pdf" download>⬇ Resume</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/ravisha-kaggundi-suryanarayana/" target="_blank">LinkedIn</a>
+        <a class="btn btn-outline" href="https://github.com/ravishakaggundi" target="_blank">GitHub</a>
+      </div>
+    </div>
+    <div class="cj-learning">
+      <div class="cj-learning-title">LEARNING JOURNEY</div>
+      <div class="cj-badges">
+        <a href="#certifications" class="cj-badge-item">
+          <div class="cj-badge-icon">📜</div>
+          <div class="cj-badge-val">11+</div>
+          <div class="cj-badge-lbl">Certifications</div>
+        </a>
+        <a href="#awards" class="cj-badge-item">
+          <div class="cj-badge-icon">🏆</div>
+          <div class="cj-badge-val">17+</div>
+          <div class="cj-badge-lbl">Awards</div>
+        </a>
+        <a href="#certifications" class="cj-badge-item">
+          <div class="cj-badge-icon">🔥</div>
+          <div class="cj-badge-val">Legend</div>
+          <div class="cj-badge-lbl">AgentBlazer</div>
+        </a>
+        <a href="#certifications" class="cj-badge-item">
+          <div class="cj-badge-icon">⭐⭐</div>
+          <div class="cj-badge-val">Double</div>
+          <div class="cj-badge-lbl">Star Ranger</div>
+        </a>
+        <a href="#projects" class="cj-badge-item">
+          <div class="cj-badge-icon">🧠</div>
+          <div class="cj-badge-val">8</div>
+          <div class="cj-badge-lbl">AI/ML Projects</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /cj-wrap -->
 </section>
 
 <!-- ── EXPERIENCE ── -->
@@ -320,7 +586,7 @@
   <div class="section-title">Experience</div>
   <div class="timeline">
 
-    <div class="tl-item">
+    <div class="tl-item" id="tl-sf">
       <div class="tl-dot current">☁</div>
       <div class="tl-card">
         <div class="tl-header">
@@ -342,7 +608,7 @@
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" id="tl-nokia">
       <div class="tl-dot">📡</div>
       <div class="tl-card">
         <div class="tl-header">
@@ -364,7 +630,7 @@
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" id="tl-alc">
       <div class="tl-dot">📡</div>
       <div class="tl-card">
         <div class="tl-header">
@@ -384,7 +650,7 @@
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" id="tl-trilogy">
       <div class="tl-dot">💻</div>
       <div class="tl-card">
         <div class="tl-header">
@@ -404,7 +670,7 @@
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" id="tl-ge">
       <div class="tl-dot">⚡</div>
       <div class="tl-card">
         <div class="tl-header">
@@ -1177,6 +1443,22 @@
 <script>
   function toggle(id) {
     document.getElementById(id).classList.toggle('open');
+  }
+
+  function cjGo(targetId, btn) {
+    // toggle active state on button
+    document.querySelectorAll('.cj-node').forEach(n => n.classList.remove('cj-active'));
+    btn.classList.add('cj-active');
+    // scroll to the experience section target
+    var el = document.getElementById(targetId);
+    if (!el) return;
+    var y = el.getBoundingClientRect().top + window.scrollY - 70;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    // pulse highlight
+    el.classList.remove('cj-highlight');
+    void el.offsetWidth; // reflow
+    el.classList.add('cj-highlight');
+    setTimeout(function(){ el.classList.remove('cj-highlight'); }, 2000);
   }
 
   // Active nav highlight on scroll
