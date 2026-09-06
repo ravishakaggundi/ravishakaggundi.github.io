@@ -575,18 +575,26 @@
 
     /* ── TWIN AGENT WIDGET ── */
     #twin-btn {
-      display: inline-flex; align-items: center; gap: 0.4rem;
+      display: inline-flex; align-items: center; gap: 0.45rem;
       padding: 0.38rem 0.85rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
       background: linear-gradient(135deg, rgba(210,168,255,0.15), rgba(88,166,255,0.12));
       border: 1px solid rgba(210,168,255,0.4); color: var(--accent4);
       cursor: pointer; transition: all 0.2s; white-space: nowrap; flex-shrink: 0;
+      position: relative;
     }
     #twin-btn:hover { background: linear-gradient(135deg, rgba(210,168,255,0.25), rgba(88,166,255,0.2)); border-color: var(--accent4); }
-    #twin-btn .twin-dot {
-      width: 7px; height: 7px; border-radius: 50%; background: var(--accent4);
+    #twin-btn svg { flex-shrink: 0; }
+    #twin-btn .twin-label { display: inline; }
+    #twin-btn .twin-pulse-ring {
+      position: absolute; top: -3px; right: -3px;
+      width: 9px; height: 9px; border-radius: 50%; background: var(--accent4);
       animation: twin-pulse 2s ease-in-out infinite;
     }
-    @keyframes twin-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.85)} }
+    @keyframes twin-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.75)} }
+    @media (max-width: 720px) {
+      #twin-btn { padding: 0.38rem 0.55rem; gap: 0; }
+      #twin-btn .twin-label { display: none; }
+    }
 
     #twin-panel {
       position: fixed; top: 56px; left: 0; right: 0; z-index: 99;
@@ -750,7 +758,15 @@
   <div class="nav-brand">Ravisha K. Suryanarayana</div>
   <div class="nav-right">
     <button id="twin-btn" onclick="twinToggle()" aria-label="Chat with Ravisha's AI Twin">
-      <span class="twin-dot"></span> Chat with My Twin
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="13" rx="3"/>
+        <path d="M8 16v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2"/>
+        <circle cx="9" cy="9.5" r="1.2" fill="currentColor" stroke="none"/>
+        <circle cx="15" cy="9.5" r="1.2" fill="currentColor" stroke="none"/>
+        <path d="M9.5 12.5 Q12 14 14.5 12.5" stroke-width="1.5"/>
+      </svg>
+      <span class="twin-label">Twin</span>
+      <span class="twin-pulse-ring" aria-hidden="true"></span>
     </button>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
