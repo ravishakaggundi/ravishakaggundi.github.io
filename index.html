@@ -2963,16 +2963,30 @@
           if (result.done) {
             orb.classList.remove('speaking');
             if (fullText && twinSynth) {
-              var utt = new SpeechSynthesisUtterance(fullText);
-              utt.rate = 0.95;
-              utt.pitch = 1;
-              utt.onend = function() {
-                status.textContent = 'Click the mic to ask another question';
-                orb.textContent = '🎙';
-              };
-              twinSynth.speak(utt);
-              status.textContent = 'Speaking…';
-              orb.textContent = '🔊';
+              // Split into sentences to avoid Chrome SpeechSynthesis cutoff bug
+              var sentences = fullText.match(/[^.!?]+[.!?]+/g) || [fullText];
+              var idx = 0;
+              function speakNext() {
+                if (idx >= sentences.length) {
+                  status.textContent = 'Click the mic to ask another question';
+                  orb.textContent = '🎙';
+                  return;
+                }
+                var utt = new SpeechSynthesisUtterance(sentences[idx].trim());
+                utt.rate = 0.95;
+                utt.pitch = 1;
+                utt.onend = function() { idx++; speakNext(); };
+                utt.onerror = function() { idx++; speakNext(); };
+                twinSynth.speak(utt);
+                idx++;
+              }
+              // Chrome requires a tiny delay before first utterance
+              setTimeout(function() {
+                status.textContent = 'Speaking…';
+                orb.textContent = '🔊';
+                twinSynth.cancel();
+                speakNext();
+              }, 100);
             } else {
               status.textContent = 'Click the mic to ask another question';
             }
