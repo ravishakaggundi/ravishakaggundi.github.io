@@ -27,8 +27,9 @@
     img, svg { max-width: 100%; height: auto; }
 
     /* ── NAV ── */
+    body { padding-top: 56px; }
     nav {
-      position: sticky; top: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(13,17,23,0.97); backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 56px;
@@ -73,6 +74,7 @@
 
     /* ── SECTION WRAPPER ── */
     .section { max-width: 920px; margin: 0 auto; padding: 4rem 2rem; transition: padding-bottom 0.28s ease; }
+    section[id] { scroll-margin-top: 56px; }
     .section-label {
       font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
       letter-spacing: 1.2px; color: var(--muted); margin-bottom: 0.5rem;
