@@ -35,6 +35,7 @@
       padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 56px;
     }
     .nav-brand { font-weight: 700; font-size: 0.95rem; color: var(--text); letter-spacing: -0.3px; white-space: nowrap; }
+    .nav-right { display: flex; align-items: center; gap: 0.75rem; }
     .nav-links { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
     .nav-links a {
       color: var(--muted); text-decoration: none; font-size: 0.82rem;
@@ -69,7 +70,6 @@
       }
       .nav-links a:first-child { border-top: none; }
       .nav-links a[data-hide-mobile] { display: flex; }
-      #twin-btn { margin: 0.6rem 1.25rem; width: calc(100% - 2.5rem); justify-content: center; }
     }
 
     /* ── SECTION WRAPPER ── */
@@ -748,24 +748,26 @@
 <!-- ── NAV ── -->
 <nav>
   <div class="nav-brand">Ravisha K. Suryanarayana</div>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links" id="navLinks">
+  <div class="nav-right">
     <button id="twin-btn" onclick="twinToggle()" aria-label="Chat with Ravisha's AI Twin">
       <span class="twin-dot"></span> Chat with My Twin
     </button>
-    <a href="#about">About</a>
-    <a href="#philosophy" data-hide-mobile>AI Philosophy</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills" data-hide-mobile>Skills</a>
-    <a href="#certifications" data-hide-mobile>Certs</a>
-    <a href="#awards" data-hide-mobile>Awards</a>
-    <a href="#projects">Projects</a>
-    <a href="#articles" data-hide-mobile>Articles</a>
-    <a href="#recommendations" data-hide-mobile>Recommendations</a>
-    <a href="https://github.com/ravishakaggundi" target="_blank" data-hide-mobile>GitHub</a>
-    <a href="https://www.linkedin.com/in/ravisha-kaggundi-suryanarayana/" target="_blank" data-hide-mobile>LinkedIn</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#philosophy" data-hide-mobile>AI Philosophy</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills" data-hide-mobile>Skills</a>
+      <a href="#certifications" data-hide-mobile>Certs</a>
+      <a href="#awards" data-hide-mobile>Awards</a>
+      <a href="#projects">Projects</a>
+      <a href="#articles" data-hide-mobile>Articles</a>
+      <a href="#recommendations" data-hide-mobile>Recommendations</a>
+      <a href="https://github.com/ravishakaggundi" target="_blank" data-hide-mobile>GitHub</a>
+      <a href="https://www.linkedin.com/in/ravisha-kaggundi-suryanarayana/" target="_blank" data-hide-mobile>LinkedIn</a>
+    </div>
   </div>
 </nav>
 
@@ -2698,6 +2700,14 @@
     twinPanelOpen = !twinPanelOpen;
     var panel = document.getElementById('twin-panel');
     var btn = document.getElementById('twin-btn');
+    // Close the mobile nav drawer if open
+    var navLinks = document.getElementById('navLinks');
+    var navToggle = document.getElementById('navToggle');
+    if (navLinks && navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
     panel.classList.toggle('twin-open', twinPanelOpen);
     if (twinPanelOpen) {
       btn.style.borderColor = 'var(--accent4)';
