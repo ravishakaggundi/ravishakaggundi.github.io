@@ -68,6 +68,7 @@
       }
       .nav-links a:first-child { border-top: none; }
       .nav-links a[data-hide-mobile] { display: flex; }
+      #twin-btn { margin: 0.6rem 1.25rem; width: calc(100% - 2.5rem); justify-content: center; }
     }
 
     /* ── SECTION WRAPPER ── */
@@ -569,6 +570,175 @@
       .cj-kpis { flex-direction: column; align-items: stretch; }
       .cj-kpi { min-width: unset; }
     }
+
+    /* ── TWIN AGENT WIDGET ── */
+    #twin-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.38rem 0.85rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
+      background: linear-gradient(135deg, rgba(210,168,255,0.15), rgba(88,166,255,0.12));
+      border: 1px solid rgba(210,168,255,0.4); color: var(--accent4);
+      cursor: pointer; transition: all 0.2s; white-space: nowrap; flex-shrink: 0;
+    }
+    #twin-btn:hover { background: linear-gradient(135deg, rgba(210,168,255,0.25), rgba(88,166,255,0.2)); border-color: var(--accent4); }
+    #twin-btn .twin-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--accent4);
+      animation: twin-pulse 2s ease-in-out infinite;
+    }
+    @keyframes twin-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.85)} }
+
+    #twin-panel {
+      position: fixed; top: 56px; left: 0; right: 0; z-index: 99;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      transform: translateY(-110%); opacity: 0;
+      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease;
+      pointer-events: none;
+      max-height: calc(100vh - 56px); display: flex; flex-direction: column;
+    }
+    #twin-panel.twin-open {
+      transform: translateY(0); opacity: 1; pointer-events: auto;
+    }
+    .twin-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.75rem 1.25rem; border-bottom: 1px solid var(--border); flex-shrink: 0;
+      background: var(--surface2);
+    }
+    .twin-header-left { display: flex; align-items: center; gap: 0.75rem; }
+    .twin-avatar {
+      width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, #d2a8ff, #58a6ff);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 700; color: #0d1117;
+    }
+    .twin-header-info { line-height: 1.3; }
+    .twin-header-name { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+    .twin-header-sub { font-size: 0.72rem; color: var(--accent4); }
+    .twin-mode-toggle {
+      display: flex; gap: 0.4rem; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 3px;
+    }
+    .twin-mode-btn {
+      padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;
+      border: none; cursor: pointer; transition: all 0.18s;
+      background: transparent; color: var(--muted);
+    }
+    .twin-mode-btn.active { background: var(--accent4); color: #0d1117; }
+    .twin-close {
+      background: none; border: none; color: var(--muted); cursor: pointer;
+      font-size: 1.1rem; padding: 0.25rem; line-height: 1; transition: color 0.18s;
+    }
+    .twin-close:hover { color: var(--text); }
+
+    /* Chat pane */
+    #twin-chat-pane { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+    .twin-messages {
+      flex: 1; overflow-y: auto; padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.85rem;
+      max-height: 340px; min-height: 160px;
+    }
+    .twin-messages::-webkit-scrollbar { width: 4px; }
+    .twin-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .twin-msg { display: flex; gap: 0.6rem; align-items: flex-start; }
+    .twin-msg.user { flex-direction: row-reverse; }
+    .twin-msg-bubble {
+      max-width: 75%; font-size: 0.86rem; line-height: 1.6; padding: 0.6rem 0.9rem;
+      border-radius: 12px;
+    }
+    .twin-msg.user .twin-msg-bubble {
+      background: rgba(88,166,255,0.15); border: 1px solid rgba(88,166,255,0.3); color: var(--text);
+      border-bottom-right-radius: 3px;
+    }
+    .twin-msg.bot .twin-msg-bubble {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+      border-bottom-left-radius: 3px;
+    }
+    .twin-msg-avatar {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, #d2a8ff, #58a6ff);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700; color: #0d1117; margin-top: 2px;
+    }
+    .twin-typing {
+      display: flex; align-items: center; gap: 4px; padding: 0.55rem 0.9rem;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 12px; border-bottom-left-radius: 3px; width: fit-content;
+    }
+    .twin-typing span {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--muted);
+      animation: typing-dot 1.2s ease-in-out infinite;
+    }
+    .twin-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .twin-typing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing-dot { 0%,60%,100%{opacity:0.2;transform:translateY(0)} 30%{opacity:1;transform:translateY(-3px)} }
+    .twin-input-row {
+      display: flex; gap: 0.5rem; padding: 0.75rem 1.25rem;
+      border-top: 1px solid var(--border); flex-shrink: 0; align-items: flex-end;
+    }
+    #twin-input {
+      flex: 1; background: var(--surface2); border: 1px solid var(--border);
+      color: var(--text); border-radius: 8px; padding: 0.55rem 0.85rem;
+      font-size: 0.86rem; resize: none; outline: none; font-family: inherit; line-height: 1.5;
+      max-height: 100px; overflow-y: auto; transition: border-color 0.18s;
+    }
+    #twin-input:focus { border-color: var(--accent4); }
+    #twin-input::placeholder { color: var(--muted); }
+    #twin-send {
+      padding: 0.55rem 1rem; background: var(--accent4); border: none; color: #0d1117;
+      border-radius: 8px; font-size: 0.83rem; font-weight: 700; cursor: pointer;
+      transition: opacity 0.18s; flex-shrink: 0;
+    }
+    #twin-send:hover { opacity: 0.85; }
+    #twin-send:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* Voice pane */
+    #twin-voice-pane {
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+      padding: 2rem 1.5rem; gap: 1.25rem; min-height: 220px;
+    }
+    .twin-voice-orb {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(210,168,255,0.2), rgba(88,166,255,0.15));
+      border: 2px solid rgba(210,168,255,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; cursor: pointer; transition: all 0.25s;
+      position: relative;
+    }
+    .twin-voice-orb:hover { transform: scale(1.05); background: linear-gradient(135deg, rgba(210,168,255,0.3), rgba(88,166,255,0.25)); }
+    .twin-voice-orb.listening {
+      border-color: var(--accent4); box-shadow: 0 0 0 8px rgba(210,168,255,0.12), 0 0 0 16px rgba(210,168,255,0.05);
+      animation: orb-pulse 1.5s ease-in-out infinite;
+    }
+    .twin-voice-orb.speaking {
+      border-color: var(--accent2); box-shadow: 0 0 0 8px rgba(63,185,80,0.12);
+      animation: orb-pulse 0.8s ease-in-out infinite;
+    }
+    @keyframes orb-pulse { 0%,100%{box-shadow:0 0 0 4px rgba(210,168,255,0.15)} 50%{box-shadow:0 0 0 14px rgba(210,168,255,0.05)} }
+    .twin-voice-status { font-size: 0.85rem; color: var(--muted); text-align: center; }
+    .twin-voice-transcript {
+      font-size: 0.83rem; color: var(--text); text-align: center; max-width: 480px;
+      background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.65rem 1rem; line-height: 1.6; display: none;
+    }
+    .twin-voice-answer {
+      font-size: 0.83rem; color: var(--text); text-align: center; max-width: 560px;
+      background: rgba(210,168,255,0.07); border: 1px solid rgba(210,168,255,0.25);
+      border-radius: 8px; padding: 0.85rem 1.1rem; line-height: 1.7; display: none;
+    }
+    .twin-suggested {
+      display: flex; flex-wrap: wrap; gap: 0.45rem; padding: 0 1.25rem 0.9rem;
+      justify-content: center; flex-shrink: 0;
+    }
+    .twin-chip {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--muted);
+      border-radius: 20px; font-size: 0.72rem; padding: 0.3rem 0.75rem; cursor: pointer;
+      transition: all 0.18s; white-space: nowrap;
+    }
+    .twin-chip:hover { border-color: var(--accent4); color: var(--accent4); background: rgba(210,168,255,0.07); }
+
+    @media (max-width: 600px) {
+      #twin-panel { top: 56px; }
+      .twin-messages { max-height: 260px; }
+      .twin-msg-bubble { max-width: 88%; }
+    }
   </style>
 </head>
 <body>
@@ -580,6 +750,9 @@
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="navLinks">
+    <button id="twin-btn" onclick="twinToggle()" aria-label="Chat with Ravisha's AI Twin">
+      <span class="twin-dot"></span> Chat with My Twin
+    </button>
     <a href="#about">About</a>
     <a href="#philosophy" data-hide-mobile>AI Philosophy</a>
     <a href="#experience">Experience</a>
@@ -593,6 +766,62 @@
     <a href="https://www.linkedin.com/in/ravisha-kaggundi-suryanarayana/" target="_blank" data-hide-mobile>LinkedIn</a>
   </div>
 </nav>
+
+<!-- ── TWIN AGENT PANEL ── -->
+<div id="twin-panel" role="dialog" aria-label="Ravisha AI Twin Chat" aria-modal="true">
+
+  <!-- Header -->
+  <div class="twin-header">
+    <div class="twin-header-left">
+      <div class="twin-avatar">R</div>
+      <div class="twin-header-info">
+        <div class="twin-header-name">Ravisha's AI Twin</div>
+        <div class="twin-header-sub">Powered by Claude · Ask me anything about Ravisha's experience</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <div class="twin-mode-toggle">
+        <button class="twin-mode-btn active" id="twin-mode-chat" onclick="twinSetMode('chat')">💬 Chat</button>
+        <button class="twin-mode-btn" id="twin-mode-voice" onclick="twinSetMode('voice')">🎙 Voice</button>
+      </div>
+      <button class="twin-close" onclick="twinToggle()" aria-label="Close">✕</button>
+    </div>
+  </div>
+
+  <!-- Chat pane -->
+  <div id="twin-chat-pane">
+    <div class="twin-messages" id="twin-messages">
+      <div class="twin-msg bot">
+        <div class="twin-msg-avatar">R</div>
+        <div class="twin-msg-bubble">
+          Hi! I'm Ravisha's AI Twin. Ask me about my experience, leadership style, specific challenges I've tackled, or any competency you'd like to explore. I answer in STAR format and only from Ravisha's real experience.
+        </div>
+      </div>
+    </div>
+    <!-- Suggested questions -->
+    <div class="twin-suggested" id="twin-suggested">
+      <button class="twin-chip" onclick="twinAsk('Tell me about yourself')">Tell me about yourself</button>
+      <button class="twin-chip" onclick="twinAsk('What is your greatest strength?')">Greatest strength</button>
+      <button class="twin-chip" onclick="twinAsk('Tell me about a program turnaround you led')">Program turnaround</button>
+      <button class="twin-chip" onclick="twinAsk('How do you handle difficult customers?')">Difficult customers</button>
+      <button class="twin-chip" onclick="twinAsk('Describe your most innovative project')">Most innovative project</button>
+      <button class="twin-chip" onclick="twinAsk('Tell me about a time you disagreed with your manager')">Disagreed with manager</button>
+    </div>
+    <div class="twin-input-row">
+      <textarea id="twin-input" placeholder="Ask about experience, leadership, projects, competencies…" rows="1" onkeydown="twinKeydown(event)"></textarea>
+      <button id="twin-send" onclick="twinSend()">Send</button>
+    </div>
+  </div>
+
+  <!-- Voice pane -->
+  <div id="twin-voice-pane">
+    <div class="twin-voice-orb" id="twin-orb" onclick="twinVoiceToggle()" title="Click to speak">🎙</div>
+    <div class="twin-voice-status" id="twin-voice-status">Click the mic to ask a question</div>
+    <div class="twin-voice-transcript" id="twin-voice-transcript"></div>
+    <div class="twin-voice-answer" id="twin-voice-answer"></div>
+  </div>
+
+</div>
 
 <!-- ── HERO / ABOUT ── -->
 <section id="about" style="padding-top:0; padding-bottom:0;">
@@ -2446,6 +2675,337 @@
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
   sections.forEach(s => observer.observe(s));
+</script>
+
+<!-- ── TWIN AGENT JS ── -->
+<script>
+(function() {
+  var TWIN_API = 'https://ravisha-twin.vercel.app/api/ask';
+
+  var twinPanelOpen = false;
+  var twinCurrentMode = 'chat';
+  var twinHistory = [];
+  var twinStreaming = false;
+
+  // Voice
+  var twinRecognition = null;
+  var twinSynth = window.speechSynthesis || null;
+  var twinListening = false;
+
+  window.twinToggle = function() {
+    twinPanelOpen = !twinPanelOpen;
+    var panel = document.getElementById('twin-panel');
+    var btn = document.getElementById('twin-btn');
+    panel.classList.toggle('twin-open', twinPanelOpen);
+    if (twinPanelOpen) {
+      btn.style.borderColor = 'var(--accent4)';
+      btn.style.background = 'linear-gradient(135deg,rgba(210,168,255,0.25),rgba(88,166,255,0.2))';
+      setTimeout(function() { document.getElementById('twin-input').focus(); }, 350);
+    } else {
+      btn.style.borderColor = '';
+      btn.style.background = '';
+      if (twinListening && twinRecognition) { twinRecognition.stop(); }
+      if (twinSynth) twinSynth.cancel();
+    }
+  };
+
+  window.twinSetMode = function(mode) {
+    twinCurrentMode = mode;
+    document.getElementById('twin-mode-chat').classList.toggle('active', mode === 'chat');
+    document.getElementById('twin-mode-voice').classList.toggle('active', mode === 'voice');
+    document.getElementById('twin-chat-pane').style.display = mode === 'chat' ? 'flex' : 'none';
+    document.getElementById('twin-voice-pane').style.display = mode === 'voice' ? 'flex' : 'none';
+    if (mode === 'voice' && twinSynth) twinSynth.cancel();
+  };
+
+  window.twinKeydown = function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      twinSend();
+    }
+    // Auto-grow textarea
+    var ta = document.getElementById('twin-input');
+    setTimeout(function() {
+      ta.style.height = 'auto';
+      ta.style.height = Math.min(ta.scrollHeight, 100) + 'px';
+    }, 0);
+  };
+
+  window.twinAsk = function(question) {
+    document.getElementById('twin-input').value = question;
+    twinSend();
+    // Hide chips after first use
+    document.getElementById('twin-suggested').style.display = 'none';
+  };
+
+  window.twinSend = function() {
+    if (twinStreaming) return;
+    var input = document.getElementById('twin-input');
+    var question = input.value.trim();
+    if (!question) return;
+    input.value = '';
+    input.style.height = 'auto';
+    document.getElementById('twin-suggested').style.display = 'none';
+    twinAppendMessage('user', question);
+    twinHistory.push({ role: 'user', content: question });
+    twinCallAPI(question, 'chat');
+  };
+
+  function twinAppendMessage(role, text) {
+    var msgs = document.getElementById('twin-messages');
+    var wrap = document.createElement('div');
+    wrap.className = 'twin-msg ' + role;
+    if (role === 'bot') {
+      var av = document.createElement('div');
+      av.className = 'twin-msg-avatar';
+      av.textContent = 'R';
+      wrap.appendChild(av);
+    }
+    var bubble = document.createElement('div');
+    bubble.className = 'twin-msg-bubble';
+    bubble.textContent = text;
+    wrap.appendChild(bubble);
+    msgs.appendChild(wrap);
+    msgs.scrollTop = msgs.scrollHeight;
+    return bubble;
+  }
+
+  function twinShowTyping() {
+    var msgs = document.getElementById('twin-messages');
+    var wrap = document.createElement('div');
+    wrap.className = 'twin-msg bot';
+    wrap.id = 'twin-typing-indicator';
+    var av = document.createElement('div');
+    av.className = 'twin-msg-avatar';
+    av.textContent = 'R';
+    wrap.appendChild(av);
+    var dots = document.createElement('div');
+    dots.className = 'twin-typing';
+    dots.innerHTML = '<span></span><span></span><span></span>';
+    wrap.appendChild(dots);
+    msgs.appendChild(wrap);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function twinRemoveTyping() {
+    var t = document.getElementById('twin-typing-indicator');
+    if (t) t.remove();
+  }
+
+  function twinCallAPI(question, mode) {
+    twinStreaming = true;
+    document.getElementById('twin-send').disabled = true;
+    twinShowTyping();
+
+    fetch(TWIN_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        question: question,
+        history: twinHistory.slice(-6),
+        mode: mode
+      })
+    }).then(function(res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      var reader = res.body.getReader();
+      var decoder = new TextDecoder();
+      var buffer = '';
+      var answerBubble = null;
+      var fullAnswer = '';
+
+      function read() {
+        return reader.read().then(function(result) {
+          if (result.done) {
+            twinRemoveTyping();
+            if (fullAnswer) twinHistory.push({ role: 'assistant', content: fullAnswer });
+            twinStreaming = false;
+            document.getElementById('twin-send').disabled = false;
+            return;
+          }
+          buffer += decoder.decode(result.value, { stream: true });
+          var lines = buffer.split('\n');
+          buffer = lines.pop();
+          lines.forEach(function(line) {
+            if (!line.startsWith('data:')) return;
+            var raw = line.slice(5).trim();
+            if (!raw) return;
+            try {
+              var obj = JSON.parse(raw);
+              if (obj.text) {
+                if (!answerBubble) {
+                  twinRemoveTyping();
+                  answerBubble = twinAppendMessage('bot', '');
+                }
+                fullAnswer += obj.text;
+                answerBubble.textContent = fullAnswer;
+                document.getElementById('twin-messages').scrollTop = document.getElementById('twin-messages').scrollHeight;
+              } else if (obj.error) {
+                twinRemoveTyping();
+                twinAppendMessage('bot', 'Sorry, I ran into an error: ' + obj.error);
+                twinStreaming = false;
+                document.getElementById('twin-send').disabled = false;
+              }
+              // obj.done / obj.unknownQuestion handled silently
+            } catch(e) {}
+          });
+          return read();
+        });
+      }
+      return read();
+    }).catch(function(err) {
+      twinRemoveTyping();
+      twinAppendMessage('bot', 'Sorry, I couldn\'t connect right now. Try again in a moment.');
+      twinStreaming = false;
+      document.getElementById('twin-send').disabled = false;
+    });
+  }
+
+  // ── VOICE MODE ──
+  window.twinVoiceToggle = function() {
+    if (twinListening) {
+      twinStopListening();
+    } else {
+      twinStartListening();
+    }
+  };
+
+  function twinStartListening() {
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      document.getElementById('twin-voice-status').textContent = 'Voice not supported in this browser. Try Chrome.';
+      return;
+    }
+    if (twinSynth) twinSynth.cancel();
+
+    twinRecognition = new SpeechRecognition();
+    twinRecognition.continuous = false;
+    twinRecognition.interimResults = true;
+    twinRecognition.lang = 'en-US';
+
+    var transcript = document.getElementById('twin-voice-transcript');
+    var status = document.getElementById('twin-voice-status');
+    var orb = document.getElementById('twin-orb');
+    var answer = document.getElementById('twin-voice-answer');
+
+    twinListening = true;
+    orb.classList.add('listening');
+    orb.textContent = '🔴';
+    status.textContent = 'Listening… speak your question';
+    transcript.style.display = 'block';
+    transcript.textContent = '';
+    answer.style.display = 'none';
+
+    twinRecognition.onresult = function(e) {
+      var interim = '';
+      var final = '';
+      for (var i = e.resultIndex; i < e.results.length; i++) {
+        if (e.results[i].isFinal) final += e.results[i][0].transcript;
+        else interim += e.results[i][0].transcript;
+      }
+      transcript.textContent = final || interim;
+    };
+
+    twinRecognition.onend = function() {
+      twinListening = false;
+      orb.classList.remove('listening');
+      orb.textContent = '🎙';
+      var question = transcript.textContent.trim();
+      if (question) {
+        status.textContent = 'Processing…';
+        orb.classList.add('speaking');
+        twinCallVoiceAPI(question);
+      } else {
+        status.textContent = 'Didn\'t catch that — click to try again';
+      }
+    };
+
+    twinRecognition.onerror = function(e) {
+      twinListening = false;
+      orb.classList.remove('listening');
+      orb.textContent = '🎙';
+      status.textContent = 'Mic error: ' + (e.error || 'unknown') + '. Click to retry.';
+    };
+
+    twinRecognition.start();
+  }
+
+  function twinStopListening() {
+    if (twinRecognition) twinRecognition.stop();
+    twinListening = false;
+    var orb = document.getElementById('twin-orb');
+    orb.classList.remove('listening');
+    orb.textContent = '🎙';
+  }
+
+  function twinCallVoiceAPI(question) {
+    var answer = document.getElementById('twin-voice-answer');
+    var status = document.getElementById('twin-voice-status');
+    var orb = document.getElementById('twin-orb');
+
+    answer.style.display = 'block';
+    answer.textContent = '';
+
+    fetch(TWIN_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: question, history: [], mode: 'voice' })
+    }).then(function(res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      var reader = res.body.getReader();
+      var decoder = new TextDecoder();
+      var buffer = '';
+      var fullText = '';
+
+      function read() {
+        return reader.read().then(function(result) {
+          if (result.done) {
+            orb.classList.remove('speaking');
+            if (fullText && twinSynth) {
+              var utt = new SpeechSynthesisUtterance(fullText);
+              utt.rate = 0.95;
+              utt.pitch = 1;
+              utt.onend = function() {
+                status.textContent = 'Click the mic to ask another question';
+                orb.textContent = '🎙';
+              };
+              twinSynth.speak(utt);
+              status.textContent = 'Speaking…';
+              orb.textContent = '🔊';
+            } else {
+              status.textContent = 'Click the mic to ask another question';
+            }
+            return;
+          }
+          buffer += decoder.decode(result.value, { stream: true });
+          var lines = buffer.split('\n');
+          buffer = lines.pop();
+          lines.forEach(function(line) {
+            if (!line.startsWith('data:')) return;
+            try {
+              var obj = JSON.parse(line.slice(5).trim());
+              if (obj.text) {
+                fullText += obj.text;
+                answer.textContent = fullText;
+              }
+            } catch(e) {}
+          });
+          return read();
+        });
+      }
+      return read();
+    }).catch(function() {
+      orb.classList.remove('speaking');
+      orb.textContent = '🎙';
+      status.textContent = 'Connection error — click to retry';
+      answer.textContent = 'Sorry, I couldn\'t connect. Please try again.';
+    });
+  }
+
+  // Close panel on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && twinPanelOpen) twinToggle();
+  });
+})();
 </script>
 
 </body>
