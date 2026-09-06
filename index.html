@@ -2599,8 +2599,30 @@
 </footer>
 
 <script>
+  var _projectNames = {
+    p1: 'FoodHub Order Analysis',
+    p2: 'AllLife Bank Personal Loan Prediction',
+    p3: 'EasyVisa Certification Prediction',
+    p4: 'Bank Churn Prediction — Neural Networks',
+    p5: 'ReneWind Turbine Failure Prediction',
+    p6: 'HelmNet — Safety Helmet Detection',
+    p7: 'SuperKart Sales Forecasting + Full Deployment',
+    p8: 'Medical RAG Assistant',
+    pp1: 'PM Twin — Autonomous AI Project Management Platform',
+    pp2: 'NatyaVibe — AI Guru for Bharatanatyam',
+    pp3: 'DigiFarm — AI-Powered Precision Agriculture Platform'
+  };
+
   function toggle(id) {
-    document.getElementById(id).classList.toggle('open');
+    var card = document.getElementById(id);
+    var wasOpen = card.classList.contains('open');
+    card.classList.toggle('open');
+    if (!wasOpen) {
+      gtag('event', 'project_expanded', {
+        project_id: id,
+        project_name: _projectNames[id] || id
+      });
+    }
   }
 
   function cjGo(targetId, btn) {
@@ -2692,6 +2714,33 @@
     });
   });
 
+  // Scroll depth tracking — fires once at 25, 50, 75, 90%
+  var _scrollDepthFired = new Set();
+  window.addEventListener('scroll', function() {
+    var scrolled = window.scrollY + window.innerHeight;
+    var total = document.documentElement.scrollHeight;
+    var pct = Math.floor((scrolled / total) * 100);
+    [25, 50, 75, 90].forEach(function(threshold) {
+      if (pct >= threshold && !_scrollDepthFired.has(threshold)) {
+        _scrollDepthFired.add(threshold);
+        gtag('event', 'scroll_depth', { depth_percent: threshold });
+      }
+    });
+  }, { passive: true });
+
+  // Referrer quality — capture traffic source on load
+  (function() {
+    var ref = document.referrer;
+    var source = 'direct';
+    if (ref) {
+      if (ref.includes('linkedin.com')) source = 'linkedin';
+      else if (ref.includes('google.com')) source = 'google';
+      else if (ref.includes('github.com')) source = 'github';
+      else source = 'other_referral';
+    }
+    gtag('event', 'traffic_source', { source: source, referrer_url: ref || '(direct)' });
+  })();
+
   // Active nav highlight on scroll + GA4 section view tracking
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
@@ -2751,6 +2800,7 @@
 
   var _twinMessageCount = 0;
   var _twinSessionStarted = false;
+  var _pageLoadTime = Date.now();
 
   window.twinToggle = function() {
     twinPanelOpen = !twinPanelOpen;
@@ -2820,7 +2870,8 @@
     _twinMessageCount++;
     if (!_twinSessionStarted) {
       _twinSessionStarted = true;
-      gtag('event', 'twin_conversation_started', { mode: 'chat' });
+      var secsToFirst = Math.round((Date.now() - _pageLoadTime) / 1000);
+      gtag('event', 'twin_conversation_started', { mode: 'chat', seconds_to_first_message: secsToFirst });
     }
     gtag('event', 'twin_message_sent', { message_number: _twinMessageCount, mode: 'chat' });
     twinCallAPI(question, 'chat');
@@ -2998,7 +3049,8 @@
         _twinMessageCount++;
         if (!_twinSessionStarted) {
           _twinSessionStarted = true;
-          gtag('event', 'twin_conversation_started', { mode: 'voice' });
+          var secsToFirst = Math.round((Date.now() - _pageLoadTime) / 1000);
+          gtag('event', 'twin_conversation_started', { mode: 'voice', seconds_to_first_message: secsToFirst });
         }
         gtag('event', 'twin_message_sent', { message_number: _twinMessageCount, mode: 'voice' });
         twinCallVoiceAPI(question);
