@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Ravisha Kaggundi Suryanarayana — AI Transformation Leader · VP / Head of AI · 25+ years delivering enterprise AI and digital transformation at Salesforce, Nokia, GE. UT Austin PGP AI/ML. Builder of PM Twin autonomous agent platform." />
   <title>Ravisha Kaggundi Suryanarayana — Portfolio</title>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9PXHJ1SVV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G9PXHJ1SVV');
+  </script>
+
   <style>
     :root {
       --bg: #0d1117;
@@ -2682,19 +2692,46 @@
     });
   });
 
-  // Active nav highlight on scroll
+  // Active nav highlight on scroll + GA4 section view tracking
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const _viewedSections = new Set();
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         navLinks.forEach(a => {
           a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
         });
+        const sid = entry.target.id;
+        if (!_viewedSections.has(sid)) {
+          _viewedSections.add(sid);
+          gtag('event', 'section_viewed', { section: sid });
+        }
       }
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
   sections.forEach(s => observer.observe(s));
+
+  // Resume download tracking
+  document.querySelectorAll('a[href*="Resume"]').forEach(function(a) {
+    a.addEventListener('click', function() {
+      gtag('event', 'resume_download');
+    });
+  });
+
+  // LinkedIn click tracking
+  document.querySelectorAll('a[href*="linkedin.com"]').forEach(function(a) {
+    a.addEventListener('click', function() {
+      gtag('event', 'linkedin_click');
+    });
+  });
+
+  // Article click tracking
+  document.querySelectorAll('a.article-card').forEach(function(a) {
+    a.addEventListener('click', function() {
+      gtag('event', 'article_click', { article_url: a.href });
+    });
+  });
 </script>
 
 <!-- ── TWIN AGENT JS ── -->
@@ -2712,6 +2749,9 @@
   var twinSynth = window.speechSynthesis || null;
   var twinListening = false;
 
+  var _twinMessageCount = 0;
+  var _twinSessionStarted = false;
+
   window.twinToggle = function() {
     twinPanelOpen = !twinPanelOpen;
     var panel = document.getElementById('twin-panel');
@@ -2726,6 +2766,7 @@
     }
     panel.classList.toggle('twin-open', twinPanelOpen);
     if (twinPanelOpen) {
+      gtag('event', 'twin_opened');
       btn.style.borderColor = 'var(--accent4)';
       btn.style.background = 'linear-gradient(135deg,rgba(210,168,255,0.25),rgba(88,166,255,0.2))';
       setTimeout(function() { document.getElementById('twin-input').focus(); }, 350);
@@ -2776,6 +2817,12 @@
     document.getElementById('twin-suggested').style.display = 'none';
     twinAppendMessage('user', question);
     twinHistory.push({ role: 'user', content: question });
+    _twinMessageCount++;
+    if (!_twinSessionStarted) {
+      _twinSessionStarted = true;
+      gtag('event', 'twin_conversation_started', { mode: 'chat' });
+    }
+    gtag('event', 'twin_message_sent', { message_number: _twinMessageCount, mode: 'chat' });
     twinCallAPI(question, 'chat');
   };
 
@@ -2873,7 +2920,14 @@
                 twinStreaming = false;
                 document.getElementById('twin-send').disabled = false;
               }
-              // obj.done / obj.unknownQuestion handled silently
+              if (obj.done) {
+                if (obj.unknownQuestion) {
+                  gtag('event', 'twin_unknown_question', { message_number: _twinMessageCount });
+                }
+                if (obj.knowledgeUsed && obj.knowledgeUsed.length) {
+                  gtag('event', 'twin_topics_matched', { topics: obj.knowledgeUsed.join(','), count: obj.knowledgeUsed.length });
+                }
+              }
             } catch(e) {}
           });
           return read();
@@ -2941,6 +2995,12 @@
       if (question) {
         status.textContent = 'Processing…';
         orb.classList.add('speaking');
+        _twinMessageCount++;
+        if (!_twinSessionStarted) {
+          _twinSessionStarted = true;
+          gtag('event', 'twin_conversation_started', { mode: 'voice' });
+        }
+        gtag('event', 'twin_message_sent', { message_number: _twinMessageCount, mode: 'voice' });
         twinCallVoiceAPI(question);
       } else {
         status.textContent = 'Didn\'t catch that — click to try again';
